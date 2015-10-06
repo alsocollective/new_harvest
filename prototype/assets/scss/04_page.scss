@@ -1,0 +1,84 @@
+article {
+	position: relative;
+	z-index: 3;
+	box-shadow: $drop-shadow;
+	margin: 0 0 0 300px;
+	width: auto;
+	padding: 0px;
+	background: #fff;
+
+	p, blockquote {
+		font-family: 'Fortescue Pro';
+		font-size: 1.4rem;
+		line-height: 1.4;
+	}
+	blockquote {
+		max-width: 700px;
+		margin: 0 auto;
+		font-style: italic;
+		padding-left: 90px;
+		border-left: 3px solid $sky-blue;
+		p {
+			margin-left: -50px;
+			font-size: 1.8rem;
+		}
+	}
+	.blockquote-attr {
+		width: 70%;
+		margin: 0 auto;
+		text-indent: -20px;
+	}
+	h2 {
+		font-size: 1.8rem;
+	}
+	h1, p, h2, ul, h3 {
+		max-width: 800px;
+		margin: 1rem auto;
+	}
+	h3 {
+		margin: 30px auto 0;
+		font-size: 1.4rem;
+	}
+	ul {
+		font-family: 'Fortescue Pro';
+		font-size: 1.4em;
+		line-height: 1.4;
+		margin-top: 0;
+		padding-left: 80px;
+	}
+	section {
+		background: rgba(0,0,0,0.1);
+		padding: 10px 0;
+		margin: 0;
+		
+		h1 {
+			font-size: 64px;
+			margin: 60px auto;
+			width: 75%;
+		}
+	}
+	main {
+		margin: auto;
+		padding: 0px;
+
+		div {
+			border-bottom: 1px solid $mid-grey;
+			padding: 80px 0;
+		}
+		div:last-child {
+			border: none;
+		}
+	}
+	footer {
+		background: rgba(255,208,0,1);
+		padding: 30px;
+		p {
+			margin: 30px auto;
+		}
+		p:last-child {
+			text-align: right;
+			margin: 0;
+		}
+	}
+}
+

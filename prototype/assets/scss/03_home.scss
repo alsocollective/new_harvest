@@ -1,0 +1,29 @@
+.homepage { 
+	h1 {
+		font-family: 'Whitney';
+		font-size: 60px;
+		text-align: center;
+	}
+	h2 {
+		text-align: center;
+		font-size: 32px;
+		line-height: 1.4;
+	}
+	section {
+		background: none;
+		width: 670px;
+		margin: 50px auto;
+		text-align: center;
+	}
+	img {
+		width: 200px;
+		height: 200px;
+	}
+	div {
+		display: inline-block;
+		margin: 0 10px;
+	}
+	#instagram {
+		text-align: center;
+	}
+}

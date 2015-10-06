@@ -5,9 +5,9 @@ module.exports = function(grunt) {
 			dist: {
 				files: [{
 					expand: true,
-					cwd: 'http/assets/scss',
+					cwd: 'prototype/assets/scss',
 					src: ['main.scss'],
-					dest: 'http/assets/css',
+					dest: 'prototype/assets/css',
 					ext: '.css'
 				}]
 			}
@@ -15,9 +15,9 @@ module.exports = function(grunt) {
 		cssmin: {
 			combine: {
 				files: {
-					'http/assets/css/main.min.css': [
-						'http/assets/css/normalize.min.css',
-						'http/assets/css/main.css',
+					'prototype/assets/css/main.min.css': [
+						'prototype/assets/css/normalize.min.css',
+						'prototype/assets/css/main.css',
 					]
 				}
 			}
@@ -25,11 +25,11 @@ module.exports = function(grunt) {
 		uglify: {
 			js: {
 				files: {
-					'http/assets/main.min.js': [
-						'http/assets/js/lib/jquery-1.9.0.js',
-						'http/assets/js/lib/screenfull.min.js',
-						'http/assets/js/lib/js.cookie.js',
-						'http/assets/js/*.js',
+					'prototype/assets/main.min.js': [
+						'prototype/assets/js/lib/jquery-1.9.0.js',
+						'prototype/assets/js/lib/screenfull.min.js',
+						'prototype/assets/js/lib/js.cookie.js',
+						'prototype/assets/js/*.js',
 					]
 				}
 			}
@@ -40,7 +40,7 @@ module.exports = function(grunt) {
 				tasks: ['sass', 'cssmin']
 			},
 			js: {
-				files: 'http/assets/js/*.js',
+				files: 'prototype/assets/js/*.js',
 				tasks: ['uglify']
 			}
 		}

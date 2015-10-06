@@ -1,0 +1,48 @@
+html {
+	height: 100%;
+	color: $blue;
+}
+
+body, html {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	font-family: 'Whitney';
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Fortescue Pro';
+	font-weight: 400;
+}
+
+#donateBG {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	width: 0;
+	height: 0;
+	border-top: 100px solid $golden;
+	border-left: 100px solid transparent;
+	z-index: 8;
+}
+
+#donate {
+	position: fixed;
+	top: 23px;
+	right: 3px;
+	font-size: 1.4rem;
+	text-decoration: none;
+	-ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+    transform: rotate(45deg);
+    z-index: 9;
+}
+
+textarea:focus, input:focus{
+    outline: 0;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
