@@ -1,0 +1,60 @@
+<h1>Your shopping cart</h1>
+
+<div class="row-fluid" style="padding-top: 40px">
+  <div class="span7">
+    <div class="row-fluid">
+      <small>
+        <div class="span6">ITEM</div>
+        <div class="span4">QUANTITY</div>
+        <div class="span2">PRICE</div>
+      </small>
+    </div>
+    {% form_for customer__cart %}
+      <div class="form">
+        <div class="form_errors">{% error_messages_for customer__cart %}</div>
+        {% for customer__cart_item in customer__cart.items %}
+          <div id="cart_item_{{customer__cart_item.id}}">
+            <div class="row-fluid" style="border-top: 1px solid #DDD; padding-top: 5px;">
+              <div class="span6">
+                <h4>{{ customer__cart_item.product.name }}</h4>
+              </div>
+              <div class="span4">
+                <div class="row-fluid">
+                  <div class="span6">
+                    {% cart_item_quantity_field customer__cart_item %}
+                  </div>
+                  <div class="span6">
+                    {% submit_tag "Update", class:"submit-button" %}
+                  </div>
+                </div>
+              </div>
+              <div class="span2" style="text-align: right">
+                {{ customer__cart_item.total_amount }}
+              </div>
+            </div>
+            <div class="row-fluid">
+              <div class="span8">
+                {% cart_item_product_fields customer__cart_item %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endform_for %}
+  </div>
+  <div class="span5" style="border: 1px solid #ddd">
+    <div class="row-fluid" stlye="padding: 20px">
+      <div class="span12" style="text-align: center">
+        <strong>Subtotal:</strong> {{ customer__cart.subtotal_amount }}
+      </div>
+    </div>
+    <div class="row-fluid" style="padding: 20px">
+      <div class="span12" style="text-align: center">
+        {% form_for customer__cart post_method:proceed_to_checkout autocomplete:off %}
+          {% submit_tag "Proceed to Checkout", class:"submit-button" %}
+        {% endform_for %}
+      </div>
+    </div>
+  </div>
+
+</div>

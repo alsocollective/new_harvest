@@ -1,0 +1,105 @@
+<h1>Payment</h1>
+<div class="row-fluid" style="padding-top: 40px;">
+  <div class="span7">
+    {% form_for customer__cart post_method:process_order %}
+    {% assign payment_form = customer__cart.payment_form %}
+      <div class="form-wrap" style="padding: 20px; background-color: #DDD;">
+        <div class="form">
+          <div class="form-errors">
+            {% error_messages_for customer__cart %}
+          </div>
+
+          {% assign field_name = payment_form.attribute_prefix | append: "[merchant_account_id]" %}
+          {% hidden_field_tag field_name, merchant_account.id %}
+
+          {% if merchant_account.is_paypal_express? == false %}
+            <div class="row-fluid">
+              <div class="span12">
+                {% assign field_name = payment_form.attribute_prefix | append: "[card_number]" %}
+                {% assign error_message = payment_form | error: "card_number" %}
+                {% label_tag field_name, "Credit card number" %}
+                {% text_field_tag field_name, payment_form.card_number, error_message %}
+              </div>
+            </div>
+            <div class="cc">{{ merchant_account.accepted_card_icons }}</div>
+            <div class="row-fluid">
+              <div class="span6">
+                <label for="customer_cart_card_expires_on">Expires</label>
+                {{ payment_form.form_card_expires_on }}
+              </div>
+
+              <div class="span6">
+                {% assign field_name = payment_form.attribute_prefix | append: "[card_verification]" %}
+                {% assign error_message = payment_form | error: "card_verification" %}
+                {% label_tag field_name, "Security code (on back)" %}
+                {% text_field_tag field_name, payment_form.card_verification, error_message %}
+              </div>
+            </div>
+          {% endif %}
+
+          {% if merchant_account.is_paypal_express? %}
+          <div class="padtop">{% submit_tag "Continue to Paypal", class:"success-button" %}</div>
+          <div class="padtopmore">{{ merchant_account.accepted_card_icons }}</div>
+          {% else %}
+          <div class="padtop">{% submit_tag "Place your order", class:"submit-button" %}</div>
+          {% endif %}
+
+        </div>
+      </div>
+    {% endform_for %}
+  </div>
+  <div class="span5" style="border: 1px solid #ddd">
+    <div style="border-bottom: 1px solid #ddd; padding: 20px">
+      <h4>Your Order</h4>
+      {% for customer__cart_item in customer__cart.items %}
+      <div id="cart_item_{{customer__cart_item.id}}">
+        <div class="row-fluid">
+          <div class="span9">
+            <strong>{{ customer__cart_item.product.name }}</strong>
+            {% if customer__cart_item.quantity > 1 %}
+            ({{ customer__cart_item.quantity }})
+            {% endif %}
+          </div>
+          <div class="span3" style="text-align: right">
+            <strong>{{ customer__cart_item.total_amount }}</strong>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div style="border-bottom: 1px solid #ddd; padding: 20px">
+      <div class="row-fluid">
+        <div class="span9">
+          Subtotal
+        </div>
+        <div class="span3" style="text-align: right">
+          {{ customer__cart.subtotal_amount }}
+        </div>
+      </div>
+      <div class="row-fluid" style="color: #f04f23">
+        <div class="span9">
+          Discounts
+        </div>
+        <div class="span3" style="text-align: right">
+          {{ customer__cart.discount_amount }}
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span9">
+          Total
+        </div>
+        <div class="span3" style="text-align: right">
+          {{ customer__cart.total_amount }}
+        </div>
+      </div>
+    </div>
+    <div class="row-fluid" style="padding: 20px">
+      <div class="span9">
+        <strong>Payment due</strong>
+      </div>
+      <div class="span3" style="text-align: right">
+        <strong>{{ customer__cart.total_amount }}</strong>
+      </div>
+    </div>
+  </div>
+</div>

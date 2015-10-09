@@ -1,0 +1,25 @@
+<div class="product-share" data-product-id="{{ product.id }}">
+  <div class="share">
+    <small>Share with your friends. A link will be included (<span id="face-tweet-content-charsleft"></span> chars left)</small>
+    <div class="form padtopless">
+      {% form_for face_tweet %}
+        {% hidden_field_tag "face_tweet[product_id]", product.id %}
+        <div class="form-errors">{% error_messages_for face_tweet %}</div>
+        {% text_field "content", class:"face-tweet-content share-url text" %}
+        <div class="row-fluid">
+          <div class="span12">
+            <div class="row-fluid">
+              <div class="span6">
+                <label for="face_tweet_is_twitter" class="checkbox">{% check_box "is_twitter", class:"checkbox" %} Tweet</label>
+                <label for="face_tweet_is_facebook" class="checkbox">{% check_box "is_facebook", class:"checkbox" %} Post on Facebook</label>
+              </div>
+              <div class="span6">
+                <div style="float: right;">{% submit_tag "Post", class:"submit-button" %}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endform_for %}
+    </div>
+  </div>
+</div>
