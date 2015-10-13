@@ -17,6 +17,9 @@
   </head>
   <body class="aware-theme v2-theme {{ page.page_class_name }} page-{{ request.template | replace: '_', '-' }} js">
     
+    <div id="donateBG"></div>
+    <a id="donate" href="">Donate</a>
+    
     <div class="row">
 
       <div class="side-menu">
@@ -59,6 +62,10 @@
           <!-- .main-container -->
 
           <footer>
+            <div id="quote_footer">
+              <h2>Fifty years hence, we shall escape the absurdity of growing a whole chicken in order to eat the breast or wing by growing these parts separately under a suitable medium.</h2>
+              <h3>—Winston Churchill, 1931</h3>
+            </div>
             <div class="container {% if site.has_background_image? %}well well-lg{% endif %}">
 
               {{ content_for_footer }}
@@ -68,7 +75,7 @@
               <hr/>
               {% endif %}
 
-              <div class="row">
+              <div class="row" id="nb_footer">
 
                 <div class="col-sm-6 footer-left">
                   {% if request.logged_in? %}
