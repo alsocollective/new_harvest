@@ -62,7 +62,6 @@
             </div>
 
         </div>
-
     </div>
 
     <!-- Main Menu -->
@@ -103,12 +102,33 @@
                                 </div>
                             </li>
                         </ul>
+=======
+            {% for child in site.root_nav_pages %}
+            {% if child.leaf? or child.nav_children.size == 0 %}
+                <li {% if child.is_or_is_ancestor_of_current_page? %}class="active"{% endif %}>
+                  <a href="{{ child.url }}">{{ child.name }}</a>
+                </li>   
+            {% else %}      
+                <li class="{% if child.is_or_is_ancestor_of_current_page? %}active{% endif %} panel panel-default dropdown-custom">
+                    <a data-toggle="collapse" href="#dropdown-lvl1" role="button" ria-expanded="false">
+                        {{ child.name }} <span class="caret"></span>
+                    </a>
+                    <div id="dropdown-lvl1" class="panel-collapse collapse" role="menu">
+                        <div class="panel-body">
+                            <ul class="nav navbar-nav">
+                                {% if site.show_parent_in_nav_dropdown? %}
+                                    <li><a href="{{ child.url }}">{{ child.name }}</a></li>
+                                {% endif %}
+                                {% for child2 in child.nav_children %}
+                                    <li><a href="{{ child2.url }}">{{ child2.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+>>>>>>> b0fa9cf10606671c47373dbb73ad04d2e70cb2ad
                     </div>
-                </div>
-            </li>
-
-            <li><a href="#"><span class="glyphicon glyphicon-signal"></span> Link</a></li>
-
+                </li>
+            {% endif %}
+            {% endfor %}
         </ul>
     </div><!-- /.navbar-collapse -->
 </nav>
