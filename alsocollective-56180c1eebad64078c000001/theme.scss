@@ -462,6 +462,8 @@ http://patorjk.com/software/taag/#p=display&f=Small%20Shadow&t=NAV
 		height: 100%;
 		background-color: #f8f8f8;
 		border-right: 1px solid #e7e7e7;
+		font-family: 'Whitney';
+		font-weight: 500;
 		.navbar {
 			border: none;
 		}
@@ -481,11 +483,19 @@ http://patorjk.com/software/taag/#p=display&f=Small%20Shadow&t=NAV
 				border-bottom: 1px solid #e7e7e7;
 			}
 			li a {
-				padding: 15px;
+				padding: 15px 28px;
+				color: #333;
 			}
 			li a .glyphicon {
 				padding-right: 10px;
-			}		
+				display: none;
+			}	
+			> li:hover {
+				background: $sky-blue;
+				> a {
+					color: #fff;
+				}	
+			}	
 		}
 		.dropdown-custom {
 			border: 0;
@@ -514,6 +524,9 @@ http://patorjk.com/software/taag/#p=display&f=Small%20Shadow&t=NAV
 						&:last-child {
 							border-bottom: none;
 						}
+						a {
+							padding: 5px 20px;
+						}
 					}
 				}
 				.panel > a {
@@ -530,11 +543,41 @@ http://patorjk.com/software/taag/#p=display&f=Small%20Shadow&t=NAV
 					}			
 				}
 			}
+			.panel-body:hover li {
+				background: none;
+				a {
+					color: #333;
+				}
+			}
+			.panel-body li:hover {
+				a {
+					color: red;
+				}
+			}
+		}
+		.dropdown-custom >a:hover .panel-body li {
+			color: #333;
 		}
 		.brand-name-wrapper {
 			min-height: 50px;
 			.navbar-brand {
 				display: block;
+				padding: 20px 0;
+				background: #fff;
+			}
+			a {
+				padding: 0;
+				border-bottom: 1px solid #e7e7e7;
+				img {
+					max-width: 90%;
+					margin: 0 auto;
+				}
+			}
+			p {
+				clear: both;
+				padding: 25px 25px 25px 28px;
+				line-height: 1.3;
+				margin: 0;
 			}
 		}
 		#search {
@@ -836,7 +879,12 @@ footer {
 		}
 	}
 	#nb_footer{
-		display: none;
+		margin: -25px 0 5px;
+		font-size: 12px;
+		opacity: 0.5;
+		a {
+			color: black; 
+		}
 	}
 }
 /* DONATE 
@@ -859,6 +907,7 @@ footer {
 	right: 5px;
 	color: black;
 	font-family: 'Whitney', sans-serif;
+	font-weight: 500;
 	font-size: 2.1rem;
 	text-decoration: none;
 	-ms-transform: rotate(45deg); /* IE 9 */

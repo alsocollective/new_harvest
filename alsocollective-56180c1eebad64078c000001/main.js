@@ -1,11 +1,3 @@
-{% include "breadcrumbs" %}
-
-{% if page.headline.size > 0 %}
-<h2 class="headline">{{ page.headline }}</h2>
-{% endif %}
-
-<canvas width="960" height="500"></canvas>
-<script>
 
 /* https://github.com/d3/d3-timer Copyright 2015 Mike Bostock */
 "undefined"==typeof requestAnimationFrame&&(requestAnimationFrame="undefined"!=typeof window&&(window.msRequestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.oRequestAnimationFrame)||function(e){return setTimeout(e,17)}),function(e,n){"object"==typeof exports&&"undefined"!=typeof module?n(exports):"function"==typeof define&&define.amd?define(["exports"],n):n(e.timer={})}(this,function(e){"use strict";function n(){r=m=0,c=1/0,t(u())}function t(e){if(!r){var t=e-Date.now();t>24?c>e&&(m&&clearTimeout(m),m=setTimeout(n,t),c=e):(m&&(m=clearTimeout(m),c=1/0),r=requestAnimationFrame(n))}}function i(e,n,i){i=null==i?Date.now():+i,null!=n&&(i+=+n);var o={callback:e,time:i,flush:!1,next:null};a?a.next=o:f=o,a=o,t(i)}function o(e,n,t){t=null==t?Date.now():+t,null!=n&&(t+=+n),l.callback=e,l.time=t}function u(e){e=null==e?Date.now():+e;var n=l;for(l=f;l;)e>=l.time&&(l.flush=l.callback(e-l.time,e)),l=l.next;l=n,e=1/0;for(var t,i=f;i;)i.flush?i=t?t.next=i.next:f=i.next:(i.time<e&&(e=i.time),i=(t=i).next);return a=t,e}var a,m,r,f,l,c=1/0;e.timer=i,e.timerReplace=o,e.timerFlush=u});
@@ -45,7 +37,7 @@ timer.timer(function(elapsed) {
     p.vy += 0.2 * (Math.random() - .5) - 0.01 * p.vy;
     context.beginPath();
     context.arc(p.x, p.y, radius, 0, tau);
-    context.fill("#f00");
+    context.fill();
   }
 
   for (var i = 0; i < n; ++i) {
@@ -67,34 +59,3 @@ timer.timer(function(elapsed) {
 
   context.restore();
 });
-
-</script>
-
-<div id="content">
-
-  <div id="intro" class="intro">
-    <div class="text-content">
-      {{ page.basic.content }}
-    </div>
-  </div>
-
-  {% if page.tags_count > 0 %}
-  <div class="page-tags">
-    {% include "page_tags" with page %}
-  </div>
-  {% endif %}
-
-  {% if page.is_homepage? == true and site.page_tags contains "homepage" %}
-    {% tag "homepage" with "homepage_widget" %}
-  {% endif %}
-
-  <div class="like-page">
-    <strong>Do you like this page?</strong>
-    {% include "like_page" %}
-  </div>
-
-  {% if page.show_stream? %}
-  {% include "page_stream" %}
-  {% endif %}
-
-</div>

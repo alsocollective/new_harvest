@@ -55,10 +55,8 @@
 
             <!-- Brand -->
             <div class="brand-name-wrapper">
-                <a class="navbar-brand" href="#">
-                    <a class="navbar-brand" href="/"><img alt="{{ site.long_name }}" src="{{ site.meta_image_url }}"></a>
-                    {{ site.long_name }}
-                </a>
+                <a class="navbar-brand" href="/"><img alt="{{ site.long_name }}" src="{{ site.meta_image_url }}"></a>
+                <p>{{ site.long_name }}</p>
             </div>
 
         </div>
@@ -68,41 +66,6 @@
     <div class="side-menu-container">
         <ul class="nav navbar-nav">
 
-            <li><a href="#"><span class="glyphicon glyphicon-send"></span> Link</a></li>
-            <li class="active"><a href="#"><span class="glyphicon glyphicon-plane"></span> Active Link</a></li>
-            <li><a href="#">Link</a></li>
-
-            <!-- Dropdown-->
-            <li class="panel panel-default dropdown-custom">
-                <a data-toggle="collapse" href="#dropdown-lvl1">
-                    <span class="glyphicon glyphicon-user"></span> Sub Level <span class="caret"></span>
-                </a>
-
-                <!-- Dropdown level 1 -->
-                <div id="dropdown-lvl1" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        <ul class="nav navbar-nav">
-                            <li><a href="#">Link</a></li>
-                            <li><a href="#">Link</a></li>
-                            <li><a href="#">Link</a></li>
-
-                            <!-- Dropdown level 2 -->
-                            <li class="panel panel-default" id="dropdown">
-                                <a data-toggle="collapse" href="#dropdown-lvl2">
-                                    <span class="glyphicon glyphicon-off"></span> Sub Level <span class="caret"></span>
-                                </a>
-                                <div id="dropdown-lvl2" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <ul class="nav navbar-nav">
-                                            <li><a href="#">Link</a></li>
-                                            <li><a href="#">Link</a></li>
-                                            <li><a href="#">Link</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-=======
             {% for child in site.root_nav_pages %}
             {% if child.leaf? or child.nav_children.size == 0 %}
                 <li {% if child.is_or_is_ancestor_of_current_page? %}class="active"{% endif %}>
@@ -110,10 +73,10 @@
                 </li>   
             {% else %}      
                 <li class="{% if child.is_or_is_ancestor_of_current_page? %}active{% endif %} panel panel-default dropdown-custom">
-                    <a data-toggle="collapse" href="#dropdown-lvl1" role="button" ria-expanded="false">
+                    <a data-toggle="collapse" href="#dropdown-{{child.slug}}" role="button" ria-expanded="false">
                         {{ child.name }} <span class="caret"></span>
                     </a>
-                    <div id="dropdown-lvl1" class="panel-collapse collapse" role="menu">
+                    <div id="dropdown-{{child.slug}}" class="panel-collapse collapse" role="menu">
                         <div class="panel-body">
                             <ul class="nav navbar-nav">
                                 {% if site.show_parent_in_nav_dropdown? %}
@@ -124,7 +87,6 @@
                                 {% endfor %}
                             </ul>
                         </div>
->>>>>>> b0fa9cf10606671c47373dbb73ad04d2e70cb2ad
                     </div>
                 </li>
             {% endif %}
