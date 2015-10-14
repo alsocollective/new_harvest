@@ -46,11 +46,11 @@
       <h3><a href="{{ post.url }}">{{ post.headline }}</a></h3>
 
       <div class="byline">
-        Posted by {{ post.author.published_name_linked }} &middot; {{ post.published_at | date: '%B %d, %Y %l:%M %p' }}
+       <!-- Posted by {{ post.author.published_name_linked }} &middot; --> <a href="{{ post.url }}">{{ post.published_at | date: '%B %d, %Y %l:%M %p' }}</a>
       </div>
 
       <div class="excerpt">
-        {{ post.blog_post.content }}
+        <a href="{{ post.url }}">{{ post.blog_post.content }}</a>
         {% if post.blog_post.is_extended? %}
         <span class="read-more"><a href="{{ post.url }}">Read more</a></span>
         {% endif %}

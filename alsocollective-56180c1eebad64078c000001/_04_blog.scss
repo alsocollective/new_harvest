@@ -32,4 +32,28 @@
 			margin-top: 40px;
 		}
 	}
+	p.note {
+		margin-top: -15px;
+		padding-top: 15px;
+	}
+}
+.content-pages-show-blog {
+	#content {
+		max-width: 700px;
+		margin: 0 auto;
+		.excerpt {
+			h1 {
+				font-size: 22px;
+			}
+			a {
+				color: #000;
+			}
+		} 
+		.byline a, .read-more a {
+			color: #000;
+		}
+	}
+	h3 a {
+		color: #000;
+	}
 }
