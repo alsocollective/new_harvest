@@ -826,7 +826,13 @@ body {
 	.main-container {
 		margin: 0;
 	}
-
+	canvas {
+		position: absolute;
+		top: 0;
+	}
+	a {
+		color: $sky-blue;
+	}
 		h2.headline {
 			max-width: 700px;
 			margin: 80px auto;
@@ -914,4 +920,15 @@ footer {
     -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
     transform: rotate(45deg);
     z-index: 9;
+}
+/* BLOG
+
+*/
+
+.breadcrumb {
+	display: none;
+}
+.headline {
+	max-width: 700px;
+	margin: 90px auto 0;
 }
