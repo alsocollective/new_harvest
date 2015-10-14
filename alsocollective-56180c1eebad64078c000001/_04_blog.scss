@@ -1,0 +1,35 @@
+/* BLOG
+
+*/
+.container-fluid #content h1 {
+	max-width: 100%;
+}
+
+
+.content-pages-show-blog-post {
+	.breadcrumb {
+		display: none;
+	}
+	.headline {
+		max-width: 700px;
+		margin: 90px auto 0;
+	}
+	#content .content {
+		h1 {
+			border-top: 1px solid $border-grey;
+			border-bottom: 1px solid $border-grey;
+			padding: 70px 100px;
+			max-width: 100%;
+			font-size: 32px;
+			margin-bottom: 50px;
+			em {
+				display: block;
+				max-width: 700px;
+				margin: 0 auto;
+			}
+		}
+		h2 {
+			margin-top: 40px;
+		}
+	}
+}

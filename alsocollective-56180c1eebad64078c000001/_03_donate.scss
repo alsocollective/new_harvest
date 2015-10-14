@@ -1,0 +1,28 @@
+/* DONATE 
+
+*/
+#donateBG {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	width: 0;
+	height: 0;
+	border-top: 100px solid $golden;
+	border-left: 100px solid transparent;
+	z-index: 8;
+}
+
+#donate {
+	position: fixed;
+	top: 21px;
+	right: 5px;
+	color: black;
+	font-family: 'Whitney', sans-serif;
+	font-weight: 500;
+	font-size: 2.1rem;
+	text-decoration: none;
+	-ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+    transform: rotate(45deg);
+    z-index: 9;
+}
