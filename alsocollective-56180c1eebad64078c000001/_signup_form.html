@@ -3,7 +3,7 @@
 {% elsif request.sorta_logged_in? %}
 
 <div class="box">
-	Hi <strong>{{ request.current_signup.name_or_email }}.</strong><br/>
+	Hi {{ request.current_signup.name_or_email }}.<br/>
 	<div class="social">
 		Sign in with <a href="{{ request.facebook_connect_url }}">Facebook</a>, <a href="{{ request.twitter_connect_url }}">Twitter</a> or <a href="/login">email</a>.<br/>
 		Not {{ request.current_signup.name_or_email }}? <a href="{{ request.current_signup.logout_url }}">click here</a>.

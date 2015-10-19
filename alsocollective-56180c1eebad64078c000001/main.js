@@ -224,7 +224,7 @@ app.waypoints = {
 		})
 		$("#content div[id]").waypoint({
 			handler: app.waypoints.handler,
-			offset: '50%'
+			offset: '70%'
 		})
 		$("#content div[id]").waypoint({
 			handler: app.waypoints.handler_top,

@@ -1,30 +1,40 @@
 #index_page{
+	max-width: 75%;
+	margin: 0 auto;
 	.headline{
 		text-align: center;
 		font-family: 'Whitney', sans-serif;
 		line-height: 7.1rem;
+		font-weight: 400;
+		max-width: 715px;
 	}
 	#index_featured{
+		margin-bottom: 50px;
 		a{
 			display: inline-block;
 			width: 30%;
 			margin: 0 1.66% 0 1.66%;
+			text-align: center;
 		}
 	}
 	#index_content{
 		p{
-			font-size: 3.5rem;
+			font-size: 2.9rem;
 			max-width: 700px;
 			margin: 0 auto;
+			line-height: 1.3;
 		}
 	}
 	#index_instagram_feed{
+		max-width: 670px;
+		margin: 50px auto;
 		img{
 			width: 100%;
 		}
 		a{
 			display: inline-block;
 			width: 15%;
+			max-width: 120px;
 			margin: 0 2.5%;
 		}
 	}

@@ -5,7 +5,7 @@
 		<div id="index_featured">
 		{% for feature in page.features %}<a href="{{ feature.page.url }}">
 			<img src="{{ feature.image_url }}" alt="{{ feature.headline }}">
-			<h1>{{ feature.headline }}</h1>
+			<h3>{{ feature.headline }}</h3>
 		</a>{% endfor %}
 		</div>
 
