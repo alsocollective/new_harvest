@@ -1,34 +1,68 @@
-{% include "breadcrumbs" %}
+{% if page.slug == "index" %}
+	<div id="index_page">
+		<h2 class="headline">{{ page.headline }}</h2>
 
-{% if page.headline.size > 0 %}
-<h2 class="headline">{{ page.headline }}</h2>
+		<div id="index_featured">
+		{% for feature in page.features %}<a href="{{ feature.page.url }}">
+			<img src="{{ feature.image_url }}" alt="{{ feature.headline }}">
+			<h1>{{ feature.headline }}</h1>
+		</a>{% endfor %}
+		</div>
+
+		<div id="index_content">
+			{{page.basic.content}}
+		</div>
+
+		<div id="index_instagram_feed">
+		{% for descendants in page.descendants %}
+			{% if descendants.slug == "instagram" %}
+				{{descendants.basic.content}}
+			{% endif %}
+		{% endfor %}
+		</div>
+
+
+	</div>
+{% else %}
+	{% include "breadcrumbs" %}
+	<canvas id="node_top_visual" ></canvas>
+	{% if page.headline.size > 0 %}
+	<h2 class="headline">{{ page.headline }}</h2>
+	{% endif %}
+
+	<div id="content">
+
+		<div id="intro" class="intro">
+			<div class="text-content">
+				{{ page.basic.content }}
+			</div>
+
+			{% for descendants in page.descendants %}
+				<div id="{{descendants.slug}}">
+					<h2>{{descendants.name}}</h2>
+					{{descendants.basic.content}}
+				</div>
+			{% endfor %}		
+		</div>
+
+		{% if page.tags_count > 0 %}
+		<div class="page-tags">
+			{% include "page_tags" with page %}
+		</div>
+		{% endif %}
+
+		{% if page.is_homepage? == true and site.page_tags contains "homepage" %}
+			{% tag "homepage" with "homepage_widget" %}
+		{% endif %}
+
+		<div class="like-page">
+			<strong>Do you like this page?</strong>
+			{% include "like_page" %}
+		</div>
+
+		{% if page.show_stream? %}
+		{% include "page_stream" %}
+		{% endif %}
+
+	</div>
 {% endif %}
-
-<div id="content">
-
-  <div id="intro" class="intro">
-    <div class="text-content">
-      {{ page.basic.content }}
-    </div>
-  </div>
-
-  {% if page.tags_count > 0 %}
-  <div class="page-tags">
-    {% include "page_tags" with page %}
-  </div>
-  {% endif %}
-
-  {% if page.is_homepage? == true and site.page_tags contains "homepage" %}
-    {% tag "homepage" with "homepage_widget" %}
-  {% endif %}
-
-  <div class="like-page">
-    <strong>Do you like this page?</strong>
-    {% include "like_page" %}
-  </div>
-
-  {% if page.show_stream? %}
-  {% include "page_stream" %}
-  {% endif %}
-
-</div>

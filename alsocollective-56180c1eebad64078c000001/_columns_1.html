@@ -4,12 +4,5 @@
   
 	{% yield %}
 
-  	{% for descendants in page.descendants %}
-  		<div id="#{{descendants.slug}}">
-  			<h2>{{descendants.name}}</h2>
-  			{{descendants.basic.content}}
-  		</div>
-	{% endfor %}
-
 </div>
 <!-- .column -->
