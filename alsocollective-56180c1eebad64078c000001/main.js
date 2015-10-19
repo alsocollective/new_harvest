@@ -207,11 +207,19 @@ app.nav = {
 			$(".nav a[href^='#']").click(app.nav.waypoint.handler);
 		},
 		handler: function(event) {
-			console.log(".side-body #" + this.href.split("#").pop());
 			var target = $(".side-body #" + this.href.split("#").pop());
 			if (target.length) {
-				$(".scrowled_on_to_section").removeClass("scrowled_on_to_section");
-				$(this).addClass("scrowled_on_to_section");
+				var that = this;
+				event.preventDefault();
+
+				$(document.body).animate({
+					scrollTop: $(target).offset().top
+				}, 'slow', function() {
+					$(".scrowled_on_to_section").removeClass("scrowled_on_to_section");
+					$(that).addClass("scrowled_on_to_section");
+				});
+
+				return false;
 			}
 		}
 	}
