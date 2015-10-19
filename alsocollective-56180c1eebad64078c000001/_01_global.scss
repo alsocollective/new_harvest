@@ -29,6 +29,9 @@ body {
 	@include at-query($max,$inbetween){
 		padding: 0;
 	}	
+	@include at-query($min,$inbetween){
+		margin-left: 0;
+	}	
 	.main-container {
 		margin: 0;
 	}

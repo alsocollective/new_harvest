@@ -46,7 +46,7 @@
       <h3><a href="{{ post.url }}">{{ post.headline }}</a></h3>
 
       <div class="byline">
-       <!-- Posted by {{ post.author.published_name_linked }} &middot; --> <a href="{{ post.url }}">{{ post.published_at | date: '%B %d, %Y %l:%M %p' }}</a>
+        {{ post.published_at | date: '%B %d, %Y %l:%M %p' }}
       </div>
 
       <div class="excerpt">

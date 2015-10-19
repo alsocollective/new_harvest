@@ -18,7 +18,7 @@
 	overflow: scroll;
 	overflow-x: hidden;
 	color: $black;
-	z-index: 3;
+	z-index: 9;
 	background: rgb(250,250,251);
 	> nav{
 		position: relative;
@@ -159,7 +159,7 @@
 
 #nav-email-signup{
 	form{
-		padding: 2.5rem 0 2.5rem 10%;
+		padding: 1rem 0 1rem 10%;
 	}
 	#signup_email,.submit-button{
 		font-family: inherit;
@@ -278,6 +278,33 @@
 		top: 100%;
 	}
 }
+
+#nav-social-icons {
+	border-top: 1px solid $border-grey;
+	border-bottom: 1px solid $border-grey;
+	a {
+		color: #000;
+		text-decoration: none;
+	}
+	a:first-child {
+		padding-left: 10%;
+	}
+	a:hover {
+		border-bottom: 0;
+		color: $sky-blue;
+			svg path {
+			fill: $sky-blue;
+		}
+	}
+	svg {
+		width: 30px;
+		position: relative;
+		top: 20px;
+		fill: $sky-blue;
+	}
+	
+}
+
 
 
 // .navbar-default .navbar-nav>.active>a
