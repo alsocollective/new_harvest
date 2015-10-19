@@ -1,0 +1,31 @@
+#index_page{
+	.headline{
+		text-align: center;
+		font-family: 'Whitney', sans-serif;
+		line-height: 7.1rem;
+	}
+	#index_featured{
+		a{
+			display: inline-block;
+			width: 30%;
+			margin: 0 1.66% 0 1.66%;
+		}
+	}
+	#index_content{
+		p{
+			font-size: 3.5rem;
+			max-width: 700px;
+			margin: 0 auto;
+		}
+	}
+	#index_instagram_feed{
+		img{
+			width: 100%;
+		}
+		a{
+			display: inline-block;
+			width: 15%;
+			margin: 0 2.5%;
+		}
+	}
+}
