@@ -7,6 +7,8 @@
 		line-height: 7.1rem;
 		font-weight: 400;
 		max-width: 715px;
+		z-index: 1;
+		position: static;
 	}
 	#index_featured{
 		margin-bottom: 50px;
@@ -15,6 +17,7 @@
 			width: 30%;
 			margin: 0 1.66% 0 1.66%;
 			text-align: center;
+			position: relative;
 		}
 	}
 	#index_content{
@@ -36,6 +39,33 @@
 			display: inline-block;
 			max-width: 120px;
 			margin: 0 1%;
+			position: relative;
 		}
+	}
+}
+#index_interactive_background{
+	position: fixed;
+	top: 0;
+	right: 0;
+	// z-index: 5;
+	// opacity: 0.5;
+
+	rect {
+		fill: none;
+		pointer-events: all;
+	}
+
+	.node {
+		fill: #000;
+	}
+
+	.cursor {
+		fill: none;
+		stroke: brown;
+		pointer-events: none;
+	}
+
+	.link {
+		stroke: #999;
 	}
 }
