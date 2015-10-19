@@ -1,109 +1,93 @@
-{% comment %}
-<nav class="navbar navbar-inverse navmenu-fixed-left" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
 
-        <a class="navbar-brand" href="/"><img alt="{{ site.long_name }}" src="{{ site.meta_image_url }}"></a>
-        {{ site.long_name }}
+<nav class="navbar" role="navigation">
+	<div>
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="">
+			<div class="brand-wrapper">
+				<!-- Hamburger -->
+				{% comment %}<button type="button" class="navbar-toggle">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>{% endcomment %}
 
-    </div>
-    <div id="menu-collapse" class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        {% for child in site.root_nav_pages %}
-        {% if child.leaf? or child.nav_children.size == 0 %}
-        <li {% if child.is_or_is_ancestor_of_current_page? %}class="active"{% endif %}>
-          <a href="{{ child.url }}">{{ child.name }}</a>
-        </li>
-        {% else %}
-        <li class="{% if child.is_or_is_ancestor_of_current_page? %}active{% endif %} dropdown">
-          <a href="{{ child.url }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ child.name }} <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            {% if site.show_parent_in_nav_dropdown? %}
-              <li><a href="{{ child.url }}">{{ child.name }}</a></li>
-            {% endif %}
-            {% for child2 in child.nav_children %}
-              <li><a href="{{ child2.url }}">{{ child2.name }}</a></li>
-            {% endfor %}
-          </ul>
-        </li>
-        {% endif %}
-        {% endfor %}
-      </ul>
-    </div>
-  </div>
+				<!-- Brand -->
+				<div class="brand-name-wrapper">
+					<a class="navbar-brand" href="/"><img alt="{{ site.long_name }}" src="{{ site.meta_image_url }}"></a>
+					<p>{{ site.long_name }}</p>
+				</div>
+
+			</div>
+		</div>
+		<div class="side-menu-shadow">
+			<div></div>
+		</div>
+
+		<!-- Main Menu -->
+		<div class="side-menu-container">
+			<ul class="nav">
+				{% for child in site.root_nav_pages %}
+				{% if child.leaf? or child.nav_children.size == 0 %}
+					<li {% if child.is_or_is_ancestor_of_current_page? %}class="active"{% endif %}>
+					  <a href="{{ child.url }}">{{ child.name }}</a>
+					</li>   
+				{% elsif child.basic.content != "" %}
+					{% if child.is_or_is_ancestor_of_current_page? %}
+						<li class="{% if child.is_or_is_ancestor_of_current_page? %}active{% endif %}  dropdown-custom">
+							<a href="{{ child.url }}" >{{ child.name }}</a>
+							<div id="dropdown-{{child.slug}}" class="panel-collapse collapse in" role="menu" aria-expanded="true">
+								<div class="panel-body">
+									<ul class="sub-nav">
+										{% for child2 in child.nav_children %}
+											<li><a href="#{{ child2.slug }}">{{ child2.name }}</a></li>
+										{% endfor %}
+									</ul>
+								</div>
+							</div>
+						</li>
+					{% else %}
+						<li class="collapsed">
+						  <a href="{{ child.url }}">{{ child.name }}</a>
+						</li>
+					{% endif %}
+				{% else %}
+					<li class="{% if child.is_or_is_ancestor_of_current_page? %}active{% endif %} dropdown-custom">
+							 <a data-toggle="collapse" href="#dropdown-{{child.slug}}" role="button" ria-expanded="false" {% if child.is_or_is_ancestor_of_current_page? == false %}class="collapsed sdfgsdfg"{% endif %} >
+								{{ child.name }}
+							</a>
+							<div id="dropdown-{{child.slug}}" class="panel-collapse collapse {% if child.is_or_is_ancestor_of_current_page? %}in{% endif %}" role="menu" {% if child.is_or_is_ancestor_of_current_page? %}aria-expanded="true"{% endif %}>
+								<div class="panel-body">
+									<ul class="sub-nav">
+										{% for child2 in child.nav_children %}
+											<li><a href="{{ child2.url }}">{{ child2.name }}</a></li>
+										{% endfor %}
+									</ul>
+								</div>
+							</div>
+						</li>
+				{% endif %}
+				{% endfor %}
+			</ul>
+		</div><!-- /.navbar-collapse -->
+		<div id="nav-email-signup">
+			{% form_for signup %}
+				{% hidden_field_tag "page_id", page.id %} <div class="form-errors">{% error_messages_for signup %}</div>
+				{% email_field "email", class:"text form-control",pattern:"email", placeholder:"Email", required: "required" %}	
+				{% submit_tag ">", class:"submit-button" %}
+				<p>Join our Mailing list</p>
+			{% endform_for %}
+		</div>
+	</div>
+	<div id="nav-pulldown" class="onlymobile">
+		<button class="dropdown">
+			<span class="caret"></span>
+		</button>
+	</div>
 </nav>
 
-{% endcomment %}
 
-<nav class="navbar navbar-default" role="navigation">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-        <div class="brand-wrapper">
-            <!-- Hamburger -->
-            <button type="button" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
 
-            <!-- Brand -->
-            <div class="brand-name-wrapper">
-                <a class="navbar-brand" href="/"><img alt="{{ site.long_name }}" src="{{ site.meta_image_url }}"></a>
-                <p>{{ site.long_name }}</p>
-            </div>
 
-        </div>
-    </div>
 
-    <!-- Main Menu -->
-    <div class="side-menu-container">
-        <ul class="nav navbar-nav">
 
-            {% for child in site.root_nav_pages %}
-            {% if child.leaf? or child.nav_children.size == 0 %}
-                <li {% if child.is_or_is_ancestor_of_current_page? %}class="active"{% endif %}>
-                  <a href="{{ child.url }}">{{ child.name }}</a>
-                </li>   
-            {% else if child.basic.content == "" %}
-                <li class="{% if child.is_or_is_ancestor_of_current_page? %}active{% endif %} panel panel-default dropdown-custom">
-                    <a data-toggle="collapse" href="#dropdown-{{child.slug}}" role="button" ria-expanded="false">
-                        {{ child.name }} <span class="caret"></span>
-                    </a>
-                    <div id="dropdown-{{child.slug}}" class="panel-collapse collapse" role="menu">
-                        <div class="panel-body">
-                            <ul class="nav navbar-nav">
-                                {% for child2 in child.nav_children %}
-                                    <li><a href="{{ child2.url }}">{{ child2.name }}</a></li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </div>
-                </li>
-                <li {% if child.is_or_is_ancestor_of_current_page? %}class="active"{% endif %}>
-                  <a href="{{ child.url }}">{{ child.name }}</a>
-                </li>
-            {% else %}
-                <li class="{% if child.is_or_is_ancestor_of_current_page? %}active{% endif %} panel panel-default dropdown-custom">
-                        <a href="{{ child.url }}">{{ child.name }}</a>
-                        <div id="dropdown-{{child.slug}}" class="panel-collapse collapse in" role="menu">
-                            <div class="panel-body">
-                                <ul class="nav navbar-nav">
-                                    {% for child2 in child.nav_children %}
-                                        <li><a href="{{ child2.url }}">{{ child2.name }}</a></li>
-                                    {% endfor %}
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-            {% endif %}
-            {% endfor %}
-        </ul>
-    </div><!-- /.navbar-collapse -->
-</nav>
