@@ -178,35 +178,41 @@ app.index = {
 		head.appendChild(script);
 	},
 	start_d3: function() {
-		var width = $(".side-body").outerWidth(),
-			height = $(window).height();
+		app.index.generate_project();
 
-		var fill = d3.scale.category20();
+	},
+	generate_project: function() {
+		var out = {}
 
-		var force = d3.layout.force()
-			.size([width, height])
+		out.width = $(".side-body").outerWidth(),
+		out.height = $(window).height();
+
+		out.fill = d3.scale.category20();
+
+		out.force = d3.layout.force()
+			.size([out.width, out.height])
 			.nodes([{}]) // initialize with a single node
-			.linkDistance(30)
+		.linkDistance(30)
 			.charge(-60)
 			.on("tick", tick);
 
-		var svg = d3.select("#index_interactive_background") //document.querySelector("#index_interactive_background") //d3.select("body").append("svg")
-			.attr("width", width)
-			.attr("height", height)
+		out.svg = d3.select("#index_interactive_background") //document.querySelector("#index_interactive_background") //d3.select("body").append("svg")
+		.attr("width", out.width)
+			.attr("height", out.height)
 			.on("mousemove", mousemove)
 			.on("mousedown", mousedown);
 
-		svg.append("rect")
-			.attr("width", width)
-			.attr("height", height);
+		out.svg.append("rect")
+			.attr("width", out.width)
+			.attr("height", out.height);
 
-		var nodes = force.nodes(),
-			links = force.links(),
-			node = svg.selectAll(".node"),
-			link = svg.selectAll(".link");
+		var nodes = out.force.nodes(),
+			links = out.force.links(),
+			node = out.svg.selectAll(".node"),
+			link = out.svg.selectAll(".link");
 
-		var cursor = svg.append("circle")
-			.attr("r", 30)
+		var cursor = out.svg.append("circle")
+			.attr("r", 100)
 			.attr("transform", "translate(-100,-100)")
 			.attr("class", "cursor");
 
@@ -228,7 +234,7 @@ app.index = {
 			nodes.forEach(function(target) {
 				var x = target.x - node.x,
 					y = target.y - node.y;
-				if (Math.sqrt(x * x + y * y) < 30) {
+				if (Math.sqrt(x * x + y * y) < 100) {
 					links.push({
 						source: node,
 						target: target
@@ -272,10 +278,12 @@ app.index = {
 			node.enter().insert("circle", ".cursor")
 				.attr("class", "node")
 				.attr("r", 5)
-				.call(force.drag);
+				.call(out.force.drag);
 
-			force.start();
+			out.force.start();
 		}
+
+		return out
 	}
 }
 

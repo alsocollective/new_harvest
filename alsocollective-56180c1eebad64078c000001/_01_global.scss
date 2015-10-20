@@ -26,7 +26,7 @@ body {
 	position: relative;
 	z-index: 4;
 	padding-right: 0;
-	@include at-query($max,$inbetween){
+	@include at-query($min,$inbetween){
 		padding: 0;
 	}	
 	.main-container {
