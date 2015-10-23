@@ -14,6 +14,14 @@
 			{{page.basic.content}}
 		</div>
 
+		{% comment %}Reference _index_blog.html for editing this html{% endcomment %}
+		{% comment %}
+		<div id="index_blog">
+			{% subpage "blog" with "index_blog" %}
+		</div>
+		{% endcomment %}
+
+
 		<div id="index_instagram_feed">
 		{% for descendants in page.descendants %}
 			{% if descendants.slug == "instagram" %}
@@ -25,7 +33,7 @@
 
 	</div>
 {% else %}
-	{% include "breadcrumbs" %}
+	{% comment %}{% include "breadcrumbs" %}{% endcomment %}
 	<canvas id="node_top_visual" ></canvas>
 	{% if page.headline.size > 0 %}
 	<h2 class="headline">{{ page.headline }}</h2>
