@@ -190,9 +190,10 @@ app.index = {
 		out.fill = d3.scale.category20();
 
 		out.force = d3.layout.force()
+			.linkStrength(0.1)
 			.size([out.width, out.height])
 			.nodes([{}]) // initialize with a single node
-		.linkDistance(30)
+		.linkDistance(50)
 			.charge(-60)
 			.on("tick", tick);
 
