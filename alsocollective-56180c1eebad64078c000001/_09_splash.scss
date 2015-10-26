@@ -1,0 +1,32 @@
+#splash {
+	padding-top: 150px;
+	p.splash {
+		text-align: center;
+		width: 300px;
+		margin: 0 auto;
+		img {
+			width: 100%;
+			position: relative;
+			left: 10px;
+		}
+	}
+	.content-pages-show-basic {
+		text-align: center;
+		max-width: 60%;
+		margin: 0 auto;
+		p {
+			font-size: 22px;
+		}
+		a {
+			color: $sky-blue;
+		}
+		a:hover {
+			text-decoration: none;
+			color: $sky-blue;
+			background: $offwhite-blue;
+		}
+		.like-page {
+			display: none;
+		}
+	}
+}
