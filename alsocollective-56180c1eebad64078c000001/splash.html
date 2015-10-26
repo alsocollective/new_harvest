@@ -15,11 +15,12 @@
       NB.appConfig.userIsLoggedIn = {{request.logged_in?}};
     </script>
   </head>
-  <body class="aware-theme v2-theme {{ page.page_class_name }} js">
+  <body class="aware-theme v2-theme {{ page.page_class_name }} js" id="splash">
     <div id="pattern" class="pattern">
       <div class="wrap" id="wrap">
         <div id="body" class="page-{{ request.template }}">
 
+          {% comment %}
           <div class="header-container clearfix" {% if site.has_background_image? %} style="background: none;" {% endif %}>
             <div class="container">
 
@@ -37,7 +38,8 @@
             <!-- .container -->
           </div>
           <!-- .header-container -->
-
+          {% endcomment %}
+          
           {% if site.has_header_image? %}
           <div class="container">
            <img src="{{ site.header_image_url_1026 }}" class="header-image" border="0" />
@@ -52,6 +54,10 @@
 
           <div class="main-container" id="middle">
             <div class="main container clearfix">
+              
+              <div class="site-logo">
+                  <p class="splash"><img src="{{ site.meta_image_url }}"></p>
+              </div>
 
             	{{ content_for_notifications }}
     						
@@ -59,7 +65,9 @@
                <div class="content-{{ request.template | replace: '_', '-' }}">
                 {% yield %}
 
+                {% comment %}
                 <div align="center" class="padtopmore padbottom"><a class="submit-button btn btn-primary" id="splash-btn" href="/">Continue to {{ site.name }}</a></div>
+                {% endcomment %}
 
                 {% if request.is_intern? and page.is_editing_available? %}
                   <div align="center" class="padtopmore padbottom"><a class="submit-button btn btn-primary" href="{{ page.admin_edit_url }}">{{ "fugue-edit-signiture" | icon }} Edit this page</a></div>

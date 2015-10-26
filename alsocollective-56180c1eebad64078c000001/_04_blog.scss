@@ -1,11 +1,6 @@
 /* BLOG
 
 */
-.container-fluid #content h1 {
-	max-width: 100%;
-}
-
-
 .content-pages-show-blog-post {
 	.breadcrumb {
 		display: none;
@@ -18,7 +13,7 @@
 		h1 {
 			border-top: 1px solid $border-grey;
 			border-bottom: 1px solid $border-grey;
-			padding: 70px 100px;
+			padding: 70px 0px;
 			max-width: 100%;
 			font-size: 32px;
 			margin-bottom: 50px;
@@ -36,14 +31,14 @@
 		margin-top: -15px;
 		padding-top: 15px;
 	}
-	.box {
-		margin: 0 0 20px 20px;
-		font-size: 1.4rem;
-		a {
-			color: #000;
-		}
-	}
 } 
+.box {
+	margin: 0 0 20px 20px;
+	font-size: 1.4rem;
+	a {
+		color: #000;
+	}
+}
 .panel-body > fb:like {
 	display: none;
 }

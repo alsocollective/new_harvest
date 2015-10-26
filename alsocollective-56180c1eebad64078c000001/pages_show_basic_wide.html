@@ -1,6 +1,6 @@
 {% if page.slug == "index" %}
 	<div id="index_page">
-		<svg id="index_interactive_background"></svg>	
+		<svg id="index_interactive_background"></svg>
 		<h2 class="headline">{{ page.headline }}</h2>
 
 		<div id="index_featured">
@@ -15,11 +15,9 @@
 		</div>
 
 		{% comment %}Reference _index_blog.html for editing this html{% endcomment %}
-		{% comment %}
 		<div id="index_blog">
 			{% subpage "blog" with "index_blog" %}
 		</div>
-		{% endcomment %}
 
 
 		<div id="index_instagram_feed">

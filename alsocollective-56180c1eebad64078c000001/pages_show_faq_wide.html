@@ -1,20 +1,8 @@
 <div class="row">
 
-  <div class="col-md-3 sidebar">
+  <div class="col-md-full">
 
-    <div class="btn-group-vertical" role="group">
-      {% for child in page.children %}
-      {% if child.type_name == 'Question' %}
-      <a class="btn btn-default" href="{{ child.url }}">{{ child.headline }}</a>
-      {% endif %}
-      {% endfor %}
-    </div>
-
-  </div>
-
-  <div class="col-md-9">
-
-    {% include "breadcrumbs" %}
+    
 
     {% if page.headline.size > 0 %}
     <h2 class="headline">{{ page.headline }}</h2>
@@ -26,6 +14,18 @@
     </div>
     {% endif %}
 
+    <div class="col-md-12 sidebar">
+
+    <div class="btn-group-vertical" role="group" id="faqs-subnav">
+      {% for child in page.children %}
+      {% if child.type_name == 'Question' %}
+      <a class="btn btn-default" href="#{{ child.url }}">{{ child.headline }}</a>
+      {% endif %}
+      {% endfor %}
+    </div>
+
+  </div>
+
     <div id="content">
 
       <div class="faq faq-{{ page.id }}">
@@ -33,21 +33,14 @@
         <div class="page-excerpt question-page-{{ child.id }}">
 
           {% if child.type_name == 'Question' %}
-          <h3><a href="{{ child.url }}">{{ child.headline }}</a></h3>
+          <h2 id="{{ child.url }}">{{ child.headline }}</h2>
 
-          <div class="excerpt">
+          <div class="excerpt"=>
             {% if child.question.content.size > 0 %}
             {{ child.question.content }}
             {% endif %}
             {% if child.question.answer.size > 0 %}
-            <div class="row">
-              <div class="col-md-12">
-                <div class="answer-wrap panel panel-default">
-                  <div class="answer-a panel-heading">Answer</div>
-                  <div class="answer panel-body">{{ child.question.answer }}</div>
-                </div>
-              </div>
-            </div>
+                  <div class="answer">{{ child.question.answer }}</div>
             {% endif %}
           </div>
           {% endif %}
