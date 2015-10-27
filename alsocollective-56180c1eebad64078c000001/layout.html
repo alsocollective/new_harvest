@@ -40,14 +40,10 @@
 					{% endif %}
 					{% endcomment %}
 
-					{% if page.features_count > 0 %}
-						<div class="">
-						 {% include "features" %}
-						</div>
-					{% endif %}
+					
 
 					<div class="main-container" id="middle">
-						
+
 						<div class="main clearfix {% if site.has_background_image? %}well well-lg{% endif %}">
 
 							{% if request.is_sidebar? %}

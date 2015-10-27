@@ -3,7 +3,20 @@
 {% if page.features_count > 0 %}
 
 {% if page.features.size > 0 %}
+	<div class="portfolio-layout">
+		{% for feature in page.features %}
+			<div class="project">	
+				<img src="{{ feature.image_url }}" alt="{{ feature.headline }}">
+				<div class="project-intro">
+					<h1><a href="{{ feature.url }}">{{ feature.headline | split:"|" | first }}</a></h1>
+					<h3>{{ feature.headline | split:"|" | last}}</h3>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
 
+
+{% comment %}
 <div id="carousel-generic" class="carousel slide" data-ride="carousel">
 	{% if page.features.size > 1 %}
 	<!-- Indicators -->
@@ -43,7 +56,7 @@
 	</a>
 	{% endif %}
 </div>
-
+{% endcomment %}
 {% endif %}
 
 {% endif %}
