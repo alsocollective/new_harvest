@@ -15,9 +15,6 @@
 		</div>
 
 		{% comment %}Reference _index_blog.html for editing this html{% endcomment %}
-		<div id="index_blog">
-			{% subpage "blog" with "index_blog" %}
-		</div>
 
 		<div id="index_instagram_feed">
 		{% for descendants in page.descendants %}
@@ -27,6 +24,10 @@
 		{% endfor %}
 		</div>
 
+		<div id="index_blog">
+			<p>Here's what we've been up to:</p>
+			{% subpage "blog" with "index_blog" %}
+		</div>
 
 	</div>
 {% else %}
