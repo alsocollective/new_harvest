@@ -17,6 +17,7 @@ app.nav = {
 	init: function() {
 		app.nav.mobile.init();
 		app.nav.waypoint.init();
+		app.nav.donate.init();
 	},
 	mobile: {
 		last_location: 0,
@@ -87,11 +88,8 @@ app.nav = {
 				});
 				app.nav.mobile.accel = -1;
 			}
-
 			return false;
 		}
-
-
 	},
 	waypoint: {
 		init: function() {
@@ -112,6 +110,18 @@ app.nav = {
 
 				return false;
 			}
+		}
+	},
+	donate:{
+		init:function(){
+			$("#donate").click(app.nav.donate.clicked);
+		},
+		clicked:function(event){
+			// event.preventDefault();
+			// var strWindowFeatures = "menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes";
+
+			// window.open(this.href,"NewHarvest Donate", strWindowFeatures);
+			// return false;
 		}
 	}
 }
