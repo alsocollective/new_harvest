@@ -24,6 +24,7 @@ app.nav = {
 		accel: 0,
 		target: null,
 		height: 0,
+		body: $(document.body),
 		init: function() {
 			$("#nav-pulldown button").click(app.nav.mobile.clicked)
 				.on("touchstart", app.nav.mobile.touchstart)
@@ -34,6 +35,7 @@ app.nav = {
 			// $(".side-menu").toggleClass("open");
 			var target = $(".side-menu");
 			if (target.hasClass("open")) {
+				app.nav.mobile.body.removeClass("open_nav");
 				target.removeClass("open")
 					.css("top", "0%")
 					.animate({
@@ -46,6 +48,7 @@ app.nav = {
 				target.animate({
 					top: "0%"
 				}, 1000, function() {
+					app.nav.mobile.body.addClass("open_nav");
 					target.css("top", "")
 						.addClass("open");
 				});
@@ -72,12 +75,14 @@ app.nav = {
 		touchend: function(event) {
 			event.preventDefault();
 			var target = $(".side-menu").removeClass("open closed");
+			app.nav.mobile.body.removeClass("open_nav");
 			if (app.nav.mobile.accel <= 0) {
 				app.nav.mobile.target.animate({
 					top: "0%"
 				}, 1000, function() {
 					app.nav.mobile.target.css("top", "")
 					target.addClass("open");
+					app.nav.mobile.body.addClass("open_nav");
 				});
 				app.nav.mobile.accel = 1;
 			} else {
@@ -228,7 +233,7 @@ app.index = {
 			.attr("transform", "translate(-100,-100)")
 			.attr("class", "cursor");
 
-		restart();
+		out.restart();
 
 		function mousemove() {
 			cursor.attr("transform", "translate(" + d3.mouse(this) + ")");
@@ -254,7 +259,7 @@ app.index = {
 				}
 			});
 
-			restart();
+			out.restart();
 		}
 
 		function tick() {
@@ -279,7 +284,7 @@ app.index = {
 				});
 		}
 
-		function restart() {
+		out.resetart = function() {
 			link = link.data(links);
 
 			link.enter().insert("line", ".node")

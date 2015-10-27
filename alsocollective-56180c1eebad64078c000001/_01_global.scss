@@ -14,6 +14,9 @@ body {
 	font-size: 1.65rem;
 	letter-spacing: 0.015rem;
 	@include antialias;
+	&.open_nav{
+		overflow: hidden;
+	}
 }
 
 .side-body {
@@ -28,6 +31,7 @@ body {
 	position: relative;
 	z-index: 4;
 	padding-right: 0;
+	padding: 0;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	font-variant-ligatures: common-ligatures;
@@ -35,9 +39,10 @@ body {
 	-ms-font-feature-settings: "liga", "clig";
 	-webkit-font-feature-settings: "liga", "clig";
 	font-feature-settings: "liga", "clig";
-	@include at-query($min,$inbetween){
-		padding: 0;
-	}	
+
+	@include at-query($max,$inbetween){
+		margin-left: 0;
+	}
 	
 	.main-container {
 		margin: 0;
@@ -130,6 +135,10 @@ body {
 		}
 		iframe {
 			margin: 3rem auto;
+		}
+		@include at-query($max,$inbetween){
+			width: 90%;
+			margin: 0 auto;
 		}
 	}	
 }
