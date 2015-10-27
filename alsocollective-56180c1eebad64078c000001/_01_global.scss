@@ -13,6 +13,7 @@ body {
 	font-family: 'Fortescue Pro', serif;
 	font-size: 1.65rem;
 	letter-spacing: 0.015rem;
+	@include antialias;
 }
 
 .side-body {

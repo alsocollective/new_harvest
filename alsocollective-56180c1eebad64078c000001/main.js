@@ -163,7 +163,8 @@ app.top_viz = {
 			"width": $(target[0].parentNode).outerWidth(),
 			"height": target.outerHeight()
 		});
-		d3_top_area_thing("#FF0000", "#0000FF");
+		//dot colour, line colour, dot move distnce,
+		d3_top_area_thing("#FF0000", "#0000FF",0.1);
 	}
 }
 
@@ -301,7 +302,7 @@ $(document).ready(function() {
 
 
 
-function d3_top_area_thing(fill_colour, stroke_colour) {
+function d3_top_area_thing(fill_colour, stroke_colour,move_distance) {
 	/* https://github.com/d3/d3-timer Copyright 2015 Mike Bostock */
 	/* original code from http://bl.ocks.org/mbostock/280d83080497c8c13152 */
 	"undefined" == typeof requestAnimationFrame && (requestAnimationFrame = "undefined" != typeof window && (window.msRequestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.oRequestAnimationFrame) || function(e) {
@@ -385,8 +386,8 @@ function d3_top_area_thing(fill_colour, stroke_colour) {
 			p.y += p.vy;
 			if (p.y < -maxDistance) p.y += height + maxDistance * 2;
 			else if (p.y > height + maxDistance) p.y -= height + maxDistance * 2;
-			p.vx += 0.2 * (Math.random() - .5) - 0.01 * p.vx;
-			p.vy += 0.2 * (Math.random() - .5) - 0.01 * p.vy;
+			p.vx += move_distance * (Math.random() - .5) - 0.01 * p.vx;
+			p.vy += move_distance * (Math.random() - .5) - 0.01 * p.vy;
 			context.beginPath();
 			context.arc(p.x, p.y, radius, 0, tau);
 			context.fillStyle = fill_colour;
