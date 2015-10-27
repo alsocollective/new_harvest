@@ -1,1 +1,9 @@
-<h1>hello world</h1>
+
+
+<ul>
+{% for donor in page.directory.listings %}
+	<li>
+		{{donor.published_name_linked}}
+	</li>
+{% endfor %}
+</ul>
