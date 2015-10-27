@@ -1,0 +1,33 @@
+#content {
+	#intro {
+		#whatwedo_special {
+			max-width: 750px;
+			margin: 3rem auto 0;
+			padding: 4rem 4rem 1.75rem;
+			background: #F5F5F5;
+			box-shadow: -5px 5px 10px rgba(0,0,0,0.15);
+			p, h2 {
+				font-family: 'Whitney';
+				font-weight: 400;
+			}
+			p {
+				margin: 0 0 2.5rem;
+			}
+			h2 {
+				margin: 0;
+			}
+		}
+		#people {
+			p, h3 {
+				position: relative;
+				z-index: 3;
+			}
+			img {
+				// position: absolute;
+				// z-index: 1;
+				margin-bottom: -4rem;
+				box-shadow: -3px 3px 8px rgba(0,0,0,0.3);
+			}
+		}
+	}
+}
