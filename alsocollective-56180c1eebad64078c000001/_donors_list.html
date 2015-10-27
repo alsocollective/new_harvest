@@ -1,9 +1,17 @@
-
-
 <ul>
 {% for donor in page.directory.listings %}
+	{% if donor.profile_image_url contains "buddy.png" %}
+	{% else %}
 	<li>
-		{{donor.published_name_linked}}
+		<b>{{donor.published_name}}</b><br>
+		<img src="{{ donor.profile_image_url }}" width="48px" height="48px">
+		{% if donor.has_facebook_info? %}
+			<div class="network"><a href="{{ donor.facebook_profile_url }}"><i class="icon-facebook-squared"></i></a></div>
+		{% endif %}
+		{% if donor.has_twitter_info? %}
+			<div class="network"><a href="{{ donor.twitter_profile_url }}"><i class="icon-twitter-squared"></i></a></div>
+		{% endif %}		
 	</li>
+	{% endif %}
 {% endfor %}
 </ul>

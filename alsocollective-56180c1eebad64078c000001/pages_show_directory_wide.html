@@ -7,15 +7,7 @@
 <div id="content">
 
 	{% if request.logged_in? or page.directory.not_user_specific? %}
-
-		<ul>
-			{% for donor in page.directory.listings %}
-				<li>
-					{{donor.published_name_linked}}
-				</li>
-			{% endfor %}
-		</ul>
-		{% comment %}
+		
 		<div id="intro">
 			<div class="text-content">
 			{{ page.directory.content }}
@@ -32,7 +24,6 @@
 		</div>
 
 		{{ page.directory.listings | paginate prev_label: "&laquo;" next_label: "&raquo;" | replace:'<div class="pagination">','<nav class="pagination-container">' | replace:'<ul>','<ul class="pagination">' | replace:'</div>','</nav>' }}
-		{% endcomment %}
 	{% else %}
 
 		<div class="padbottommore">

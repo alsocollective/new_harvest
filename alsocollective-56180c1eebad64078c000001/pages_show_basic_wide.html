@@ -19,10 +19,6 @@
 			{% subpage "blog" with "index_blog" %}
 		</div>
 
-		<div id="donors_data">
-			{% subpage "random_list_of_donors" with "donors_list" %}
-		</div>
-
 		<div id="index_instagram_feed">
 		{% for descendants in page.descendants %}
 			{% if descendants.slug == "instagram_upload" %}
@@ -43,14 +39,22 @@
 	<div id="content">
 
 		<div id="intro" class="intro">
-			<div class="text-content">
-				{{ page.basic.content }}
-			</div>
+			{% if page.basic.content != "" %}			
+				<div class="text-content">
+					{{ page.basic.content }}
+				</div>
+			{% endif %}
 
 			{% for descendants in page.descendants %}
 				<div id="{{descendants.slug}}">
 					<h2>{{descendants.name}}</h2>
 					{{descendants.basic.content}}
+					{% if descendants.slug == "people" %}
+						<div id="donors_data">
+							{% subpage "random_list_of_donors" with "donors_list" %}
+						</div>
+					{% endif %}
+
 				</div>
 			{% endfor %}		
 		</div>

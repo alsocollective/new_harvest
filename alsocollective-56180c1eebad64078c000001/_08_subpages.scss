@@ -1,8 +1,25 @@
-#intro {
-	> div[id] {
-		padding-top: 70px;
-		margin-top: 70px;
-		border-top: 1px solid $border-grey;
-
+#content {
+	#intro {
+		> div[id] {
+			padding-top: 70px;
+			margin-top: 70px;
+			border-top: 1px solid $border-grey;
+			&:first-child{
+				margin-top: 0;
+				padding-top: 0;
+				border: none;
+			}
+		}
+		div {
+			img {
+				max-width: 50%;
+				display: block;
+				margin: 2.5rem auto;
+			}
+		}
+		h6 {
+			text-align: center;
+			margin: -1.5rem auto 4rem;
+		}
 	}
 }
