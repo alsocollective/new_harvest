@@ -24,11 +24,18 @@
 		{% endfor %}
 		</div>
 
-		<div id="index_blog">
-			<p>Here's what we've been up to:</p>
-			{% subpage "blog" with "index_blog" %}
-		</div>
-
+	</div>
+	<div id="index_blog">
+		<p>Here's what we've been up to:</p>
+		{% subpage "blog" with "index_blog" %}
+	</div>
+	<div id="signup-in-indexpage">
+		<h2>Are you excited about the future New Harvest is building?<br/>Keep updated with our newsletter.</h2>
+		{% form_for signup %}
+			{% hidden_field_tag "page_id", page.id %} <div class="form-errors">{% error_messages_for signup %}</div>
+			{% email_field "email", class:"text form-control",pattern:"email", placeholder:"Email", required: "required" %}	
+			{% submit_tag ">", class:"submit-button" %}
+		{% endform_for %}
 	</div>
 {% else %}
 	{% comment %}{% include "breadcrumbs" %}{% endcomment %}
