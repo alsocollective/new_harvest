@@ -6,10 +6,10 @@
 	<div class="portfolio-layout">
 		{% for feature in page.features %}
 			<div class="project">	
-				<img src="{{ feature.image_url }}" alt="{{ feature.headline }}">
+				<a href="{{ feature.url }}"><img src="{{ feature.image_url }}" alt="{{ feature.headline }}"></a>
 				<div class="project-intro">
 					<h1><a href="{{ feature.url }}">{{ feature.headline | split:"|" | first }}</a></h1>
-					<h3>{{ feature.headline | split:"|" | last}}</h3>
+					<h3><a href="{{ feature.url }}">{{ feature.headline | split:"|" | last}}</a></h3>
 				</div>
 			</div>
 		{% endfor %}

@@ -179,7 +179,7 @@ app.top_viz = {
 			"height": target.outerHeight()
 		});
 		//dot colour, line colour, dot move distnce,
-		d3_top_area_thing("#FF0000", "#0000FF",0.1);
+		d3_top_area_thing("#ffc0c6","#90d8fc",0.1);
 	}
 }
 

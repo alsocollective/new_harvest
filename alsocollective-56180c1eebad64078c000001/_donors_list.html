@@ -3,14 +3,16 @@
 	{% if donor.profile_image_url contains "buddy.png" %}
 	{% else %}
 	<li>
-		<b>{{donor.published_name}}</b><br>
 		<img src="{{ donor.profile_image_url }}" width="48px" height="48px">
-		{% if donor.has_facebook_info? %}
-			<div class="network"><a href="{{ donor.facebook_profile_url }}"><i class="icon-facebook-squared"></i></a></div>
-		{% endif %}
-		{% if donor.has_twitter_info? %}
-			<div class="network"><a href="{{ donor.twitter_profile_url }}"><i class="icon-twitter-squared"></i></a></div>
-		{% endif %}		
+		<div class="network">
+		<span>{{donor.published_name}}</span><br>
+			{% if donor.has_facebook_info? %}
+				<a href="{{ donor.facebook_profile_url }}"><i class="icon-facebook-squared"></i></a>
+			{% endif %}
+			{% if donor.has_twitter_info? %}
+				<a href="{{ donor.twitter_profile_url }}"><i class="icon-twitter-squared"></i></a>
+			{% endif %}		
+			</div>	
 	</li>
 	{% endif %}
 {% endfor %}

@@ -1,5 +1,6 @@
 <div class="event-info">
-  <strong>{{ event.event.local_start_at | date: '%A, %B %d, %Y at %I:%M %p' }}
+  <h2><a href="{{ event.url }}">{{ event.name }}</a></h2>
+  <p>{{ event.event.local_start_at | date: '%A, %B %d, %Y at %I:%M %p' }}
     {% if event.event.is_multi_day? %}
     through {{ event.event.local_end_at | event_date }}
     {% endif %}
@@ -12,24 +13,23 @@
     &middot;
     <a href="{{ event.url }}">{{ event.event.rsvps_count }} rsvp{% if event.event.rsvps_count > 1 %}s{% endif %}</a>
     {% endif %}
-  </strong>
+  </p>
   {% if event.event.has_venue? %}
   <div class="event-venue">
     {% if event.event.has_venue_address? %}
-    <a href="{{ event.event.venue_address.google_map_link }}">{{ event.event.venue_name }}</a>
+    <p><a href="{{ event.event.venue_address.google_map_link }}">{{ event.event.venue_name }}</a>
     in
     {{ event.event.venue_address.location }}
     {% else %}
     {{ event.event.venue_name }}
     {% endif %}
+    </p>
   </div>
   {% endif %}
 </div>
 
-<h4><a href="{{ event.url }}">{{ event.name }}</a></h4>
-
 {% if event.event.content.size > 0 %}
-<div class="truncate-200" data-truncate="200">
+<div class="event-details">
   {{ event.event.content }}
 </div>
 {% endif %}
