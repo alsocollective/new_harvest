@@ -1,0 +1,15 @@
+a.btn-default.small-btn {
+	font-family: 'Whitney';
+	&:hover {
+		background: $sky-blue;
+		color: white;
+		opacity: 1;
+		border: 1px solid $sky-blue;
+	}
+}
+a.share-close.close {
+	opacity: 0.5;
+	&:hover {
+		background: none;
+	}
+}

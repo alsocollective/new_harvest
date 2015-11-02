@@ -1,0 +1,31 @@
+.page-pages-show-event-wide {
+	.column {
+		max-width: 700px;
+		margin: 10rem auto;
+		#headline {
+			.byline {
+				display: none;
+			}
+		}
+		#content {
+				h6.subhead {
+				margin-bottom: 4px;
+			}
+		}
+	}
+}
+#content .event-info {
+	h2 a {
+		color: #000;
+		&:hover {
+			background: none;
+			color: $sky-blue;
+		}
+	}
+	p {
+		margin: 0 auto;
+	}
+	.event-venue p {
+		margin: 0 auto 10px;
+	}
+}
