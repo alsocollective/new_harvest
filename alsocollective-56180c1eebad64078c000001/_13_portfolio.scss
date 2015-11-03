@@ -7,6 +7,9 @@
 			@include at-query($max,1100px){
 				// padding-left: 40px;
 			}
+			.project:first-child {
+				margin-top: 0;
+			}
 			.project {
 				clear: both;
 				margin: 6rem 0;
