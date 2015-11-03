@@ -53,6 +53,19 @@
 				</div>
 			{% endif %}
 
+			{% if page.has_parent? %}
+			<div class="portfolio-layout">
+				{% for feature in page.features %}
+					<div class="project">	
+						<a href="{{ feature.url }}"><img src="{{ feature.image_url }}" alt="{{ feature.headline }}"></a>
+						<div class="project-intro">
+							<h1><a href="{{ feature.url }}">{{ feature.headline | split:"|" | first }}</a></h1>
+							<h3><a href="{{ feature.url }}">{{ feature.headline | split:"|" | last}}</a></h3>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+			{% else %}
 			{% for descendants in page.descendants %}
 				<div id="{{descendants.slug}}">
 					<h2>{{descendants.name}}</h2>
@@ -62,9 +75,9 @@
 							{% subpage "random_list_of_donors" with "donors_list" %}
 						</div>
 					{% endif %}
-
 				</div>
-			{% endfor %}		
+			{% endfor %}	
+			{% endif %}
 		</div>
 
 		{% if page.tags_count > 0 %}
@@ -77,13 +90,6 @@
 			{% tag "homepage" with "homepage_widget" %}
 		{% endif %}
 
-
-
-	{% comment %}	<div class="like-page">
-			<strong>Do you like this page?</strong>
-			{% include "like_page" %}
-		</div>
-	{% endcomment %}	
 
 		{% if page.show_stream? %}
 		{% include "page_stream" %}
