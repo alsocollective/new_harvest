@@ -24,7 +24,7 @@ app.nav = {
 		accel: 0,
 		target: null,
 		height: 0,
-		body: $(document.body),
+		body: $('body,html'),
 		init: function() {
 			$("#nav-pulldown button").click(app.nav.mobile.clicked)
 				.on("touchstart", app.nav.mobile.touchstart)
@@ -106,7 +106,7 @@ app.nav = {
 				var that = this;
 				event.preventDefault();
 
-				$(document.body).animate({
+				$('body,html').animate({
 					scrollTop: $(target).offset().top
 				}, 'slow', function() {
 					$(".scrowled_on_to_section").removeClass("scrowled_on_to_section");
