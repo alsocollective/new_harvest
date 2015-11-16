@@ -15,6 +15,8 @@
 	}
 }
 #content .event-info {
+	max-width: 700px;
+	margin: 100px auto;
 	h2 a {
 		color: #000;
 		&:hover {
@@ -27,5 +29,11 @@
 	}
 	.event-venue p {
 		margin: 0 auto 10px;
+	}
+	@include at-query($max,1050px){
+		padding-left: 40px;
+	}
+	@include at-query($max,900px){
+		padding-left: 10px;
 	}
 }

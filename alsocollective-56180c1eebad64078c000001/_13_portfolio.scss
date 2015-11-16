@@ -27,7 +27,7 @@
 					background: none;
 					display: inline-block;
 					img {
-						max-width: 100%;
+						max-width: 200px;
 						margin-top: 0;
 						margin-right: 30px;
 						margin-bottom: 0;
@@ -36,6 +36,7 @@
 					@include at-query($max,1100px){
 						width: 100%;
 						img {
+							max-width: 100%;
 							width: 100%;
 						}
 					}

@@ -143,15 +143,26 @@ body {
 		iframe {
 			margin: 3rem auto;
 		}
+		@include at-query($max,1200px){
+			margin-top: 0px;
+		}
 		@include at-query($max,1050px){
-			padding-left: 40px;
-			padding-right: 40px;
+			padding-top: 20px;
+			margin-top: 10px;
+			#intro {
+				p, h1, h2, h3, h4, h5, h6 {
+					padding-left: 40px;
+					padding-right: 40px;			
+				}
+			}
 		}
 		@include at-query($max,$inbetween){
-			width: 90%;
 			margin: 0 auto;
-			padding-left: 10px;
-			padding-right: 10px;
+			p, h1, h2, h3, h4, h5, h6 {
+				width: 90%;
+				padding-left: 10px;
+				padding-right: 10px;
+			}
 		}
 	}	
 

@@ -5,6 +5,19 @@
 		border-top: 1px solid $border-grey;
 		border-bottom: 1px solid $border-grey;
 		margin-bottom: 50px;
+		@include at-query($max,1050px){
+			.btn-group-vertical {
+				width: 90%;
+				margin: 0 auto;
+				padding-left: 0;
+			}
+		}
+	}
+	#content {
+		@include at-query($max,1050px){
+			padding-left: 0;
+			padding-right: 0;
+		}
 	}
 }
 

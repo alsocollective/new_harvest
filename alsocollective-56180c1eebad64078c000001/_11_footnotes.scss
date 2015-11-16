@@ -6,6 +6,9 @@
 			font-size: 1.5rem;
 			text-indent: -25px;
 			padding-left: 25px;
+			@include at-query($max,$inbetween){
+				padding-left: 65px;
+			}
 			a {
 				color: #333;
 				border-bottom: 1px dotted #333;

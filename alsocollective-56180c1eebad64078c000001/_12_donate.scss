@@ -1,17 +1,33 @@
 #content {
 	.staged-donation-container {
-		margin: 50px 120px;
+		margin: 50px 0 50px 7%;
+		@include at-query($max,1200px){
+			margin: 10px auto;
+			width: 60%;
+		}
+		@include at-query($max,1000px){
+			margin: 10px auto;
+			width: 80%;
+		}
 		.form-progress-indicator ul {
 			display: none;
 		}
 		.staged-donation-form {
-			
-			max-width: 400;
+			max-width: 400px;
 			margin-right: 25px;
+			@include at-query($max,1200px){
+				max-width: 100%; 
+				margin-right: 0;
+			}
 			.progress-stages {
 				max-width: 400px;
 				float: left;
 				padding-bottom: 130px;
+				@include at-query($max,1200px){
+					max-width: 100%; 
+					width: 100%;
+					padding-bottom: 50px;
+				}
 				.radio-inline {
 					max-width: 400px;
 					margin-top: 6px;
@@ -42,12 +58,54 @@
 					display: block;
 					clear: both;
 					max-width: 400px;
-					.span6, .span12, .span4 {
+					@include at-query($max,1200px){
+						width: 100%; 
+						max-width: none;
+					}
+					.span6, .span4 {
 						margin: 8px 0;
 						display: inline-block;
+						width: 47%;
+						@include at-query($max,1200px){
+							width: 100%;
+							display: block;
+							select {
+								width: 100%;
+							}
+						}
+						select {
+							max-width: 100%;
+						}
 						input {
 							padding: 7px 7px 5px 10px;
 							margin-right: 8px;
+							width: 100%;
+							@include at-query($max,1200px){
+								width: 100%; 
+							}
+						}
+					}
+					.span12 {
+						margin: 8px 0;
+						width: 100%;
+						input {
+							width: 47%;
+							display: inline-block;
+							padding: 7px 7px 5px 10px;
+						}
+						input[type="checkbox"] {
+							width: 16px;
+						}
+						select {
+							width: 100%;
+							display: block;
+							clear: both;
+						}
+						@include at-query($max,1200px){
+							width: 100%;
+							input:first-child {
+								margin-bottom: 9px;
+							} 
 						}
 					}
 				}
@@ -70,9 +128,17 @@
 			}
 		}
 		.staged-donation-content {
-			float: left;
-			width: 50%;
-			margin-right: 50px;
+			width: 45%;
+			margin-left: 50px;
+			display: inline-block;
+			@include at-query($max,1200px){
+				width: 100%;
+				margin: 0 0;
+				h2.headline {
+					padding: 0;
+					margin-left: 0;
+				}
+			}
 			h2.headline {
 				padding: 0;
 				margin-top: 0;

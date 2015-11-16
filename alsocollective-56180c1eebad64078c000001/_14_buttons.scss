@@ -1,3 +1,10 @@
+.btn-primary {
+	background-color: $sky-blue;
+	border-color: $sky-blue;
+	&:hover {
+		background-color: $sky-blue;
+	}
+}
 a.btn-default.small-btn {
 	font-family: 'Whitney';
 	&:hover {

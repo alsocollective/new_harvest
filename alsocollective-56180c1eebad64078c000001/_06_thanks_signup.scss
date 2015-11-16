@@ -6,10 +6,15 @@
 #flash_container {
 	position: fixed;
 	display: block;
-	z-index: 5;
+	z-index: 99;
 	width: 100%;
 	box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+	top: 0;
 	#flash {
+		.notice.error {
+			margin-bottom: 0;
+			border-radius: 0;
+		}
 		.flash-share {
 			margin-bottom: 0;
 			border-radius: 0;
