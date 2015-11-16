@@ -60,6 +60,10 @@ body {
 	}
 	a {
 		color: $sky-blue;
+		outline: 0;
+		&:hover, &:active, &:focus{
+			outline: 0;
+		}
 	}
 	a:hover {
 		text-decoration: none;

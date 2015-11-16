@@ -57,10 +57,13 @@
 			<div class="portfolio-layout">
 				{% for feature in page.features %}
 					<div class="project">	
-						<a href="{{ feature.url }}"><img src="{{ feature.image_url }}" alt="{{ feature.headline }}"></a>
+						<a href="{{ feature.page.url }}"><img src="{{ feature.image_url }}" alt="{{ feature.headline }}"></a>
 						<div class="project-intro">
-							<h1><a href="{{ feature.url }}">{{ feature.headline | split:"|" | first }}</a></h1>
-							<h3><a href="{{ feature.url }}">{{ feature.headline | split:"|" | last}}</a></h3>
+							{% assign features_content = feature.headline | split:"|" %}
+								<h1><a href="{{ feature.page.url }}">{{ features_content | first }}</a></h1>
+							{% if features_content | last %}
+								<h3><a href="{{ feature.page.url }}">{{ features_content | last }}</a></h3>
+							{% endif %}
 						</div>
 					</div>
 				{% endfor %}

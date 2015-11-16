@@ -24,8 +24,8 @@
 	> nav{
 		position: relative;
 		overflow: hidden;
-	    min-height: 100%;
-	    padding-bottom: 90px;
+		min-height: 100%;
+		// padding-bottom: 90px;
 	}
 
 
@@ -36,6 +36,13 @@
 	}
 	&:hover {
 		z-index: 9;
+		// bellow is for the active state when so that you can hover over others and it will unselect the section
+		.side-menu-container ul li.active>a{
+			color: inherit;
+			&:hover{
+				color: $red;
+			}
+		}
 	}
 	@include at-query($max,$inbetween){
 		z-index: 10;
@@ -129,6 +136,9 @@
 			border-radius: 0;
 			margin: 0;
 			padding: 0;
+			&.active>a{
+				color: $red;
+			}
 			a { 
 				color: $black;
 				// font-weight: bold;
@@ -180,6 +190,7 @@
 		}
 	}
 }
+
 
 #nav-pulldown{
 	display: none;
@@ -280,7 +291,7 @@
 		min-height: 100%;
 		height: 100%;
 		overflow: visible;
-		padding-bottom: 70px;
+		// padding-bottom: 70px;
 
 		.navbar {
 			// max-width: 400px;
@@ -290,6 +301,7 @@
 			border: 1px solid $border-grey;
 			border-top: none;
 			overflow: visible;
+			// padding-bottom: 70px;
 			@include vendorize(border-radius,0);
 			ul {
 				text-align: left;
@@ -320,7 +332,7 @@
 			>div{
 				overflow: scroll;
 				max-height: 100%;
-				max-height: 100vh;
+				max-height: 100%;
 			}
 			.brand-wrapper {
 				a.navbar-brand {
@@ -373,6 +385,8 @@
 	a {
 		color: #000;
 		text-decoration: none;
+		display: inline-block;
+		overflow: hidden;
 	}
 	a:first-child {
 		padding-left: 10%;
