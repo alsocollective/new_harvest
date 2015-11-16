@@ -103,6 +103,7 @@ app.nav = {
 		handler: function(event) {
 			var target = $(".side-body #" + this.href.split("#").pop());
 			if (target.length) {
+				$("#nav-pulldown button").click()
 				var that = this;
 				event.preventDefault();
 
@@ -115,13 +116,14 @@ app.nav = {
 
 				return false;
 			}
+
 		}
 	},
-	donate:{
-		init:function(){
+	donate: {
+		init: function() {
 			$("#donate").click(app.nav.donate.clicked);
 		},
-		clicked:function(event){
+		clicked: function(event) {
 			// event.preventDefault();
 			// var strWindowFeatures = "menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes";
 
@@ -179,7 +181,7 @@ app.top_viz = {
 			"height": target.outerHeight()
 		});
 		//dot colour, line colour, dot move distnce,
-		d3_top_area_thing("#ffc0c6","#90d8fc",0.1);
+		d3_top_area_thing("#ffc0c6", "#90d8fc", 0.1);
 	}
 }
 
@@ -317,7 +319,7 @@ $(document).ready(function() {
 
 
 
-function d3_top_area_thing(fill_colour, stroke_colour,move_distance) {
+function d3_top_area_thing(fill_colour, stroke_colour, move_distance) {
 	/* https://github.com/d3/d3-timer Copyright 2015 Mike Bostock */
 	/* original code from http://bl.ocks.org/mbostock/280d83080497c8c13152 */
 	"undefined" == typeof requestAnimationFrame && (requestAnimationFrame = "undefined" != typeof window && (window.msRequestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.oRequestAnimationFrame) || function(e) {
