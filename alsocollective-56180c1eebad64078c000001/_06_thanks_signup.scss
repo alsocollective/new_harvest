@@ -15,6 +15,7 @@
 			margin-bottom: 0;
 			border-radius: 0;
 			font-family: 'Whitney';
+			font-family: "Whitney SSm A", "Whitney SSm B";
 		}
 		.flash-share {
 			margin-bottom: 0;
@@ -23,6 +24,7 @@
 			.panel-body {
 				padding: 65px;
 				font-family: 'Whitney';
+				font-family: "Whitney SSm A", "Whitney SSm B";
 			}
 			.form {
 				.form-group {
@@ -56,6 +58,7 @@
 }
 .content-user-sessions-new-wide {
 	font-family: 'Whitney';
+	font-family: "Whitney SSm A", "Whitney SSm B";
 	.form-group {
 		label {
 			font-weight: 400;
@@ -100,6 +103,7 @@ form .form-errors ul {
 	max-width: 700px;
 	margin: 10% auto;
 	font-family: 'Whitney';
+	font-family: "Whitney SSm A", "Whitney SSm B";
 	h2.headline {
 		font-size: 4rem;
 		@include at-query ($max, $large) {
