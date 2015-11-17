@@ -103,7 +103,9 @@ app.nav = {
 		handler: function(event) {
 			var target = $(".side-body #" + this.href.split("#").pop());
 			if (target.length) {
-				$("#nav-pulldown button").click()
+				if ($(".side-menu").hasClass("open")) {
+					$("#nav-pulldown button").click()
+				}
 				var that = this;
 				event.preventDefault();
 
@@ -160,7 +162,7 @@ app.waypoints = {
 			$(".scrowled_on_to_section").removeClass("scrowled_on_to_section");
 			target.addClass("scrowled_on_to_section");
 		}
-	},
+	}
 }
 
 app.top_viz = {
