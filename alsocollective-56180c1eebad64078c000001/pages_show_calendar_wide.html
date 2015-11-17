@@ -1,3 +1,25 @@
+
+<div class="padcontainer">
+	<div class="content-container">
+		<div id="content">
+
+			{% for event in page.calendar.events_upcoming %}
+				{% include "event" %}
+			{% endfor %}
+			<hr>
+			{% for event in page.calendar.events_past %}
+				{% include "event" %}
+			{% endfor %}
+		</div>
+	</div>
+</div>
+
+
+
+{% if false %}
+	
+
+
 <div class="padcontainer">
 	<!-- pages_show_calendar_wide.html -->
 	{% comment %}
@@ -151,3 +173,4 @@
 	</div>
 	<!-- pages_show_calendar_wide.html -->
 </div>
+{% endif %}
