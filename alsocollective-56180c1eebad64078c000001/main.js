@@ -237,7 +237,7 @@ app.index = {
 			.attr("transform", "translate(-100,-100)")
 			.attr("class", "cursor");
 
-		out.restart();
+
 
 		function mousemove() {
 			cursor.attr("transform", "translate(" + d3.mouse(this) + ")");
@@ -288,7 +288,7 @@ app.index = {
 				});
 		}
 
-		out.resetart = function() {
+		out.restart = function() {
 			link = link.data(links);
 
 			link.enter().insert("line", ".node")
@@ -304,6 +304,8 @@ app.index = {
 			out.force.start();
 		}
 
+		console.log("restart");
+		out.restart();
 		return out
 	}
 }
