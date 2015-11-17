@@ -30,45 +30,45 @@
 		<div class="side-menu-container">
 			<ul class="nav">
 				{% for child in site.root_nav_pages %}
-				{% if child.leaf? or child.nav_children.size == 0 %}
-					<li {% if child.is_or_is_ancestor_of_current_page? %}class="active"{% endif %}>
-					  <a href="{{ child.url }}">{{ child.name }}</a>
-					</li>   
-				{% elsif child.headline != "" %}
-					{% if child.is_or_is_ancestor_of_current_page? %}
-						<li class="{% if child.is_or_is_ancestor_of_current_page? %}active{% endif %}  dropdown-custom">
-							<a href="{{ child.url }}" >{{ child.name }}</a>
-							<div id="dropdown-{{child.slug}}" class="panel-collapse collapse in" role="menu" aria-expanded="true">
-								<div class="panel-body">
-									<ul class="sub-nav">
-										{% for child_child in child.nav_children %}
-											<li {% if child_child.is_or_is_ancestor_of_current_page? %}class="active"{% endif %}><a href="#{{ child_child.slug }}">{{ child_child.name }}</a></li>
-										{% endfor %}
-									</ul>
-								</div>
-							</div>
-						</li>
-					{% else %}
-						<li class="collapsed">
+					{% if child.leaf? or child.nav_children.size == 0 %}
+						<li {% if child.is_or_is_ancestor_of_current_page? %}class="active"{% endif %}>
 						  <a href="{{ child.url }}">{{ child.name }}</a>
-						</li>
-					{% endif %}
-				{% else %}
-					<li class="{% if child.is_or_is_ancestor_of_current_page? %}active{% endif %} dropdown-custom">
-							 <a data-toggle="collapse" href="#dropdown-{{child.slug}}" role="button" ria-expanded="false" {% if child.is_or_is_ancestor_of_current_page? == false %}class="collapsed sdfgsdfg"{% endif %} >
-								{{ child.name }}
-							</a>
-							<div id="dropdown-{{child.slug}}" class="panel-collapse collapse {% if child.is_or_is_ancestor_of_current_page? %}in{% endif %}" role="menu" {% if child.is_or_is_ancestor_of_current_page? %}aria-expanded="true"{% endif %}>
-								<div class="panel-body">
-									<ul class="sub-nav">
-										{% for child_child in child.nav_children %}
-											<li {% if child_child.is_or_is_ancestor_of_current_page? %}class="active"{% endif %}><a href="{{ child_child.url }}">{{ child_child.name }}</a></li>
-										{% endfor %}
-									</ul>
+						</li>   
+					{% elsif child.headline != "" %}
+						{% if child.is_or_is_ancestor_of_current_page? %}
+							<li class="{% if child.is_or_is_ancestor_of_current_page? %}active{% endif %}  dropdown-custom">
+								<a href="{{ child.url }}" >{{ child.name }}</a>
+								<div id="dropdown-{{child.slug}}" class="panel-collapse collapse in" role="menu" aria-expanded="true">
+									<div class="panel-body">
+										<ul class="sub-nav">
+											{% for child_child in child.nav_children %}
+												<li {% if child_child.is_or_is_ancestor_of_current_page? %}class="active"{% endif %}><a href="#{{ child_child.slug }}">{{ child_child.name }}</a></li>
+											{% endfor %}
+										</ul>
+									</div>
 								</div>
-							</div>
-						</li>
-				{% endif %}
+							</li>
+						{% else %}
+							<li class="collapsed">
+							  <a href="{{ child.url }}">{{ child.name }}</a>
+							</li>
+						{% endif %}
+					{% else %}
+						<li class="{% if child.is_or_is_ancestor_of_current_page? %}active{% endif %} dropdown-custom">
+								 <a data-toggle="collapse" href="#dropdown-{{child.slug}}" role="button" ria-expanded="false" {% if child.is_or_is_ancestor_of_current_page? == false %}class="collapsed sdfgsdfg"{% endif %} >
+									{{ child.name }}
+								</a>
+								<div id="dropdown-{{child.slug}}" class="panel-collapse collapse {% if child.is_or_is_ancestor_of_current_page? %}in{% endif %}" role="menu" {% if child.is_or_is_ancestor_of_current_page? %}aria-expanded="true"{% endif %}>
+									<div class="panel-body">
+										<ul class="sub-nav">
+											{% for child_child in child.nav_children %}
+												<li {% if child_child.is_or_is_ancestor_of_current_page? %}class="active"{% endif %}><a href="{{ child_child.url }}">{{ child_child.name }}</a></li>
+											{% endfor %}
+										</ul>
+									</div>
+								</div>
+							</li>
+					{% endif %}
 				{% endfor %}
 			</ul>
 		</div><!-- /.navbar-collapse -->

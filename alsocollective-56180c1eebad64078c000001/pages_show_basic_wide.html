@@ -1,4 +1,5 @@
-{% if page.slug == "index" %}
+{% case page.slug %}
+{% when "index" %}
 	<div id="index_page">
 		<svg id="index_interactive_background"></svg>
 		<h2 class="headline">{{ page.headline }}</h2>
@@ -37,6 +38,38 @@
 			{% submit_tag ">", class:"submit-button" %}
 		{% endform_for %}
 	</div>
+{% when "portfolio" %}
+	<canvas id="node_top_visual" ></canvas>
+	{% if page.headline.size > 0 %}
+	<h2 class="headline">{{ page.headline }}</h2>
+	{% endif %}
+
+	<div id="content">
+		<div id="intro" class="intro">
+		{% for descendants in page.descendants %}
+			{% if descendants.parent.title == page.title %}
+				<div id="{{descendants.slug}}">
+					<h2 class="headline_inline">{{descendants.name}}</h2>
+					<div class="portfolio-layout">
+						{% for feature in descendants.features %}
+							<div class="project">	
+								<a href="{{ feature.page.url }}"><img src="{{ feature.image_url }}" alt="{{ feature.headline }}"></a>
+								<div class="project-intro">
+									{% assign features_content = feature.headline | split:"|" %}
+										<h1><a href="{{ feature.page.url }}">{{ features_content | first }}</a></h1>
+									{% if features_content | last %}
+										<h3><a href="{{ feature.page.url }}">{{ features_content | last }}</a></h3>
+									{% endif %}
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			{% endif %}
+		{% endfor %}
+		</div>
+	</div>
+
 {% else %}
 	{% comment %}{% include "breadcrumbs" %}{% endcomment %}
 	<canvas id="node_top_visual" ></canvas>
@@ -99,4 +132,4 @@
 		{% endif %}
 
 	</div>
-{% endif %}
+{% endcase %}
