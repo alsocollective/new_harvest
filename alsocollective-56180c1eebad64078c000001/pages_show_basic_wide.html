@@ -33,8 +33,18 @@
 	<div id="signup-in-indexpage">
 		<h2>Are you excited about the future New Harvest is building?<br/>Keep updated with our newsletter.</h2>
 		{% form_for signup %}
-			{% hidden_field_tag "page_id", page.id %} <div class="form-errors">{% error_messages_for signup %}</div>
+			{% hidden_field_tag "page_id", page.id %}
+
+			<div style="display: none">
+				{% text_field "tags", value:"email_signup" %}
+				<select id="signup_optional_tag" name="signup[optional_tag]">
+					<option value="email_signup,index_signup">email signup</option>
+				</select>
+			</div>
+			
+			<div class="form-errors">{% error_messages_for signup %}</div>
 			{% email_field "email", class:"text form-control",pattern:"email", placeholder:"Email", required: "required" %}	
+
 			{% submit_tag ">", class:"submit-button" %}
 		{% endform_for %}
 	</div>
