@@ -1,12 +1,21 @@
+<canvas id="node_top_visual" ></canvas>
+
+<h2 class="headline">{{ page.title }}</h2>
 
 <div class="padcontainer">
 	<div class="content-container">
 		<div id="content">
 
+			<div id="projects">
+				<h2 class="headline_inline">Future Events</h2>
+			</div>
 			{% for event in page.calendar.events_upcoming %}
 				{% include "event" %}
 			{% endfor %}
 			<hr>
+			<div id="projects">
+				<h2 class="headline_inline">Past Events</h2>
+			</div>
 			{% for event in page.calendar.events_past %}
 				{% include "event" %}
 			{% endfor %}
