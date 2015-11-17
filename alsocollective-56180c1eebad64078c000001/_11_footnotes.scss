@@ -25,6 +25,7 @@
 		p.note {
 			@include at-query($max,$inbetween){
 				padding-left: 25px;
+				overflow-x: hidden;
 			}
 		}
 	}
