@@ -60,6 +60,20 @@
 					<!-- .main-container -->
 
 					<footer>
+
+
+				    
+
+					    {% if request.current_user.is_admin? %}
+					    	<p id="edit-this-page"><a href="{{ page.admin_edit_url }}">{{ "fugue-edit-signiture" | icon }} Edit this page</a></p>
+					    {% endif %}
+
+
+
+
+
+
+
 						<div id="quote_footer">
 							<h2>Fifty years hence, we shall escape the absurdity of growing a whole chicken in order to eat the breast or wing by growing these parts separately under a suitable medium.</h2>
 							<h3>—Winston Churchill, 1931</h3>
