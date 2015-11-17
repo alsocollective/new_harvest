@@ -2,6 +2,7 @@
 
 */
 .content-pages-show-blog-post-wide, .page-pages-show-event-wide {
+	overflow-x: hidden;
 	.breadcrumb {
 		display: none;
 	}
@@ -45,6 +46,12 @@
 					margin-left: 30px;
 					margin-right: 30px;
 				}
+				ul {
+					width: 90%;
+					p {
+						margin-left: 0;
+					}
+				}
 			}
 			@include at-query($max,$inbetween){
 				h1, h2, h3, h4, h5, h6, p {
@@ -53,12 +60,6 @@
 					margin: 10px 5% auto;
 					em {
 						max-width: 100%;
-					}
-				}
-				ul {
-					width: 90%;
-					p {
-						margin-left: 0;
 					}
 				}
 			}
