@@ -1,3 +1,69 @@
+/* Donate Corner Button
+
+*/
+#donateBG {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	width: 0;
+	height: 0;
+	border-top: 100px solid $golden;
+	border-left: 100px solid transparent;
+	z-index: 11;
+	@include at-query($max,$inbetween){ 
+		border-top: none;
+		border-left: none;
+		border-bottom: 100px solid $golden;
+		border-left: 100px solid transparent;
+		bottom: 0px;
+		top: auto;
+	}
+}
+
+#donateBtnLabel {
+	position: fixed;
+	top: 21px;
+	right: 5px;
+	color: black;
+	font-family: 'Whitney', sans-serif;
+	font-weight: 500;
+	font-size: 2.1rem;
+	text-decoration: none;
+	-ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+    transform: rotate(45deg);
+    z-index: 12;
+    @include at-query($max,$inbetween){ 
+    	top: auto;
+    	bottom: 21px;
+    	-ms-transform: rotate(-45deg); /* IE 9 */
+	    -webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
+	    transform: rotate(-45deg);
+    }
+}
+
+/* Donate Page
+
+*/
+#donate {
+	position: fixed;
+	top: 21px;
+	right: 5px;
+	color: black;
+	font-family: 'Whitney', sans-serif;
+	font-weight: 500;
+	font-size: 2.1rem;
+	text-decoration: none;
+	-ms-transform: rotate(-45deg); /* IE 9 */
+    -webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
+    transform: rotate(-45deg);
+    z-index: 12;
+    @include at-query($max,$inbetween){ 
+    	top: auto;
+    	bottom: 21px;
+    }
+}
+
 #content {
 	.staged-donation-container {
 		margin: 50px 0 50px 7%;
@@ -6,7 +72,7 @@
 			width: 60%;
 		}
 		@include at-query($max,1000px){
-			margin: 10px auto;
+			margin: 100px auto;
 			width: 80%;
 		}
 		.form-progress-indicator ul {
@@ -145,6 +211,16 @@
 			}
 			#slider-cards {
 				margin-top: 8px;
+			}
+			@include at-query($max,$inbetween){
+				#intro {
+					p {
+						padding-left: 0;
+						padding-right: 0;
+						margin-left: 0;
+						margin-right: 0;
+					}
+				}
 			}
 		}
 	}

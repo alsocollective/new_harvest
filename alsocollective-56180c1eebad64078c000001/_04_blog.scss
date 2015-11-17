@@ -12,14 +12,14 @@
 			width: 90%;
 			margin: 100px 5% 0;
 		}
-		@include at-query($max,900px){
+		@include at-query($max,$inbetween){
 			width: 90%;
 			margin: 100px 5% 0;
 		}
 	}
 	#content {
 		padding: 0 0 80px;
-		.content {
+		#intro .content {
 			h1 {
 				// border-bottom: 1px solid $border-grey;
 				padding: 0px 0px 0px;
@@ -38,6 +38,30 @@
 			hr {
 				margin: 60px 0 65px;
 			}
+			@include at-query($max,1050px){
+				h1, h2, h3, h4, h5, h6, p {
+					padding: 0;
+					max-width: 100%;
+					margin-left: 30px;
+					margin-right: 30px;
+				}
+			}
+			@include at-query($max,$inbetween){
+				h1, h2, h3, h4, h5, h6, p {
+					padding: 0;
+					width: 90%;
+					margin: 10px 5% auto;
+					em {
+						max-width: 100%;
+					}
+				}
+				ul {
+					width: 90%;
+					p {
+						margin-left: 0;
+					}
+				}
+			}
 		}
 	}
 	
@@ -52,10 +76,16 @@
 .panel-body > fb:like {
 	display: none;
 }
+
+/* Blog Posts page */
 #content {
 	.blog {
 		max-width: 700px;
 		margin: 0 auto;
+		@include at-query($max,1050px){
+			padding-left: 40px;
+			padding-right: 40px;
+		}
 		h3 {
 			a {
 				border: 0;
@@ -77,6 +107,9 @@
 		.byline {
 			max-width: 700px;
 			margin: 10px auto;
+			@include at-query($max,$inbetween){
+				padding-left: 10px;
+			}
 		}
 		.byline a, .read-more a {
 			color: #000;
@@ -85,10 +118,28 @@
 				color: $sky-blue;
 			}
 		}
+		@include at-query($max,$inbetween){
+			padding-left: 0;
+			padding-right: 0;
+			width: 90%;
+			h1, h2, h3 {
+				width: 100%;
+			}
+			.excerpt {
+				padding-left: 10px;
+				h1, p {
+					padding-left: 0;
+					margin-left: 0;
+				}
+			}
+			.btn {
+				margin-left: 10px;
+			}
+		}	
 	}
 	@include at-query($max,1200px){
 		margin: 100px auto 0;
-	}		
+	}
 }
 h3 a {
 	color: #000;
