@@ -213,7 +213,7 @@ app.index = {
 			.linkStrength(0.1)
 			.size([out.width, out.height])
 			.nodes([{}]) // initialize with a single node
-		.linkDistance(50)
+		.linkDistance(150)
 			.charge(-60)
 			.on("tick", tick);
 
@@ -255,7 +255,7 @@ app.index = {
 			nodes.forEach(function(target) {
 				var x = target.x - node.x,
 					y = target.y - node.y;
-				if (Math.sqrt(x * x + y * y) < 100) {
+				if (Math.sqrt(x * x + y * y) < 150) {
 					links.push({
 						source: node,
 						target: target
