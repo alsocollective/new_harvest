@@ -81,9 +81,10 @@ body {
 			padding-left: 40px;
 		}
 		@include at-query($max,$inbetween){
-			padding: 80px 10px 50px;
+			padding: 80px 10px 30px;
 			width: 90%;
 			margin: 0 auto;
+			font-size: 4rem;
 		}
 	}
 	#content {
@@ -168,6 +169,16 @@ body {
 				padding-left: 10px;
 				padding-right: 10px;
 			}
+			#intro {
+				p, h1, h2, h3, h4, h5, h6 {
+					width: 90%;
+					padding-left: 10px;
+					padding-right: 10px;
+				}
+			}
+			h1, #intro h1 {
+				font-size: 2.5rem;
+			}
 		}
 	}	
 
@@ -181,9 +192,9 @@ body {
 */
 footer {
 	margin: 0;
-	padding: 0;
+	padding: 0 0 10px 0;
+	background: $golden;
 	#quote_footer {
-		background: $golden;
 		padding: 80px 120px;
 		h3 {
 			margin-bottom: 0;
@@ -193,9 +204,12 @@ footer {
 			padding: 40px;
 			h2 {
 				font-size: 2rem;
+				line-height: 1.4;
 			}
 			h3 {
 				font-size: 1.5rem;
+				text-align: left;
+				margin-bottom: 30px;
 			}
 		}
 	}
@@ -205,6 +219,12 @@ footer {
 		opacity: 0.5;
 		a {
 			color: black; 
+		}
+	}
+	.footer-right.text-right {
+		@include at-query($max,$inbetween){ 
+			text-align: left;	
+			padding-left: 24px;
 		}
 	}
 }

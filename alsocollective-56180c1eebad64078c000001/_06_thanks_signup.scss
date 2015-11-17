@@ -14,6 +14,7 @@
 		.notice.error {
 			margin-bottom: 0;
 			border-radius: 0;
+			font-family: 'Whitney';
 		}
 		.flash-share {
 			margin-bottom: 0;
@@ -50,6 +51,72 @@
 					}
 				}
 			}
+		}
+	}
+}
+.content-user-sessions-new-wide {
+	font-family: 'Whitney';
+	.form-group {
+		label {
+			font-weight: 400;
+		}
+	}
+	@include at-query ($max, $large) {
+		padding-top: 70px;
+		padding-bottom: 70px;
+		.col-md-offset-1 {
+			padding-left: 28px;
+		}
+	}
+}
+form.user_session_form {
+	padding-bottom: 100px;
+	small {
+		padding-left: 15px;
+	}
+	#errorExplanation {
+		h2 {
+			font-size: 20px;
+		}
+		ul {
+			list-style: none;
+			padding-left: 0;
+		}
+	}
+	span.error-message {
+		padding-top: 5px;
+		font-size: 1.2rem;
+	}
+	@include at-query ($max, $inbetween) {
+		padding-bottom: 30px;
+	}
+}
+form .form-errors ul {
+	list-style: none;
+	padding-left: 0;
+}
+
+.content-users-password-resets-new-wide {
+	max-width: 700px;
+	margin: 10% auto;
+	font-family: 'Whitney';
+	h2.headline {
+		font-size: 4rem;
+		@include at-query ($max, $large) {
+			padding-left: 0;
+			width: 90%;
+		}
+	}
+	form {
+		.row {
+			div {
+				padding-left: 0;
+				max-width: 500px;
+			}
+		}
+		@include at-query ($max, $large) {
+			width: 90%;
+			margin: 0 auto;
 		}
 	}
 }

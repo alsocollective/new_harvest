@@ -60,7 +60,8 @@
 					color: #000;
 				}
 			}
-		}	
+		}
+		padding-bottom: 25px;	
 		.tweet_actions {
 			padding: 0 30px;
 			a {
@@ -232,7 +233,7 @@
 		padding: 0;
 		margin: 0;
 		width: 3.5rem;
-		height: 3.5rem;
+		height: 3.4rem;
 		border: 1px solid $border-grey;
 		&:hover{
 			background-color: $sky-blue;

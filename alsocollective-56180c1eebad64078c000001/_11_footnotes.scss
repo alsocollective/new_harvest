@@ -7,7 +7,7 @@
 			text-indent: -25px;
 			padding-left: 25px;
 			@include at-query($max,$inbetween){
-				padding-left: 65px;
+				padding-left: 35px;
 			}
 			a {
 				color: #333;
@@ -16,6 +16,15 @@
 			a:hover {
 				opacity: 0.7;
 				background: none;
+			}
+		}
+	}
+}
+.content-pages-show-blog-post-wide {
+	#content #intro .content {
+		p.note {
+			@include at-query($max,$inbetween){
+				padding-left: 25px;
 			}
 		}
 	}
