@@ -5,6 +5,7 @@ var app = {
 	init: function() {
 		app.nav.init();
 		app.waypoints.init();
+		$('[name="signup[email]"]').val("")
 		if ($("#index_page").length) {
 			app.index.init();
 		} else if ($(".side-body .headline").length) {
