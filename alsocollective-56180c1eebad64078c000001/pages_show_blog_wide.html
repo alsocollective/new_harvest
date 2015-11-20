@@ -9,6 +9,10 @@
 
 <div id="content">
 
+	{% for descendants in page.descendants %}
+		{{descendants.basic.content}}
+	{% endfor %}
+
 	{% if page.blog.is_posting_public? %}
 
 	<div class="one-column padbottommore">
