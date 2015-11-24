@@ -38,6 +38,8 @@
   {% endif %}
 
   {% if request.logged_in? %}
+{% comment %}
+  
 
   <div id="stream">
     <div class="reaction-wrap" id="reactions">
@@ -61,7 +63,9 @@
 
     </div>
   </div>
+{% endcomment %}
 
+  
   {{ page.activity_stream.activities_following | paginate prev_label: "&laquo;" next_label: "&raquo;" | replace:'<div class="pagination">','<nav class="pagination-container">' | replace:'<ul>','<ul class="pagination">' | replace:'</div>','</nav>' }}
 
   {% endif %}

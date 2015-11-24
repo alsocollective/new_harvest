@@ -7,14 +7,14 @@
 		font-family: "Whitney SSm A", "Whitney SSm B";
 		line-height: 6.5rem;
 		font-weight: 400;
-		max-width: 547px;
+		max-width: 700px;
 		font-size: 4.5rem;
 		z-index: 1;
 		position: static;
 		@include at-query($max,1100px){
 			font-size: 3.5rem;
 			line-height: 5.7rem;
-			max-width: 400px;
+			max-width: 700px;
 			padding-left: 0;
 		}
 		@include at-query($max,$inbetween){
@@ -25,7 +25,7 @@
 		@include at-query($max,650px){
 			font-size: 3.4rem;
 			line-height: 4.3rem;
-			max-width: 400px;
+			max-width: 700px;
 			padding-top: 10rem;
 			padding-bottom: 3.5rem;
 		}
@@ -173,6 +173,14 @@
 		max-width: 740px;
 		margin: 0 auto;
 		padding-left: 40px;
+		a{
+			color: inherit;
+			font-size: inherit;
+			&:hover{
+				background-color: inherit;
+				color: $sky-blue;
+			}
+		}
 	}
 	h4{
 		margin: 0;

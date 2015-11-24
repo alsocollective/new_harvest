@@ -11,6 +11,7 @@ var app = {
 		} else if ($(".side-body .headline").length) {
 			app.top_viz.init();
 		}
+		app.about.init();
 	}
 }
 
@@ -308,6 +309,19 @@ app.index = {
 		console.log("restart");
 		out.restart();
 		return out
+	}
+}
+
+app.about = {
+	init: function() {
+		var parent = $("#donors_data ul"),
+			children = parent.find("li"),
+			total = children.length
+		if (parent.length) {
+			for (var i = total - 1; i >= 0; i--) {
+				parent.append(children[Math.floor(Math.random() * i)])
+			};
+		};
 	}
 }
 
