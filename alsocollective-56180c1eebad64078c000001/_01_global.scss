@@ -48,7 +48,7 @@ body {
 		margin-left: 0;
 	}
 	
-	.main-container {
+	.main-container{
 		margin: 0;
 		min-height: 700px;
 	}
@@ -65,10 +65,14 @@ body {
 		&:hover, &:active, &:focus{
 			outline: 0;
 		}
+		
 	}
 	a:hover {
 		text-decoration: none;
 		background: $offwhite-blue;
+	}
+	.page-tag a{
+		color: $white;
 	}
 	h2.headline {
 		max-width: 700px;
@@ -139,7 +143,7 @@ body {
 				font-size: 24px;
 			}
 		}
-		.like-page {
+		.like-page, .page-tags{
 			max-width: 700px;
 			margin: 0 auto;
 			strong {
@@ -148,6 +152,14 @@ body {
 		}
 		iframe {
 			margin: 3rem auto;
+		}
+		.sharetable{
+			iframe{
+				margin: 0;
+			}
+			.twitter-cell{
+				margin-right: 1.8rem;
+			}
 		}
 		@include at-query($max,1200px){
 			margin-top: 0px;
@@ -185,6 +197,11 @@ body {
 
 }
 
+.share-container{
+	form{
+		width: 95%;
+	}
+}
 
 
 /* FOOTER

@@ -2,9 +2,10 @@
 {% for donor in page.directory.listings %}
 	{% if donor.profile_image_url contains "buddy.png" %}
 	{% else %}
+	{% endif %}
 	<li>
-		<img src="{{ donor.profile_image_url }}" width="48px" height="48px">
-		<div class="network">
+		<!-- width="48px" height="48px" -->
+		<img src="{{ donor.profile_image_url }}" ><div class="network">
 		<span>{{donor.published_name}}</span><br>
 			{% if donor.has_facebook_info? %}
 				<a href="{{ donor.facebook_profile_url }}"><i class="icon-facebook-squared"></i></a>
@@ -14,6 +15,6 @@
 			{% endif %}		
 			</div>	
 	</li>
-	{% endif %}
 {% endfor %}
+{{page.directory.next}}
 </ul>
