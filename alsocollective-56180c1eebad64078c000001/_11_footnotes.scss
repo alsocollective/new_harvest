@@ -20,7 +20,7 @@
 		}
 	}
 }
-.content-pages-show-blog-post-wide {
+.content-pages-show-blog-post,.content-pages-show-blog-post-wide {
 	#content #intro .content {
 		p.note {
 			@include at-query($max,$inbetween){

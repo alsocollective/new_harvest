@@ -6,8 +6,9 @@
 	}
 }
 a.btn-default.small-btn {
-	font-family: 'Whitney';
-	font-family: "Whitney SSm A", "Whitney SSm B";
+	// font-family: 'Whitney';
+	// font-family: "Whitney SSm A", "Whitney SSm B";
+	font-family: $sans;
 	&:hover {
 		background: $sky-blue;
 		color: white;

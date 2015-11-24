@@ -1,3 +1,4 @@
+{% comment %}		ACTIVE			{% endcomment %}
 {% comment %}
 {% include "breadcrumbs" %}
 {% endcomment %}
@@ -18,9 +19,6 @@
 			<h3><a href="{{ post.url }}">{{ post.headline }}</a></h3>
 
 			<div class="byline">
-				{% comment %}
-				Posted by {{ post.author.published_name_linked }} &middot; 
-				{% endcomment %}
 				{{ post.published_at | date: '%B %d, %Y' }}
 			</div>
 
@@ -30,16 +28,6 @@
 				<span class='read-more'><a href='{{ post.url }}'>Read more</a></span>
 				{% endif %}
 			</div>
-
-			{% if post.show_stream? %}
-			<a href="{{ post.url }}#addreaction" class="btn btn-primary small-btn">
-				{% if post.public_activities_count > 0 %}
-					{{ post.public_activities_count }} reaction{% if post.public_activities_count > 1 %}s{% endif %}
-				{% else %}
-					Add your reaction
-				{% endif %}
-			</a>
-			{% endif %}
 
 			{{ "Share" | share_button page_id: post.id | replace:'button small-button','btn btn-default small-btn' }}
 		</div>

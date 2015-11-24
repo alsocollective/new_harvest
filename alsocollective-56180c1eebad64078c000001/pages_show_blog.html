@@ -1,8 +1,11 @@
+{% comment %}
 {% include "breadcrumbs" %}
+{% endcomment %}
 
-{% if page.headline.size > 0 and page.blog.is_posting_public? %}
-<h2 class="headline">{{ page.headline }}</h2>
-{% endif %}
+<canvas id="node_top_visual" ></canvas>
+	{% if page.headline.size > 0 %}
+	<h2 class="headline">{{ page.headline }}</h2>
+	{% endif %}
 
 <div id="content">
 	{% for descendants in page.descendants %}

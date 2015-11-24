@@ -1,5 +1,6 @@
 $golden: #ffd000;
 $sky-blue: #0099ff;
+$off-blue: #0099b7;
 $offwhite-blue: #ebf8ff;
 $border-grey: #e7e7e7;
 $white: #fff;
@@ -17,6 +18,8 @@ $max: max-width;
 $width: 90%;
 $indsideWidth: 1000px;
 $min-width:500px;
+
+$sans: "Whitney SSm A", "Whitney SSm B", sans-serif;
 
 @function R2P($size) {
 	$pxSize: $size * 16;

@@ -14,8 +14,9 @@
 		.notice.error {
 			margin-bottom: 0;
 			border-radius: 0;
-			font-family: 'Whitney';
-			font-family: "Whitney SSm A", "Whitney SSm B";
+			// font-family: 'Whitney';
+			// font-family: "Whitney SSm A", "Whitney SSm B";
+			font-family: $sans;
 		}
 		.flash-share {
 			margin-bottom: 0;
@@ -23,8 +24,9 @@
 			background: rgb(245,245,247);
 			.panel-body {
 				padding: 65px;
-				font-family: 'Whitney';
-				font-family: "Whitney SSm A", "Whitney SSm B";
+				// font-family: 'Whitney';
+				// font-family: "Whitney SSm A", "Whitney SSm B";
+				font-family: $sans;
 			}
 			.form {
 				.form-group {
@@ -57,8 +59,9 @@
 	}
 }
 .content-user-sessions-new-wide {
-	font-family: 'Whitney';
-	font-family: "Whitney SSm A", "Whitney SSm B";
+	// font-family: 'Whitney';
+	// font-family: "Whitney SSm A", "Whitney SSm B";
+	font-family: $sans;
 	.form-group {
 		label {
 			font-weight: 400;
@@ -102,8 +105,9 @@ form .form-errors ul {
 .content-users-password-resets-new-wide {
 	max-width: 700px;
 	margin: 10% auto;
-	font-family: 'Whitney';
-	font-family: "Whitney SSm A", "Whitney SSm B";
+	// font-family: 'Whitney';
+	// font-family: "Whitney SSm A", "Whitney SSm B";
+	font-family: $sans;
 	h2.headline {
 		font-size: 4rem;
 		@include at-query ($max, $large) {

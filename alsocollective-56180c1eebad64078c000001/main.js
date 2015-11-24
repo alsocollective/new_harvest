@@ -12,6 +12,7 @@ var app = {
 			app.top_viz.init();
 		}
 		app.about.init();
+		app.lazy_loading.init();
 	}
 }
 
@@ -164,6 +165,23 @@ app.waypoints = {
 			$(".scrowled_on_to_section").removeClass("scrowled_on_to_section");
 			target.addClass("scrowled_on_to_section");
 		}
+	}
+}
+
+app.lazy_loading = {
+	init: function() {
+		var targets = $("img.lazy");
+		targets.each(app.lazy_loading.convert_id_to_data);
+		targets.lazyload({
+			threshold: 200,
+			effect: "fadeIn",
+			placeholder: "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+		});
+	},
+	convert_id_to_data: function(i, e) {
+		console.log(i)
+		console.log(e)
+		$(e).attr("data-original", "http://data.new-harvest.org/" + e.id);
 	}
 }
 
