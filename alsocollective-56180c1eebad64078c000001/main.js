@@ -21,6 +21,7 @@ app.nav = {
 		app.nav.mobile.init();
 		app.nav.waypoint.init();
 		app.nav.donate.init();
+		app.nav.expand.init();
 	},
 	mobile: {
 		last_location: 0,
@@ -135,6 +136,14 @@ app.nav = {
 			// window.open(this.href,"NewHarvest Donate", strWindowFeatures);
 			// return false;
 		}
+	},
+	expand: {
+		// init: function() {
+		// 	$(".arrow_svg").click(app.nav.expand.click);
+		// },
+		// click: function() {
+		// 	$(this).toggleClass("active");
+		// }
 	}
 }
 
@@ -210,12 +219,12 @@ app.top_viz = {
 app.index = {
 	init: function() {
 		console.log("index init");
-		var head = document.getElementsByTagName('head')[0];
-		var script = document.createElement('script');
-		script.type = 'text/javascript';
-		script.onload = app.index.start_d3;
-		script.src = 'https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js';
-		head.appendChild(script);
+		// var head = document.getElementsByTagName('head')[0];
+		// var script = document.createElement('script');
+		// script.type = 'text/javascript';
+		// script.onload = app.index.start_d3;
+		// script.src = 'https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js';
+		// head.appendChild(script);
 	},
 	start_d3: function() {
 		app.index.generate_project();

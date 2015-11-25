@@ -143,6 +143,32 @@
 			&.active>a{
 				color: $red;
 			}
+			.double-link{
+				width: 100%;
+				a{
+					width: auto;
+					display: inline-block;
+					&:last-child{
+						padding: 0.2rem;
+					}
+				}
+				.arrow_svg{
+					@include vendorize(transform, rotate(-90deg));
+					svg{
+						max-height: 1.5rem;
+						max-width: 1.5rem;
+						margin-bottom: -3px;
+						fill: $black;
+					}
+					&:hover svg{
+						fill: $red;
+					}
+				}
+				.collapsed .arrow_svg{
+					position: relative;
+					@include vendorize(transform, rotate(0deg));
+				}
+			}
 			a { 
 				color: $black;
 				// font-weight: bold;

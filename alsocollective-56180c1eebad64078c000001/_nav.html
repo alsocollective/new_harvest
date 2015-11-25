@@ -37,22 +37,33 @@
 						</li>   
 					{% else %}
 						<li class="{% if child.is_or_is_ancestor_of_current_page? %}active{% endif %} dropdown-custom">
-								 <a data-toggle="collapse" href="#dropdown-{{child.slug}}" role="button" ria-expanded="false" {% if child.is_or_is_ancestor_of_current_page? == false %}class="collapsed sdfgsdfg"{% endif %} >
-									{{ child.name }}
-								</a>
-								<div id="dropdown-{{child.slug}}" class="panel-collapse collapse {% if child.is_or_is_ancestor_of_current_page? %}in{% endif %}" role="menu" {% if child.is_or_is_ancestor_of_current_page? %}aria-expanded="true"{% endif %}>
-									<div class="panel-body">
-										<ul class="sub-nav">
-											{% for child_child in child.nav_children %}
-												<li {% if child_child.is_or_is_ancestor_of_current_page? %}class="active"{% endif %}>
-													<a href="{% if child.headline != "" %}
-													{{child.url}}#{% endif %}{{ child_child.url | remove: '/' }}">{{ child_child.name }}</a>
-												</li>
-											{% endfor %}
-										</ul>
+							{% if child.headline != "" %}
+							<div class="double-link">
+								<a href="{{ child.url }}">{{ child.name }}</a>
+								<a data-toggle="collapse" href="#dropdown-{{child.slug}}" role="button" ria-expanded="false" {% if child.is_or_is_ancestor_of_current_page? == false %}class="collapsed sdfgsdfg"{% endif %} >
+									<div class="arrow_svg {% if child.is_or_is_ancestor_of_current_page? %}active{% endif %}">
+										<svg version="1.1" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" width="38.236px" height="81.932px" viewBox="0 0 38.236 81.932" xml:space="preserve"><defs></defs><polyline stroke-width="10" stroke-miterlimit="10" points="34.211,78.966 6.211,40.966 34.211,2.966 "></polyline></svg>
 									</div>
+								</a>
+							</div>
+							{% else %}
+							<a data-toggle="collapse" href="#dropdown-{{child.slug}}" role="button" ria-expanded="false" {% if child.is_or_is_ancestor_of_current_page? == false %}class="collapsed sdfgsdfg"{% endif %} >
+								{{ child.name }}
+							</a>
+							{% endif %}
+							<div id="dropdown-{{child.slug}}" class="panel-collapse collapse {% if child.is_or_is_ancestor_of_current_page? %}in{% endif %}" role="menu" {% if child.is_or_is_ancestor_of_current_page? %}aria-expanded="true"{% endif %}>
+								<div class="panel-body">
+									<ul class="sub-nav">
+										{% for child_child in child.nav_children %}
+											<li {% if child_child.is_or_is_ancestor_of_current_page? %}class="active"{% endif %}>
+												<a href="{% if child.headline != "" %}
+												{{child.url}}#{% endif %}{{ child_child.url | remove: '/' }}">{{ child_child.name }}</a>
+											</li>
+										{% endfor %}
+									</ul>
 								</div>
-							</li>
+							</div>
+						</li>
 					{% endif %}
 				{% endfor %}
 			</ul>
