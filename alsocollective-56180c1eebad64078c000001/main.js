@@ -9,7 +9,7 @@ var app = {
 		if ($("#index_page").length) {
 			app.index.init();
 		} else if ($(".side-body .headline").length) {
-			// app.top_viz.init();
+			app.top_viz.init();
 		}
 		app.about.init();
 		app.lazy_loading.init();
@@ -205,12 +205,21 @@ app.top_viz = {
 		// d3_top_area_thing("#FF0000", "#0000FF");
 	},
 	resize: function() {
-		var target = $(".side-body .headline");
+		// var target = $(".header_area .border");
+		var viz = $("#node_top_visual"); //,
+		// viz_parent = viz.parent()
 
-		$("#node_top_visual").attr({
-			"width": $(target[0].parentNode).outerWidth(),
-			"height": target.outerHeight()
+		viz.attr({
+			"width": viz.parent().outerWidth(),
+			"height": viz.parent().outerHeight()
 		});
+
+		// $("#node_top_visual").attr({
+		// 	"width": $(target[0].parentNode).outerWidth(),
+		// 	"height": target.outerHeight()
+		// });
+
+
 		//dot colour, line colour, dot move distnce,
 		d3_top_area_thing("#333", "#333", 0.05);
 	}
