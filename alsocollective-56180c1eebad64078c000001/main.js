@@ -12,6 +12,7 @@ var app = {
 			app.top_viz.init();
 		}
 		app.about.init();
+		app.lazy_loading.init();
 	}
 }
 
@@ -20,6 +21,7 @@ app.nav = {
 		app.nav.mobile.init();
 		app.nav.waypoint.init();
 		app.nav.donate.init();
+		// app.nav.expand.init();
 	},
 	mobile: {
 		last_location: 0,
@@ -134,6 +136,14 @@ app.nav = {
 			// window.open(this.href,"NewHarvest Donate", strWindowFeatures);
 			// return false;
 		}
+	},
+	expand: {
+		// init: function() {
+		// 	$(".arrow_svg").click(app.nav.expand.click);
+		// },
+		// click: function() {
+		// 	$(this).toggleClass("active");
+		// }
 	}
 }
 
@@ -167,6 +177,23 @@ app.waypoints = {
 	}
 }
 
+app.lazy_loading = {
+	init: function() {
+		var targets = $("img.lazy");
+		targets.each(app.lazy_loading.convert_id_to_data);
+		targets.lazyload({
+			threshold: 200,
+			effect: "fadeIn",
+			placeholder: "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+		});
+	},
+	convert_id_to_data: function(i, e) {
+		console.log(i)
+		console.log(e)
+		$(e).attr("data-original", "http://data.new-harvest.org/" + e.id);
+	}
+}
+
 app.top_viz = {
 	init: function() {
 		app.top_viz.resize();
@@ -192,12 +219,12 @@ app.top_viz = {
 app.index = {
 	init: function() {
 		console.log("index init");
-		var head = document.getElementsByTagName('head')[0];
-		var script = document.createElement('script');
-		script.type = 'text/javascript';
-		script.onload = app.index.start_d3;
-		script.src = 'https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js';
-		head.appendChild(script);
+		// var head = document.getElementsByTagName('head')[0];
+		// var script = document.createElement('script');
+		// script.type = 'text/javascript';
+		// script.onload = app.index.start_d3;
+		// script.src = 'https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js';
+		// head.appendChild(script);
 	},
 	start_d3: function() {
 		app.index.generate_project();

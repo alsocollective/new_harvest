@@ -25,8 +25,9 @@
 	top: 21px;
 	right: 5px;
 	color: black;
-	font-family: 'Whitney', sans-serif;
-	font-family: "Whitney SSm A", "Whitney SSm B";
+	// font-family: 'Whitney', sans-serif;
+	// font-family: "Whitney SSm A", "Whitney SSm B";
+	font-family: $sans;
 	font-weight: 500;
 	font-size: 2.1rem;
 	text-decoration: none;
@@ -51,8 +52,9 @@
 	top: 21px;
 	right: 5px;
 	color: black;
-	font-family: 'Whitney', sans-serif;
-	font-family: "Whitney SSm A", "Whitney SSm B";
+	// font-family: 'Whitney', sans-serif;
+	// font-family: "Whitney SSm A", "Whitney SSm B";
+	font-family: $sans;
 	font-weight: 500;
 	font-size: 2.1rem;
 	text-decoration: none;
@@ -67,6 +69,29 @@
 }
 
 #content {
+	.progress-stages .donate-freq-button{
+		display: inline-block;
+		padding: 0.5rem 1rem;
+		border: solid 1px $grey	;
+		font-family: $sans;
+		color: $grey;
+		font-weight: bolder;
+		&:hover,&.current-button{
+			background-color: $sky-blue;
+			border-color: $sky-blue;
+			color: $white;
+		}
+		&.current-button:first-child{
+			border-right: none;
+		}
+		&:first-child{
+			margin: 0 0 0.5rem 1rem;
+		}
+		&.current-button:last-child{
+			border-left: none;
+		}
+
+	}
 	.staged-donation-container {
 		margin: 50px 0 50px 7%;
 		@include at-query($max,1200px){

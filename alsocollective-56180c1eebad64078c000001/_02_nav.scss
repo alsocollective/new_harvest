@@ -14,8 +14,9 @@
 	// width: 100%;
 	height: 100%;
 	border-right: 1px solid $border-grey;
-	font-family: 'Whitney',sans-serif;
-	font-family: "Whitney SSm A", "Whitney SSm B";
+	// font-family: 'Whitney',sans-serif;
+	// font-family: "Whitney SSm A", "Whitney SSm B";
+	font-family: $sans;
 	font-size: 1.5rem;
 	font-weight: 400;
 	overflow: scroll;
@@ -142,6 +143,32 @@
 			&.active>a{
 				color: $red;
 			}
+			.double-link{
+				width: 100%;
+				a{
+					width: auto;
+					display: inline-block;
+					&:last-child{
+						padding: 0.2rem;
+					}
+				}
+				.arrow_svg{
+					@include vendorize(transform, rotate(-90deg));
+					svg{
+						max-height: 1.5rem;
+						max-width: 1.5rem;
+						margin-bottom: -3px;
+						fill: $black;
+					}
+					&:hover svg{
+						fill: $red;
+					}
+				}
+				.collapsed .arrow_svg{
+					position: relative;
+					@include vendorize(transform, rotate(0deg));
+				}
+			}
 			a { 
 				color: $black;
 				// font-weight: bold;
@@ -267,8 +294,8 @@
 					}
 					&.collapsed{
 						&:hover{
-							background-color: $sky-blue;
-							color: $white;
+							// background-color: $sky-blue;
+							// color: $white;
 						}
 					}
 				}
@@ -405,7 +432,8 @@
 		width: 30px;
 		position: relative;
 		top: 20px;
-		fill: $sky-blue;
+		// fill: $sky-blue;
+		fill: $black;
 	}
 	
 }

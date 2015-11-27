@@ -3,8 +3,9 @@
 	margin: 0 auto;
 	.headline{
 		text-align: center;
-		font-family: 'Whitney', sans-serif;
-		font-family: "Whitney SSm A", "Whitney SSm B";
+		// font-family: 'Whitney', sans-serif;
+		// font-family: "Whitney SSm A", "Whitney SSm B";
+		font-family: $sans;
 		line-height: 6.5rem;
 		font-weight: 400;
 		max-width: 700px;

@@ -6,6 +6,8 @@
 @import "framework_countdown2"; // Moneybomb page countdown timer styles
 @import "updates"; // Style updates and additions for site components
 
+@import "00_settings";
+
 // NationBuilder extensions
 .module {
 	margin-top: $line-height-computed;
@@ -223,6 +225,29 @@ footer {
 .pagination-container {
 	margin-top: $line-height-computed;
 	border-top: 1px solid $hr-border;
+	max-width: 700px;
+	margin: 0 auto;
+	text-align: center;
+	.pagination{
+		li{
+			a{
+				border-radius: 0;
+				border: none;
+				color: $black;
+				font-family: $sans;
+				&:hover{
+					color: $sky-blue;
+					background-color: transparent;
+				}
+			}
+			&.active a{
+				background-color: transparent;
+				text-decoration: underline;
+				// color: $red;
+			}
+
+		}
+	}
 }
 
 .addreaction {
@@ -439,7 +464,7 @@ h6.subhead {
 
 http://patorjk.com/software/taag/#p=display&f=Doom&t=ALSO%20CODE%0A
 */
-@import "00_settings";
+
 @import "01_global";
 @import "02_nav";
 @import "03_donate";
