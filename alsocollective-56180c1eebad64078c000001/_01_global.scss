@@ -121,6 +121,7 @@ body {
 			display: inline-block;
 			margin-left: 10rem;
 			padding: 0.7rem 1.3rem 0.4rem 1.3rem;
+			margin: 1rem 1rem 1rem 10rem;
 			color: #fff;
 			//font-size: 3rem;
 			font-weight: 600;
@@ -137,6 +138,19 @@ body {
 		}
 		h6 {
 			//font-size: 1.4rem;
+		}
+		ol {
+			width: 70%;
+			margin: 0 auto;
+			font-size: 1.3rem;
+			/* background-color: #eee; */
+			/* padding: 5em 5em 5em 5em; */
+			font-family: $sans;
+			padding-right: 5%;
+
+			li {
+				margin-bottom: 1rem;
+			}
 		}
 		p {
 			font-size: 1.9rem;
