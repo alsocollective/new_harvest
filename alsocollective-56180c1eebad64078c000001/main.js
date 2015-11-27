@@ -21,7 +21,7 @@ app.nav = {
 		app.nav.mobile.init();
 		app.nav.waypoint.init();
 		app.nav.donate.init();
-		app.nav.expand.init();
+		// app.nav.expand.init();
 	},
 	mobile: {
 		last_location: 0,
