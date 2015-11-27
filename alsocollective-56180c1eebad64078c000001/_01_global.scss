@@ -54,10 +54,18 @@ body {
 	}
 	#node_top_visual {
 		position: absolute;
-		top: 0;
-		border-bottom: 1px solid $border-grey;
+		// top: 0;
 		// width: 100%;
 		// height: 219px;
+		position: absolute;
+		/* top: 0; */
+		border: 5px solid #333;
+		width: 80%;
+
+		padding: 3em;
+		/* margin: 0 auto !important; */
+		margin-left: 8% !important;
+		margin-top: 5em;
 	}
 	a {
 		color: $sky-blue;
@@ -141,13 +149,6 @@ body {
 			padding: 0 20px;
 			p {
 				font-size: 24px;
-			}
-			@include at-query ($max, 1050px){
-				max-width: 86%;
-				padding: 0;
-				p {
-					padding: 0;
-				}
 			}
 		}
 		.like-page, .page-tags{
