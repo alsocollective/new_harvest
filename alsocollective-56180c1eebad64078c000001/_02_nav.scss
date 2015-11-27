@@ -155,10 +155,16 @@
 							stroke:$red;
 						}
 					}
+					&.title_link_embed{
+						padding: 1rem 0px 1rem 10%;
+						width: 100%;
+					}
 				}
 				.arrow_svg{
-					@include vendorize(transform, rotate(-90deg));
+					display: inline-block;
 					svg{
+						@include vendorize(transform, rotate(-90deg));
+
 						max-height: 1rem;
 						max-width: 1rem;
 						margin-bottom: 0px;
@@ -171,7 +177,9 @@
 				}
 				.collapsed .arrow_svg{
 					position: relative;
-					@include vendorize(transform, rotate(0deg));
+					svg{
+						@include vendorize(transform, rotate(180deg));
+					}
 				}
 			}
 			a { 
