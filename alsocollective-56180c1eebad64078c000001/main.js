@@ -9,7 +9,7 @@ var app = {
 		if ($("#index_page").length) {
 			app.index.init();
 		} else if ($(".side-body .headline").length) {
-			app.top_viz.init();
+			// app.top_viz.init();
 		}
 		app.about.init();
 		app.lazy_loading.init();
