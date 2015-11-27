@@ -212,7 +212,7 @@ app.top_viz = {
 			"height": target.outerHeight()
 		});
 		//dot colour, line colour, dot move distnce,
-		d3_top_area_thing("#333", "#333", 0.009);
+		d3_top_area_thing("#333", "#333", 0.05);
 	}
 }
 
@@ -239,11 +239,11 @@ app.index = {
 		out.fill = d3.scale.category20();
 
 		out.force = d3.layout.force()
-			.linkStrength(0.1)
+			.linkStrength(0.05)
 			.size([out.width, out.height])
 			.nodes([{}]) // initialize with a single node
 		.linkDistance(150)
-			.charge(-60)
+			.charge(-160)
 			.on("tick", tick);
 
 		out.svg = d3.select("#index_interactive_background") //document.querySelector("#index_interactive_background") //d3.select("body").append("svg")
