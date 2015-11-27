@@ -82,10 +82,11 @@ body {
 	.page-tag a{
 		color: $white;
 	}
-	h2.headline {
+	h1.headline {
 		max-width: 700px;
 		margin: 0 auto;
-		padding: 46px 0 40px;
+		margin-top: 3rem;
+		padding: 3rem 0 40px;
 		font-size: 6.1rem;
 		position: relative;
 		z-index: 2;
@@ -203,6 +204,21 @@ body {
 	}	
 
 
+}
+
+.header_area{
+	width: 80%;
+    margin: 0 auto;
+    max-width: 700px;
+    position: relative;
+    padding-bottom: 3rem;
+    .border{
+    	position: absolute;
+		border:5px solid $black;
+		width: 120%;
+		left: -10%;
+		height: 100%;
+    }
 }
 
 .share-container{
