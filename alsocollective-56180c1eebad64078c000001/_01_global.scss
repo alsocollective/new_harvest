@@ -142,6 +142,13 @@ body {
 			p {
 				font-size: 24px;
 			}
+			@include at-query ($max, 1050px){
+				max-width: 86%;
+				padding: 0;
+				p {
+					padding: 0;
+				}
+			}
 		}
 		.like-page, .page-tags{
 			max-width: 700px;
