@@ -37,20 +37,22 @@
 						</li>   
 					{% else %}
 						<li class="{% if child.is_or_is_ancestor_of_current_page? %}active{% endif %} dropdown-custom">
-							{% if child.headline != "" %}
+
 							<div class="double-link">
+								{% if child.headline != "" %}
 								<a href="{{ child.url }}">{{ child.name }}</a>
 								<a data-toggle="collapse" href="#dropdown-{{child.slug}}" role="button" ria-expanded="false" {% if child.is_or_is_ancestor_of_current_page? == false %}class="collapsed sdfgsdfg"{% endif %} >
+								{% else %}
+								<a data-toggle="collapse" href="#dropdown-{{child.slug}}" role="button" ria-expanded="false" class="{% if child.is_or_is_ancestor_of_current_page? == false %}collapsed sdfgsdfg{% endif %} title_link_embed" >
+									<span class="title_link">{{ child.name }}</span>
+								{% endif %}
+								
 									<div class="arrow_svg {% if child.is_or_is_ancestor_of_current_page? %}active{% endif %}">
 									<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" width="28px" height="47px" viewBox="0 0 28 47" style="enable-background:new 0 0 28 47;" xml:space="preserve"><defs></defs><polyline points="28,47 0,23.5 28,0 "/></svg>
 									</div>
 								</a>
 							</div>
-							{% else %}
-							<a data-toggle="collapse" href="#dropdown-{{child.slug}}" role="button" ria-expanded="false" {% if child.is_or_is_ancestor_of_current_page? == false %}class="collapsed sdfgsdfg"{% endif %} >
-								{{ child.name }}
-							</a>
-							{% endif %}
+							
 							<div id="dropdown-{{child.slug}}" class="panel-collapse collapse {% if child.is_or_is_ancestor_of_current_page? %}in{% endif %}" role="menu" {% if child.is_or_is_ancestor_of_current_page? %}aria-expanded="true"{% endif %}>
 								<div class="panel-body">
 									<ul class="sub-nav">
