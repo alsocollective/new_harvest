@@ -150,19 +150,24 @@
 					display: inline-block;
 					&:last-child{
 						padding: 0.2rem;
+						padding-right: 5rem;
+						&:hover .arrow_svg svg{
+							stroke:$red;
+						}
 					}
 				}
 				.arrow_svg{
 					@include vendorize(transform, rotate(-90deg));
 					svg{
-						max-height: 1.5rem;
-						max-width: 1.5rem;
-						margin-bottom: -3px;
-						fill: $black;
+						max-height: 1rem;
+						max-width: 1rem;
+						margin-bottom: 0px;
+						stroke:$black;
+						fill:none;
+						stroke-width:5px;
+						// fill: $black;
 					}
-					&:hover svg{
-						fill: $red;
-					}
+
 				}
 				.collapsed .arrow_svg{
 					position: relative;
