@@ -212,7 +212,7 @@ app.top_viz = {
 			"height": target.outerHeight()
 		});
 		//dot colour, line colour, dot move distnce,
-		d3_top_area_thing("#ffc0c6", "#90d8fc", 0.1);
+		d3_top_area_thing("#333", "#333", 0.009);
 	}
 }
 
@@ -418,14 +418,14 @@ function d3_top_area_thing(fill_colour, stroke_colour, move_distance) {
 		context = canvas.getContext("2d"),
 		width = canvas.width,
 		height = canvas.height,
-		radius = 2.5,
+		radius = 5,
 		minDistance = 60,
 		maxDistance = 80,
 		minDistance2 = minDistance * minDistance,
 		maxDistance2 = maxDistance * maxDistance;
 
 	var tau = 2 * Math.PI,
-		n = 50,
+		n = 100,
 		particles = new Array(n);
 
 	for (var i = 0; i < n; ++i) {

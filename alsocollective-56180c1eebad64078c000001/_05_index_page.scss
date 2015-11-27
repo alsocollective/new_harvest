@@ -60,6 +60,12 @@
 			text-decoration: none;
 			img {
 				width: 90%;
+				border-radius: 100%;
+				border: 4px solid #ddd;
+				border-spacing: 52em !important;
+				box-sizing: content-box;
+				border-collapse: separate !important;
+				width: 10em !important;
 			}
 			@include at-query($max,$inbetween){
 				width: 90%;
