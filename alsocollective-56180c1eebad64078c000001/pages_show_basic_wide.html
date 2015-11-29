@@ -74,7 +74,8 @@
 		{% for descendants in page.descendants %}
 			{% if descendants.parent.title == page.title %}
 				<div id="{{descendants.slug}}">
-					<h2 class="headline_inline">{{descendants.name}}</h2>
+					<!--<h2 class="headline_inline">{{descendants.name}}</h2>-->
+					<h2>{{descendants.name}}</h2>
 					<div class="portfolio-layout">
 						{% for feature in descendants.features %}
 							<div class="project">	
