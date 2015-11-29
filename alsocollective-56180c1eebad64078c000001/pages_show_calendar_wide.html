@@ -1,9 +1,16 @@
 <div class="header_area">
-	<div class="border"><canvas id="node_top_visual" ></canvas></div>
+	{% comment %}<div class="border"><canvas id="node_top_visual" ></canvas></div>{% endcomment %}
 	<h1 class="headline"><span>{{ page.headline }}</span></h1>
+
 	{% if page.basic.content != "" %}			
 		<div class="text-content">
 			{{ page.basic.content }}
+		</div>
+	{% else %}
+		<div class="text-content">
+			{% for descendants in page.descendants %}
+				{{descendants.basic.content}}
+			{% endfor %}
 		</div>
 	{% endif %}
 </div>

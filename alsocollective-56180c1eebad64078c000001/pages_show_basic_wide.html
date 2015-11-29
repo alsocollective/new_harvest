@@ -112,9 +112,17 @@
 	<div class="header_area">
 		<h1 class="headline"><span>{{ page.headline }}</span></h1>
 		{% if page.basic.content != "" %}			
-			<div class="text-content">
-				{{ page.basic.content }}
-			</div>
+			{% if  page.basic.content | size > 10000 %}
+				<div class="text-content">
+					{% for descendants in page.descendants %}
+						{{descendants.basic.content}}
+					{% endfor %}
+				</div>
+			{% else %}
+				<div class="text-content">
+					{{ page.basic.content }}
+				</div>
+			{% endif %}
 		{% endif %}
 	</div>
 
@@ -122,6 +130,9 @@
 
 		<div id="intro" class="intro">
 			
+			{% if  page.basic.content | size < 10000 %}
+				{{ page.basic.content }}
+			{% endif %}
 
 			{% if page.has_parent? %}
 			<div class="portfolio-layout">
