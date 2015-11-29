@@ -167,17 +167,36 @@ body {
 			text-align: center;
 			font-weight: 600;
 			margin-top: 4rem;
-			border-bottom: 2px solid #ddd;
+		}
+		h2:before {
+			content: "";
+			display: block;
+			margin: 0.8em auto 0.6em auto;
+			width: 4em;
+			border-top: 1px solid #333;
+		}
+		h2:after {
+			content: "";
+			display: block;
+			margin: 0.6em auto 0.8em auto;
+			width: 4em;
+			border-bottom: 1px solid #333;
 		}
 		h3 {
-			font-weight: 400;
-			margin: 3.5rem auto 0;
+			font-weight: 100;
+			margin: 3.5rem auto 0.5rem;
+			letter-spacing: 0.2rem;
+			font-size: 3.4rem;
 		}
 		h4 {
-			font-size: 1.9rem;
+			font-size: 1.3rem;
 			font-weight: 400;
-			margin: 3.5rem auto 0;
-			letter-spacing: 1px;
+			margin: 0 auto;
+			letter-spacing: 0.2rem;
+			font-family: $sans;
+			color: $sky-blue;
+			text-transform: uppercase;
+			font-weight: 600;
 		}
 		h6 {
 			//font-size: 1.4rem;
@@ -199,16 +218,18 @@ body {
 			font-family: $sans;
 			list-style: none;
 			font-size: 1.4rem;
-			width:70%;
+			width:65%;
 			li {
 				margin-bottom: 1.5rem;
 			}
 			li:before {
-				content: "\u2219 ";
+				content: "• ";
+				font-family: verdana, sans-serif;
+				border-radius: 100%;
 				color: #09f;
 				font-weight: 700;
-				font-size: 1.6rem;
-				margin-left: -1.55rem;
+				font-size: 1.15rem;
+				margin-left: -1.3rem;
 				/*content: "• ";
 				color: #00f;
 				font-weight: 700;
@@ -337,7 +358,7 @@ body {
 			font-size: 2.3rem;
 			font-weight: 600;
 			margin: 0;
-			margin-bottom: 1.75rem;
+			//margin-bottom: 1.75rem;
 			padding: 0;
 			letter-spacing: 0.11rem;
 			line-height: 3rem;
@@ -351,6 +372,7 @@ body {
     	h5 {
     		margin: 0;
     		padding: 0;
+    		margin-bottom: 1.75rem
     	}
     }
 }
