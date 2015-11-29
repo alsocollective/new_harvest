@@ -1,71 +1,77 @@
 <div class="row">
 
-  <div class="col-md-full">
+	<div class="col-md-full">
 
-    
+		
 
-    {% if page.headline.size > 0 %}
-    <h2 class="headline">{{ page.headline }}</h2>
-    {% endif %}
+		<div class="header_area">
+			<div class="border"><canvas id="node_top_visual" ></canvas></div>
+			<h1 class="headline"><span>{{ page.headline }}</span></h1>
+			{% if page.basic.content != "" %}     
+				<div class="text-content">
+					{{ page.basic.content }}
+				</div>
+			{% endif %}
+		</div>
 
-    {% if page.faq.content.size > 0 %}
-    <div id="intro" class="intro">
-      {{ page.faq.content }}
-    </div>
-    {% endif %}
+		{% if page.faq.content.size > 0 %}
+		<div id="intro" class="intro">
+			{{ page.faq.content }}
+		</div>
+		{% endif %}
 
-    <div class="col-md-12 sidebar">
+		<div class="col-md-12 sidebar">
 
-    <div class="btn-group-vertical" role="group" id="faqs-subnav">
-      {% for child in page.children %}
-      {% if child.type_name == 'Question' %}
-      <a class="btn btn-default" href="#{{ child.url }}">{{ child.headline }}</a>
-      {% endif %}
-      {% endfor %}
-    </div>
+		<div class="btn-group-vertical" role="group" id="faqs-subnav">
+			{% for child in page.children %}
+			{% if child.type_name == 'Question' %}
+			<a class="btn btn-default" href="#{{ child.url }}">{{ child.headline }}</a>
+			{% endif %}
+			{% endfor %}
+		</div>
 
-  </div>
+	</div>
 
-    <div id="content">
+		<div id="content">
 
-      <div class="faq faq-{{ page.id }}">
-        {% for child in page.children %}
-        <div class="page-excerpt question-page-{{ child.id }}">
+			<div class="faq faq-{{ page.id }}">
+				{% for child in page.children %}
+				<div class="page-excerpt question-page-{{ child.id }}">
 
-          {% if child.type_name == 'Question' %}
-          <h2 id="{{ child.url }}">{{ child.headline }}</h2>
+					{% if child.type_name == 'Question' %}
+					<h2 id="{{ child.url }}">{{ child.headline }}</h2>
 
-          <div class="excerpt"=>
-            {% if child.question.content.size > 0 %}
-            {{ child.question.content }}
-            {% endif %}
-            {% if child.question.answer.size > 0 %}
-                  <div class="answer">{{ child.question.answer }}</div>
-            {% endif %}
-          </div>
-          {% endif %}
+					<div class="excerpt"=>
+						{% if child.question.content.size > 0 %}
+						{{ child.question.content }}
+						{% endif %}
+						{% if child.question.answer.size > 0 %}
+									<div class="answer">{{ child.question.answer }}</div>
+						{% endif %}
+					</div>
+					{% endif %}
 
-        </div>
-        {% endfor %}
-      </div>
+				</div>
+				{% endfor %}
+			</div>
 
-      {% if page.tags_count > 0 %}
-      <div id="page-tags" class="page-tags">
-        {% include "page_tags" with page %}
-      </div>
-      {% endif %}
+			{% if page.tags_count > 0 %}
+			<div id="page-tags" class="page-tags">
+				{% include "page_tags" with page %}
+			</div>
+			{% endif %}
 
-      <div class="like-page">
-        <strong>Was this helpful?</strong>
-        {% include "like_page" %}
-      </div>
+			<div class="like-page">
+				<strong>Was this helpful?</strong>
+				{% include "like_page" %}
+			</div>
 
-      {% if page.show_stream? %}
-      {% include "page_stream" %}
-      {% endif %}
+			{% if page.show_stream? %}
+			{% include "page_stream" %}
+			{% endif %}
 
-    </div>
+		</div>
 
-  </div>
+	</div>
 
 </div>

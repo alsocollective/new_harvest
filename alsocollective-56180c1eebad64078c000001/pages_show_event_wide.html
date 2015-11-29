@@ -1,13 +1,14 @@
 {% include "breadcrumbs" %}
 
-{% if page.headline.size > 0 %}
-<div id="headline">
-  <h2>{{ page.headline }}</h2>
-  {% if page.has_author? %}
-  {% include "page_byline" %}
+<div class="header_area">
+  <div class="border"><canvas id="node_top_visual" ></canvas></div>
+  <h1 class="headline"><span>{{ page.headline }}</span></h1>
+  {% if page.basic.content != "" %}     
+    <div class="text-content">
+      {{ page.basic.content }}
+    </div>
   {% endif %}
 </div>
-{% endif %}
 
 <div id="content">
   {% if page.event.content.size > 0 %}
