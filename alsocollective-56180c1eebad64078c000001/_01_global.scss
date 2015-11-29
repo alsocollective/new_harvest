@@ -10,8 +10,9 @@
 
 */
 body {
-	font-family: 'Fortescue Pro', serif;
-	font-family:"Fortescue Regular", 'Times New Roman', Times, serif; font-weight:normal; font-style:normal;
+	font-family: $fortescue;
+	/*font-family:"Fortescue Regular", 'Times New Roman', Times, serif; font-weight:normal; font-style:normal;
+	font-family:"DIN 1451 Engschrift Standard", Calibri, Helvetica, Arial, sans-serif, serif; font-size-adjust:0.479; font-weight:normal; font-style:normal;*/
 	font-size: 1.65rem;
 	letter-spacing: 0.015rem;
 	@include antialias;
@@ -92,6 +93,20 @@ body {
 		font-size: 6.1rem;
 		position: relative;
 		z-index: 2;
+
+		max-width: 700px;
+		margin: 0 auto;
+		margin-top: 3rem;
+		padding: 3rem 0 40px;
+		font-size: 5rem;
+		position: relative;
+		z-index: 2;
+		//font-family: $sans;
+		font-family:"DIN 1451 Engschrift Standard", Calibri, Helvetica, Arial, sans-serif, serif;
+		//font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.5rem;
+
 		@include at-query($max,1050px){
 			padding-left: 40px;
 		}
@@ -117,20 +132,20 @@ body {
 			margin: 10px auto;
 		}
 		h2 {
-			/*font-size: 2.6rem;
-			line-height: 1.4;*/
 			font-size: 2.6rem;
 			line-height: 1.4;
-			font-family: whitney;
+			font-family: $sans;
 			text-transform: uppercase;
-			background-color: #333;
-			display: inline-block;
-			margin-left: 10rem;
-			padding: 0.7rem 1.3rem 0.4rem 1.3rem;
-			margin: 1rem 1rem 1rem 10rem;
-			color: #fff;
-			//font-size: 3rem;
+			/* background-color: #333; */
+			/* display: inline-block; */
+			/* margin-left: 10rem; */
+			/* padding: 0.7rem 1.3rem 0.4rem 1.3rem; */
+			/* margin: 1rem 1rem 1rem 10rem; */
+			color: #333;
+			text-align: center;
 			font-weight: 600;
+			margin-top: 4rem;
+			border-bottom: 2px solid #ddd;
 		}
 		h3 {
 			font-weight: 400;
@@ -156,6 +171,22 @@ body {
 
 			li {
 				margin-bottom: 1rem;
+			}
+		}
+		ul {
+			font-family: $sans;
+			list-style: none;
+			font-size: 1.4rem;
+			width:70%;
+			li {
+				margin-bottom: 1.5rem;
+			}
+			li:before {
+				content: "• ";
+				color: #00f;
+				font-weight: 700;
+				font-size: 2.2rem;
+				margin-left: -1.3rem;
 			}
 		}
 		p {
@@ -261,11 +292,20 @@ body {
     padding-bottom: 3rem;
     .border{
     	position: absolute;
-		border:5px solid $black;
+		border:3px solid $black;
 		width: 120%;
 		left: -10%;
 		height: 100%;
 
+    }
+    .text-content {
+    	h1 {
+			font-size: 2.8rem;
+			font-family: $sans;
+			letter-spacing: 0.09rem;
+			font-weight: 600;
+			line-height: 3.25rem;
+    	}
     }
 }
 

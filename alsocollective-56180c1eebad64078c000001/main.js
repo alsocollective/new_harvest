@@ -221,7 +221,7 @@ app.top_viz = {
 
 
 		//dot colour, line colour, dot move distnce,
-		d3_top_area_thing("#333", "#333", 0.05);
+		d3_top_area_thing("#ddd", "#ddd", 0.05);
 	}
 }
 

@@ -21,6 +21,8 @@ $indsideWidth: 1000px;
 $min-width:500px;
 
 $sans: "Whitney SSm A", "Whitney SSm B", sans-serif;
+$fortescue: "Fortescue Regular", 'Times New Roman', Times, serif;
+$din: "DIN 1451 Engschrift Standard", Calibri, Helvetica, Arial, sans-serif;
 
 @function R2P($size) {
 	$pxSize: $size * 16;
