@@ -14,7 +14,7 @@
 			z-index: 1;
 			position: static;
 			padding: 3rem 0 3rem 3.2rem;
-			margin: 4rem auto 10rem auto;
+			margin: 4rem auto 5rem auto;
 			text-align: center;
 		br{
 			display: none;
@@ -134,7 +134,7 @@
 			}
 		}
 		p:first-child {
-			margin-bottom: 30px;
+			margin-bottom: 0;
 			a {
 				font-style: italic;
 			}
@@ -182,7 +182,7 @@
 	}
 }
 #index_blog {
-	padding: 7rem 0 3rem;
+	padding: 3rem 0 3rem;
 	border-top: 1px solid $border-grey;
 	margin-top: 100px;
 	position: relative;
