@@ -302,13 +302,13 @@ x5bGluZT48L3N2Zz4=]");*/
 	}
 
 }
-
-@include at-query($min,$inbetween){
-	@media screen and (max-height: 800px) {
-		.side-menu:hover {
-			z-index: 3;
-		}
+@media screen and (min-height: 800px) {
+	.side-menu:hover {
+		z-index: 3;
 	}
+}
+@include at-query($min,$inbetween){
+
 	.side-menu .side-menu-container{
 		ul {
 			li{

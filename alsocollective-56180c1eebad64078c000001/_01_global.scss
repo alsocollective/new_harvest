@@ -25,6 +25,9 @@ body {
 }
 
 	.pagination {
+		li{
+			margin-right: 1rem;
+		}
 		li:before {
 			content: "" !important;
 		}
@@ -100,6 +103,7 @@ body {
 		text-transform: uppercase;
 		letter-spacing: -0.05rem;
 		font-family: $din;
+		max-width: 700px;
 
 		// @include at-query($max,1050px){
 		// 	padding-left: 40px;
@@ -209,6 +213,7 @@ body {
 			width: 70%;
 			margin: 0 auto;
 			font-size: 1.1rem;
+			max-width: 700px;
 			/* background-color: #eee; */
 			/* padding: 5em 5em 5em 5em; */
 			font-family: $sans;
@@ -348,6 +353,8 @@ body {
     margin: 3.4rem auto 0;
     border: 3px solid #333;
     font-family: $sans;
+
+    max-width: 700px;
 
 	/*width: 80%;
     margin: 0 auto;

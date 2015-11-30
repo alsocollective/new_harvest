@@ -40,6 +40,8 @@
 			margin-bottom: 40px;
 			background-image: url('http://data.new-harvest.org/loader-yellow.gif');
 			text-align: center;
+			background-repeat: no-repeat;
+			background-position: center;
 			img {
 				padding-top: 10px;
 				padding-bottom: 10px;
@@ -52,11 +54,20 @@
 					max-height: none;
 					max-width: 90%;
 				}
-
+			}
+			img[alt="Acellular products"]{
+				padding-bottom: 0;
+				margin-bottom: 0;
+			}
+			img[alt="cellular products"]{
+				padding-top: 0;
+				margin-top: 0;
 			}
 			&.blue{
 				background: $off-blue;
 				background-image: url('http://data.new-harvest.org/loader-blue.gif');
+				background-repeat: no-repeat;
+				background-position: center;
 			}
 		}
 	}
