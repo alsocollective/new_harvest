@@ -74,7 +74,6 @@
 		{% for descendants in page.descendants %}
 			{% if descendants.parent.title == page.title %}
 				<div id="{{descendants.slug}}">
-					<!--<h2 class="headline_inline">{{descendants.name}}</h2>-->
 					<h2>{{descendants.name}}</h2>
 					<div class="portfolio-layout">
 						{% for feature in descendants.features %}
@@ -82,9 +81,9 @@
 								<a href="{{ feature.page.url }}"><img src="{{ feature.image_url }}" alt="{{ feature.headline }}"></a>
 								<div class="project-intro">
 									{% assign features_content = feature.headline | split:"|" %}
-										<h1><a href="{{ feature.page.url }}">{{ features_content | first }}</a></h1>
+										<h3><a href="{{ feature.page.url }}">{{ features_content | first }}</a></h3>
 									{% if features_content | last %}
-										<h3><a href="{{ feature.page.url }}">{{ features_content | last }}</a></h3>
+										<p><a href="{{ feature.page.url }}">{{ features_content | last }}</a></p>
 									{% endif %}
 								</div>
 							</div>
@@ -112,28 +111,47 @@
 
 	<div class="header_area">
 		<h1 class="headline"><span>{{ page.headline }}</span></h1>
-		{% if page.basic.content != "" %}			
-			{% if  page.basic.content | size > 10000 %}
-				<div class="text-content">
-					{% for descendants in page.descendants %}
-						{{descendants.basic.content}}
-					{% endfor %}
-				</div>
-			{% else %}
-				<div class="text-content">
-					{{ page.basic.content }}
-				</div>
-			{% endif %}
-		{% endif %}
+
+
+		{% case page.slug %}
+		{% when "grants" %}
+			<div class="text-content">
+				{{ page.basic.content }}
+			</div>
+		{% when "contact" %}
+		{% when "about" %}
+			<div class="text-content">
+				{{ page.basic.content }}
+			</div>
+		{% when "curated_media" %}
+			{% assign topcontent = page.basic.content|split: '<h1'|first %}
+			<div class="text-content">
+				{{topcontent}}
+			</div>
+		{%else%}
+		{% endcase %}
+
 	</div>
 
 	<div id="content">
-
 		<div id="intro" class="intro">
 			
-			{% if  page.basic.content | size < 10000 %}
+			{% case page.slug %}
+			{% when "grants" %}
+			{% when "contact" %}
 				{{ page.basic.content }}
-			{% endif %}
+			{% when "about" %}
+			{% when "curated_media" %}
+				
+				{{ page.basic.content|split: topcontent| last}}
+					
+				
+			{%else%}
+				{% if  page.basic.content | size | int < 8000 %}
+					{{ page.basic.content }}
+				{% endif %} 
+			{% endcase %}
+			
 
 			{% if page.has_parent? %}
 			<div class="portfolio-layout">
@@ -142,9 +160,9 @@
 						<a href="{{ feature.page.url }}"><img src="{{ feature.image_url }}" alt="{{ feature.headline }}"></a>
 						<div class="project-intro">
 							{% assign features_content = feature.headline | split:"|" %}
-								<h1><a href="{{ feature.page.url }}">{{ features_content | first }}</a></h1>
+								<h3><a href="{{ feature.page.url }}">{{ features_content | first }}</a></h3>
 							{% if features_content | last %}
-								<h3><a href="{{ feature.page.url }}">{{ features_content | last }}</a></h3>
+								<p><a href="{{ feature.page.url }}">{{ features_content | last }}</a></p>
 							{% endif %}
 						</div>
 					</div>
@@ -190,6 +208,5 @@
 		{% if page.show_stream? %}
 		{% include "page_stream" %}
 		{% endif %}
-
 	</div>
 {% endcase %}

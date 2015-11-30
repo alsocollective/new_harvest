@@ -1,5 +1,5 @@
 <div class="event-info">
-	<h2>{{ event.name }}<a href="{{ event.url }}"></a></h2><!-- removed the hyperlink it's still here just hidden -->
+	<h3>{{ event.name }}<a href="{{ event.url }}"></a></h3><!-- removed the hyperlink it's still here just hidden -->
 	<p>{{ event.event.local_start_at | date: '%A, %B %d, %Y at %I:%M %p' }}
 		{% if event.event.is_multi_day? %}
 		through {{ event.event.local_end_at | event_date }}
