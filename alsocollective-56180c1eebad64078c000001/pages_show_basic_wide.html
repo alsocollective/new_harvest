@@ -1,7 +1,7 @@
 {% case page.slug %}
 {% when "index" %}
 	<div id="index_page">
-		<svg id="index_interactive_background"></svg>
+		{% comment %}<svg id="index_interactive_background"></svg>{% endcomment %}
 		<h1 class="headline">{{ page.headline }}</h1>
 
 		<div id="index_featured">
@@ -31,7 +31,7 @@
 			{% subpage "blog" with "index_blog" %}
 		</div>
 	<div id="signup-in-indexpage">
-		<blockquote>Are you excited about the future New Harvest is building?<br/>Keep updated with our newsletter.</blockquote>
+		<h2>Are you excited about the future New Harvest is building?<br/>Keep updated with our newsletter.</h2>
 		{% form_for signup %}
 			{% hidden_field_tag "page_id", page.id %}
 

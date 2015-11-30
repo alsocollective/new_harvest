@@ -16,6 +16,9 @@
 			padding: 3rem 0 3rem 3.2rem;
 			margin: 4rem auto 10rem auto;
 			text-align: center;
+		br{
+			display: none;
+		}
 
 		@include at-query($max,1100px) {
 			// font-size: 3.5rem;
@@ -23,7 +26,10 @@
 			// max-width: 700px;
 			// padding-left: 0;
 		}
-		@include at-query($max,$inbetween) {
+		@include at-query($min,970px) {
+			br{
+				display: block;
+			}
 			// padding-top: 10rem;
 			// font-size: 3.3rem;
 			// line-height: 5.5rem;
@@ -81,7 +87,7 @@
 			margin: 0 1.66% 0 1.66%;
 			text-align: center;
 			position: relative;
-			vertical-align: top;
+			vertical-align: bottom;
 			text-decoration: none;
 			img {
 				width: 90%;
@@ -310,7 +316,7 @@
 }
 #signup-in-indexpage {
 	max-width: 100%;
-	padding: 100px;
+	padding: 100px 0;
 	margin-top: 50px;
 	border-top: 1px solid $border-grey;
 	position: relative;
@@ -396,4 +402,14 @@
 		}
 	}
 
+}
+
+#signup-in-indexpage h2, #index_content h2{
+	font-family: $sans;
+	font-weight: 400;
+	font-size: 2.4rem;
+	line-height: 1.3;
+	max-width: none;
+	padding-left: 0;
+	padding-right: 0;
 }
