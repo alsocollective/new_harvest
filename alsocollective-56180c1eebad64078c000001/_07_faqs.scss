@@ -2,7 +2,7 @@
 	.sidebar {
 		padding-top: 50px;
 		padding-bottom: 50px;
-		border-top: 1px solid $border-grey;
+		// border-top: 1px solid $border-grey;
 		border-bottom: 1px solid $border-grey;
 		margin-bottom: 50px;
 		@include at-query($max,1050px){
