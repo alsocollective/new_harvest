@@ -9,7 +9,7 @@ var app = {
 		if ($("#index_page").length) {
 			app.index.init();
 		} else if ($(".side-body .headline").length) {
-			app.top_viz.init();
+			// app.top_viz.init();
 		}
 		app.about.init();
 		app.lazy_loading.init();
@@ -160,7 +160,6 @@ app.waypoints = {
 			handler: app.waypoints.handler_top,
 			offset: '100%'
 		})
-
 	},
 	handler_top: function(direction) {
 		var target = $("a[href='#" + this.element.id + "']");
@@ -188,8 +187,6 @@ app.lazy_loading = {
 		});
 	},
 	convert_id_to_data: function(i, e) {
-		console.log(i)
-		console.log(e)
 		$(e).attr("data-original", "http://data.new-harvest.org/" + e.id);
 	}
 }
