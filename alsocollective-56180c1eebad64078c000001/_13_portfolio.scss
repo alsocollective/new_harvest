@@ -39,6 +39,7 @@
 					border: 4px solid #ddd;
 					box-sizing: content-box;
 					border-collapse: separate !important;
+					
 				}
 				a {
 					color: #000;
@@ -54,8 +55,9 @@
 					@include at-query($max,1100px){
 						width: 100%;
 						img {
-							max-width: 100%;
-							width: 100%;
+							max-width: 75%;
+							width: 75%;
+							margin: 0;
 						}
 					}
 				}
@@ -101,6 +103,9 @@
 						display: block;
 						margin: 0 auto;
 					}
+				}
+				@include at-query($max,$inbetween) {
+					text-align: center;
 				}
 			}
 		}

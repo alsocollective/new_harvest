@@ -114,21 +114,21 @@
 
 
 		{% case page.slug %}
-		{% when "grants" %}
-			<div class="text-content">
-				{{ page.basic.content }}
-			</div>
-		{% when "contact" %}
-		{% when "about" %}
-			<div class="text-content">
-				{{ page.basic.content }}
-			</div>
-		{% when "curated_media" %}
-			{% assign topcontent = page.basic.content|split: '<h1'|first %}
-			<div class="text-content">
-				{{topcontent}}
-			</div>
-		{%else%}
+			{% when "grants" %}
+				<div class="text-content">
+					{{ page.basic.content }}
+				</div>
+			{% when "contact" %}
+			{% when "about" %}
+				<div class="text-content">
+					{{ page.basic.content }}
+				</div>
+			{% when "curated_media" %}
+				{% assign topcontent = page.basic.content|split: '<h2'|first %}
+				<div class="text-content">
+					{{topcontent}}
+				</div>
+			{%else%}
 		{% endcase %}
 
 	</div>
@@ -137,19 +137,19 @@
 		<div id="intro" class="intro">
 			
 			{% case page.slug %}
-			{% when "grants" %}
-			{% when "contact" %}
-				{{ page.basic.content }}
-			{% when "about" %}
-			{% when "curated_media" %}
-				
-				{{ page.basic.content|split: topcontent| last}}
-					
-				
-			{%else%}
-				{% if  page.basic.content | size | int < 8000 %}
+				{% when "grants" %}
+				{% when "contact" %}
 					{{ page.basic.content }}
-				{% endif %} 
+				{% when "about" %}
+				{% when "curated_media" %}
+					
+					{{ page.basic.content|split: topcontent| last}}
+						
+					
+				{%else%}
+					{% if  page.basic.content | size | int < 8000 %}
+						{{ page.basic.content }}
+					{% endif %} 
 			{% endcase %}
 			
 

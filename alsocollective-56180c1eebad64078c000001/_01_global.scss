@@ -57,7 +57,7 @@ body {
 
 	.main-container{
 		margin: 0;
-		min-height: 700px;
+		min-height: 550px;
 	}
 	#node_top_visual {
 		// position: absolute;
@@ -101,17 +101,15 @@ body {
 		letter-spacing: -0.05rem;
 		font-family: $din;
 
-		@include at-query($max,1050px){
-			padding-left: 40px;
-		}
+		// @include at-query($max,1050px){
+		// 	padding-left: 40px;
+		// }
 		@include at-query($max,$inbetween){
-			padding: 80px 10px 30px;
 			width: 90%;
 			margin: 0 auto;
-			font-size: 4rem;
+			padding-bottom: 2rem;	
 		}
-		>span{
-		}
+
 
 		//OLD STUFF
 		/*max-width: 700px;
@@ -236,12 +234,11 @@ body {
 				font-weight: 700;
 				font-size: 1.15rem;
 				margin-left: -1.3rem;
-				/*content: "• ";
-				color: #00f;
-				font-weight: 700;
-				font-size: 2.2rem;
-				margin-left: -1.3rem;*/
 			}
+			@include at-query($max,$inbetween) {
+				width: 85%;
+			}
+
 		}
 		p {
 			font-size: 1.8rem;
@@ -291,6 +288,9 @@ body {
 				display: none;
 			}
 		}
+		.page-tags{
+			display: none !important;
+		}
 		iframe {
 			margin: 3rem auto;
 		}
@@ -300,6 +300,9 @@ body {
 			}
 			.twitter-cell{
 				margin-right: 1.8rem;
+			}
+			@include at-query($max,$inbetween) {
+				display: none;
 			}
 		}
 		@include at-query($max,1200px){
@@ -351,6 +354,14 @@ body {
     max-width: 700px;
     position: relative;
     padding-bottom: 3rem;*/
+
+	@include at-query($max,$inbetween){
+		width: 95%;
+		padding: 1rem;
+		margin: 8rem auto 0;
+	}
+
+
     .border{
     	position: absolute;
 		border:3px solid $black;
@@ -364,21 +375,23 @@ body {
 			font-size: 2.3rem;
 			font-weight: 600;
 			margin: 0;
-			//margin-bottom: 1.75rem;
 			padding: 0;
 			letter-spacing: 0.11rem;
 			line-height: 3rem;
 
-			/*font-size: 2.8rem;
-			font-family: $sans;
-			letter-spacing: 0.09rem;
-			font-weight: 600;
-			line-height: 3.25rem;*/
+			@include at-query($max,$inbetween) {
+				font-size: 1.8rem;
+				line-height: 1.4;
+			}
     	}
     	h5 {
     		margin: 0;
     		padding: 0;
-    		margin-bottom: 1.75rem
+    		margin-bottom: 1.75rem;
+			@include at-query($max,$inbetween) {
+				margin-bottom: 1.25rem;
+			}
+
     	}
     }
 }

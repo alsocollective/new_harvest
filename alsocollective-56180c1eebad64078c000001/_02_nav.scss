@@ -161,6 +161,9 @@
 					}
 					&.title_link_embed{
 						padding: 1rem 0px 1rem 10%;
+						@include at-query($max,$inbetween){
+							padding: 0;
+						}
 						width: 100%;
 					}
 				}

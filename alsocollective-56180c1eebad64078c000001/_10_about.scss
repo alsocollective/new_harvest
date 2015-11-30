@@ -18,6 +18,9 @@
 			h2 {
 				margin: 0;
 			}
+			@include at-query($max,$inbetween) {
+				padding: 3rem 2rem 1.75rem;
+			}
 		}
 		#people {
 			p, h3 {
@@ -44,7 +47,12 @@
 				// width: 100%;
 				height: auto;
 				max-height: 400px;
-				display: inline-block;
+				display: inline-block !important;
+				@include at-query($max,$inbetween) {
+					max-height: none;
+					max-width: 90%;
+				}
+
 			}
 			&.blue{
 				background: $off-blue;
@@ -55,6 +63,10 @@
 	#people #donors_data{
 		li{
 			list-style: none;
+			&:before{
+				content: none;
+				display: none;
+			}
 		}
 		ul {
 			padding-left: 0;
@@ -64,8 +76,7 @@
 				// width: 200px;
 				// margin: 10px 10px 10px 0;
 				width: 30%;
-				margin-top: 1.5%;
-				margin-bottom: 1.5%;
+				margin: 1.4%;
 				vertical-align: top;
 
 				img,div{
@@ -80,15 +91,21 @@
 					max-width: 25%;
 					margin: 0;
 				}
+				@include at-query($max,$inbetween) {
+					display: block;
+					width: 100%;
+					padding-left: 0;
+					padding-bottom: 1rem;
+				}
 			}
 		}
 		@include at-query($max,$large){ 
-			padding-left: 40px;
+			// padding-left: 40px;
 		}
 		@include at-query($max,$inbetween){ 
 			max-width: 90%;
 			margin: 0 auto;
-			padding-left: 40px;
+			// padding-left: 40px;
 		}	
 	}	
 }

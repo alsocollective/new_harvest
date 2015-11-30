@@ -102,11 +102,11 @@ app.nav = {
 	},
 	waypoint: {
 		init: function() {
-			$(".nav a[href^='#']").click(app.nav.waypoint.handler);
+			$(".nav a[href*='#']").click(app.nav.waypoint.handler);
 		},
 		handler: function(event) {
 			var target = $(".side-body #" + this.href.split("#").pop());
-			if (target.length) {
+			if (target.length > 0) {
 				if ($(".side-menu").hasClass("open")) {
 					$("#nav-pulldown button").click()
 				}
