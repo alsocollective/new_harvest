@@ -1,13 +1,12 @@
 <ul>
-{% for donor in page.directory.listings %}
-	{% if donor.profile_image_url contains "buddy.png" %}
-	{% else %}
-	{% endif %}
-	<li>
+{% for donor in page.directory.listings %}<li>
+		{% if donor.profile_image_url contains "buddy.png" %}{% else %}{% endif %}
 		<!-- width="48px" height="48px" -->
-		<img src="{{ donor.profile_image_url }}" ><div class="network">
-		<span>{{donor.published_name}}</span>
+		<img src="{{ donor.profile_image_url }}" >
 		{% comment %}
+		<div class="network">
+		<span>{{donor.published_name}}</span>
+		
 		<br>
 			{% if donor.has_facebook_info? %}
 				<a href="{{ donor.facebook_profile_url }}"><i class="icon-facebook-squared"></i></a>
@@ -15,9 +14,8 @@
 			{% if donor.has_twitter_info? %}
 				<a href="{{ donor.twitter_profile_url }}"><i class="icon-twitter-squared"></i></a>
 			{% endif %}		
-		{% endcomment %}
 			</div>	
-	</li>
-{% endfor %}
+		{% endcomment %}
+	</li>{% endfor %}
 {{page.directory.next}}
 </ul>

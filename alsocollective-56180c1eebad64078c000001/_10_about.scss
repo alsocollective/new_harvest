@@ -86,21 +86,27 @@
 				display: inline-block;
 				// width: 200px;
 				// margin: 10px 10px 10px 0;
-				width: 30%;
+				// width: 30%;
 				margin: 1.4%;
 				vertical-align: top;
 
-				img,div{
+				// img,div{
+				// 	display: inline-block;
+				// 	margin: 0;
+				// 	width: 72.5%;
+				// 	margin-left: 2.5%;
+				// }
+				// img {
+				// 	vertical-align: top;
+				// 	// margin-right: 5px;
+				// 	max-width: 25%;
+				// 	margin: 0;
+				// }
+				img{
 					display: inline-block;
+					width: 50px;
 					margin: 0;
-					width: 72.5%;
-					margin-left: 2.5%;
-				}
-				img {
-					vertical-align: top;
-					// margin-right: 5px;
-					max-width: 25%;
-					margin: 0;
+					padding: 0;
 				}
 				@include at-query($max,$inbetween) {
 					display: block;
