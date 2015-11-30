@@ -7,7 +7,7 @@
 		<div id="index_featured">
 		{% for feature in page.features %}<a href="{{ feature.page.url }}">
 			<img src="{{ feature.image_url }}" alt="{{ feature.headline }}">
-			<h3>{{ feature.headline }}</h3>
+			<h2>{{ feature.headline }}</h2>
 		</a>{% endfor %}
 		</div>
 
@@ -27,11 +27,11 @@
 
 	</div>
 		<div id="index_blog">
-			<h3><a href="/blog">Here's what we've been up to:</a></h3>
+			<h2>Here's what we've been up to</h2>
 			{% subpage "blog" with "index_blog" %}
 		</div>
 	<div id="signup-in-indexpage">
-		<h2>Are you excited about the future New Harvest is building?<br/>Keep updated with our newsletter.</h2>
+		<blockquote>Are you excited about the future New Harvest is building?<br/>Keep updated with our newsletter.</blockquote>
 		{% form_for signup %}
 			{% hidden_field_tag "page_id", page.id %}
 
