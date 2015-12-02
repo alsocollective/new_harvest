@@ -13,6 +13,10 @@ var app = {
 		}
 		app.about.init();
 		app.lazy_loading.init();
+		if ($("#load_this_data").length > 0) {
+			app.people_list.init()
+		};
+
 	}
 }
 
@@ -357,6 +361,38 @@ app.about = {
 		};
 	}
 }
+
+app.people_list = {
+	init: function() {
+		console.log("yes");
+		var parent = $("#donors_data ul")
+		for (var a = 2, max = 20; a < max; ++a) {
+
+			console.log("loading: " + a);
+
+			// $.get("/random_list_of_donors?page=" + a).done(function(html) {
+			// 	// $( "#results" ).append( html );
+			// 	console.log(html)
+			// });
+			$.get("/donors?page=" + a, function(html) {
+				parent.append($(html).find("#load_this_data li"));
+			}, "html");
+
+			// $("#load_this_data").load("/random_list_of_donors?page=" + a + " #load_this_data", function(response, status, xhr) {
+			// console.log("loaded")
+			// console.log(this);
+			// parent.append($(this).find("#posts").html());
+			// if (status == "error") {
+			// 	var msg = "Sorry but there was an error: ";
+			// 	$("#error").html(msg + xhr.status + " " + xhr.statusText);
+			// }
+			// 	return false;
+			// })
+		}
+	}
+}
+
+
 
 $(document).ready(function() {
 	app.init();

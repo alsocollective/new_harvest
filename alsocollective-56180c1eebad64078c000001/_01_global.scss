@@ -504,3 +504,39 @@ footer {
 		}
 	}
 } */
+
+
+
+.donor_page_style{
+	li{
+		list-style: none;
+		&:before{
+			content: none;
+			display: none;
+		}
+	}
+	ul {
+		padding-left: 0;
+		li {
+			font-weight: 400;
+			display: inline-block;
+			margin: 1.4%;
+			vertical-align: top;
+
+			img{
+				display: inline-block;
+				width: 50px;
+				max-width: inherit;
+				margin: 0;
+				padding: 0;
+				@include vendorize(border-radius, 100%);
+			}
+			@include at-query($max,$inbetween) {
+				display: block;
+				width: 100%;
+				padding-left: 0;
+				padding-bottom: 1rem;
+			}
+		}
+	}
+}

@@ -1,8 +1,13 @@
-<ul>
-{% for donor in page.directory.listings %}<li>
-		{% if donor.profile_image_url contains "buddy.png" %}{% else %}{% endif %}
-		<!-- width="48px" height="48px" -->
-		<img src="{{ donor.profile_image_url }}" >
+<ul>{% for donor in page.directory.listings %}<li>
+	<img src="{{ donor.profile_image_url }}">
+</li>{% endfor %}</ul>
+<div id="donnor_text">
+	{{page.directory.content}}
+</div>
+
+	{% if donor.profile_image_url contains "buddy.png" %}{% else %}{% endif %}
+			<!-- width="48px" height="48px" -->
+
 		{% comment %}
 		<div class="network">
 		<span>{{donor.published_name}}</span>
@@ -16,6 +21,3 @@
 			{% endif %}		
 			</div>	
 		{% endcomment %}
-	</li>{% endfor %}
-{{page.directory.next}}
-</ul>

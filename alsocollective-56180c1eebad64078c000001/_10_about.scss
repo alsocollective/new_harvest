@@ -90,23 +90,13 @@
 				margin: 1.4%;
 				vertical-align: top;
 
-				// img,div{
-				// 	display: inline-block;
-				// 	margin: 0;
-				// 	width: 72.5%;
-				// 	margin-left: 2.5%;
-				// }
-				// img {
-				// 	vertical-align: top;
-				// 	// margin-right: 5px;
-				// 	max-width: 25%;
-				// 	margin: 0;
-				// }
 				img{
 					display: inline-block;
 					width: 50px;
+					max-width: inherit;
 					margin: 0;
 					padding: 0;
+					@include vendorize(border-radius, 100%);
 				}
 				@include at-query($max,$inbetween) {
 					display: block;

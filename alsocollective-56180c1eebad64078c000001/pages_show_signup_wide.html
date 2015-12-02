@@ -38,7 +38,12 @@
 				<div class="col-md-6"><div class="form-group"><label for="signup_mobile_number">Mobile phone</label>{% phone_field "mobile_number", class:"text form-control" %}</div></div>
 				{% endif %}
 			</div>
-
+			{% if request.sorta_logged_in? == false or request.current_signup.has_name? == false %}
+				<div class="row">
+					<div class="col-md-6"><div class="form-group"><label for="signup_first_name">First Name</label>{% text_field "first_name", class:"text form-control" %}</div></div>
+					<div class="col-md-6"><div class="form-group"><label for="signup_last_name">Last Name</label>{% text_field "last_name", class:"text form-control" %}</div></div>
+				</div>
+			{% endif %}
 
 			<div class="row">
 				<div class="col-md-6"><div class="checkbox"><label for="signup_email_opt_in">{% check_box "email_opt_in", class:"checkbox" %} Send me email updates</label></div></div>
