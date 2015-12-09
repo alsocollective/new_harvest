@@ -124,7 +124,7 @@
 					{{ page.basic.content }}
 				</div>
 			{% when "curated_media" %}
-				{% assign topcontent = page.basic.content|split: '<h2'|first %}
+				{% assign topcontent = page.basic.content|split: '<h4'|first %}
 				<div class="text-content">
 					{{topcontent}}
 				</div>
