@@ -113,6 +113,16 @@
 				margin-right: 0;
 			}
 			.progress-stages {
+				input{
+				    font-family: $sans;//"Whitney SSm A","Whitney SSm B",sans-serif;
+				}
+				select{
+					font-family: $sans;
+					color: inherit;
+					font-size: inherit;
+					border-radius: 0;
+					background-color: $white;	
+				}
 				max-width: 400px;
 				float: left;
 				padding-bottom: 130px;
