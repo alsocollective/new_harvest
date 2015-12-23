@@ -82,12 +82,13 @@
 			letter-spacing: 0.12rem;	
 		}
 		a{
+			vertical-align: top;
 			display: inline-block;
 			width: 30%;
 			margin: 0 1.66% 0 1.66%;
 			text-align: center;
 			position: relative;
-			vertical-align: bottom;
+			// vertical-align: bottom;
 			text-decoration: none;
 			img {
 				width: 90%;
