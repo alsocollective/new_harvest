@@ -96,5 +96,30 @@ nav ul#socials {
 	}
 }
 
+.dropdown{
+	.downarrow{
+		font-weight: bolder;
+		color: #fff;
+		.up{
+			display: none;
+			@include vendorize(transform, rotate(90deg));
+		}
+		.down{
+			display: block;
+		}
+	}
+}
+.open{
+	.dropdown{
+		.downarrow{
+			.up{
+				display: block;
+			}
+			.down{
+				display: none;
+			}
+		}
+	}
+}
 
 

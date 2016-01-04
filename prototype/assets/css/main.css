@@ -135,6 +135,24 @@ nav ul#socials {
     nav ul#socials li span {
       font-family: 'Socialico Plus'; }
 
+.dropdown .downarrow {
+  font-weight: bolder;
+  color: #fff; }
+  .dropdown .downarrow .up {
+    display: none;
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg); }
+  .dropdown .downarrow .down {
+    display: block; }
+
+.open .dropdown .downarrow .up {
+  display: block; }
+.open .dropdown .downarrow .down {
+  display: none; }
+
 .homepage h1 {
   font-family: 'Whitney';
   font-family: "Whitney SSm A", "Whitney SSm B";

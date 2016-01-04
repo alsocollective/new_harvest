@@ -467,3 +467,31 @@ x5bGluZT48L3N2Zz4=]");*/
 
 // .navbar-default .navbar-nav>.active>a
 
+.dropdown{
+	.downarrow{
+		font-weight: bolder;
+		color: #fff;
+		.up{
+			display: none;
+			@include vendorize(transform, rotate(180deg));
+		}
+		.down{
+			display: block;
+		}
+	}
+}
+.open{
+	.dropdown{
+		.downarrow{
+			.up{
+				display: block;
+			}
+			.down{
+				display: none;
+			}
+		}
+	}
+}
+
+
+
