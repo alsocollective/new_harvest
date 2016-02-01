@@ -93,6 +93,9 @@ body {
 	}
 	.page-tag a{
 		color: $white;
+		font-family: $sans;
+		text-transform: capitalize;
+		font-weight: normal;
 	}
 	h1.headline {
 

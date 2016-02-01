@@ -14,9 +14,8 @@
 			s.parentNode.insertBefore(wf, s);
 		})();
 		</script>
-		{% comment %}<meta charset="utf-8">{% endcomment %}
+
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		{% comment %}<meta name="viewport" content="width=device-width, initial-scale=1">{% endcomment %}
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0,maximum-scale=10.0,user-scalable=no">
 		<title>{{ page_title }}</title>
@@ -25,6 +24,8 @@
 		<link href="theme.scss" rel="stylesheet">
 
 		{{ content_for_header }}
+
+		<meta property="fb:app_id" content="673109789498964">
 
 		<script type="text/javascript">
 			NB.appConfig.userIsLoggedIn = {{request.logged_in?}};
@@ -65,16 +66,6 @@
 
 			<div class="container-fluid">
 				<div class="side-body">
-					{% comment %}
-					{% if site.has_header_image? and page.features_count == 0 %}
-					<div class=" header-image-container">
-					 <img src="{{ site.header_image_url_1026 }}" class="header-image img-responsive" border="0" />
-					</div>
-					{% endif %}
-					{% endcomment %}
-
-					
-
 					<div class="main-container" id="middle">
 
 						<div class="main clearfix {% if site.has_background_image? %}well well-lg{% endif %}">
@@ -91,19 +82,10 @@
 					<!-- .main-container -->
 
 					<footer>
-
-
-				    
-
-					    {% if request.current_user.is_admin? %}
+						
+						{% if request.current_user.is_admin? %}
 					    	<p id="edit-this-page"><a href="{{ page.admin_edit_url }}">{{ "fugue-edit-signiture" | icon }} Edit this page</a></p>
 					    {% endif %}
-
-
-
-
-
-
 
 						<div id="quote_footer">
 							{{ site.footer_content }}
@@ -117,24 +99,7 @@
 							{% endif %}
 
 							<div class="row" id="nb_footer">
-
-								<!--<div class="col-sm-6 footer-left">
-									{% if request.logged_in? %}
-										Hi <a href="{{ request.current_signup.settings_url }}">{{ request.current_signup.name_or_email }}</a>. View your
-										{% if site.show_public_profiles? %}
-											<a href="{{ request.current_signup.profile_url }}">public profile</a>,
-										{% endif %}
-										<a href="{{ request.current_signup.settings_url }}">account settings</a>, or
-										<a href="{{ request.current_signup.logout_url }}">sign out</a>.
-									{% else %}
-										Sign in with <a href="{{ request.facebook_connect_url }}">Facebook</a>, <a
-												href="{{ request.twitter_connect_url }}">Twitter</a> or <a href="/login">email</a>.
-									{% endif %}
-								</div> -->
 								<div class="col-xs footer-right text-right">
-									<!-- The NationBuilder link below is required. If it is removed, we may add it back ourselves.
-											 You can style it or move it in different ways, but please leave it in the footer. -->
-
 									Created with <a href="http://nationbuilder.com/">NationBuilder</a>
 									&nbsp; &nbsp;<span class="copy_right_footer">&copy; New Harvest</span>
 								</div>
@@ -146,30 +111,6 @@
 				</div> <!-- side-body -->    
 			</div> <!-- container-fluid -->
 		</div><!-- row -->
-
-
-
-{% comment %}
-		{% if site.has_background_image? %}
-			<!--[if lt IE 9]>
-			<script type="text/javascript" src="/javascripts/jquery.backstretch.min.js"></script>
-			<script type="text/javascript">
-				jQuery.backstretch("{{ site.background_image_url }}", {speed: 0});
-			</script>
-			<![endif]-->
-
-			<style>
-				body {
-					background: url('{{ site.background_image_url }}') no-repeat center center fixed;
-					-webkit-background-size: cover;
-					-moz-background-size: cover;
-					-o-background-size: cover;
-					background-size: cover;
-				}
-		</style>
-		{% endif %}
-{% endcomment %}
-
 
 		<script src="bootstrap.js"></script>
 		<script type="text/javascript" src="jquery.lazyload.min.js"></script>

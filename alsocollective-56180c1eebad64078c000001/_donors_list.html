@@ -1,4 +1,4 @@
-<ul>{% for donor in page.directory.listings %}<li>
+<ul>{% for donor in page.directory.listings %}<li {% if donor.profile_image_url contains "buddy.png" or donor.profile_image_url contains "buddy1.png" %}class="give_random_image"{% endif %}>
 	<img src="{{ donor.profile_image_url }}">
 </li>{% endfor %}</ul>
 <div id="donnor_text">

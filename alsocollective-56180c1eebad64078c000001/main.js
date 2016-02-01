@@ -244,7 +244,7 @@ app.index = {
 		var out = {}
 
 		out.width = $(".side-body").outerWidth(),
-		out.height = $(window).height();
+			out.height = $(window).height();
 
 		out.fill = d3.scale.category20();
 
@@ -252,12 +252,12 @@ app.index = {
 			.linkStrength(0.05)
 			.size([out.width, out.height])
 			.nodes([{}]) // initialize with a single node
-		.linkDistance(150)
+			.linkDistance(150)
 			.charge(-160)
 			.on("tick", tick);
 
 		out.svg = d3.select("#index_interactive_background") //document.querySelector("#index_interactive_background") //d3.select("body").append("svg")
-		.attr("width", out.width)
+			.attr("width", out.width)
 			.attr("height", out.height)
 			.on("mousemove", mousemove)
 			.on("mousedown", mousedown);
@@ -307,8 +307,8 @@ app.index = {
 
 		function tick() {
 			link.attr("x1", function(d) {
-				return d.source.x;
-			})
+					return d.source.x;
+				})
 				.attr("y1", function(d) {
 					return d.source.y;
 				})
@@ -320,8 +320,8 @@ app.index = {
 				});
 
 			node.attr("cx", function(d) {
-				return d.x;
-			})
+					return d.x;
+				})
 				.attr("cy", function(d) {
 					return d.y;
 				});
@@ -356,6 +356,9 @@ app.about = {
 			total = children.length
 		if (parent.length) {
 			for (var i = total - 1; i >= 0; i--) {
+				if ($(children[i]).hasClass("give_random_image")) {
+					$(children[i]).find("img")[0].src = "http://data.new-harvest.org/donors/donor-icons-" + (Math.floor(Math.random() * 12) + 1) + ".jpg";
+				};
 				parent.append(children[Math.floor(Math.random() * i)])
 			};
 		};
@@ -366,16 +369,40 @@ app.people_list = {
 	init: function() {
 		console.log("yes");
 		var parent = $("#donors_data ul")
+		children = parent.find("li"),
+			total = children.length
+
+		if (parent.length) {
+			for (var i = total - 1; i >= 0; i--) {
+				if ($(children[i]).hasClass("give_random_image")) {
+					$(children[i]).find("img")[0].src = "http://data.new-harvest.org/donors/donor-icons-" + (Math.floor(Math.random() * 12) + 1) + ".jpg";
+				};
+				parent.append(children[Math.floor(Math.random() * i)])
+			};
+		};
+
+
 		for (var a = 2, max = 20; a < max; ++a) {
 
-			console.log("loading: " + a);
+			// console.log("loading: " + a);
 
 			// $.get("/random_list_of_donors?page=" + a).done(function(html) {
 			// 	// $( "#results" ).append( html );
 			// 	console.log(html)
 			// });
 			$.get("/donors?page=" + a, function(html) {
-				parent.append($(html).find("#load_this_data li"));
+				var local_parent = $(html).find("#load_this_data"),
+					children = local_parent.find("li"),
+					total = children.length;
+
+				for (var i = total - 1; i >= 0; i--) {
+					if ($(children[i]).hasClass("give_random_image")) {
+						$(children[i]).find("img")[0].src = "http://data.new-harvest.org/donors/donor-icons-" + (Math.floor(Math.random() * 12) + 1) + ".jpg";
+					};
+					local_parent.append(children[Math.floor(Math.random() * i)]);
+				};
+
+				parent.append(local_parent.find("li"));
 			}, "html");
 
 			// $("#load_this_data").load("/random_list_of_donors?page=" + a + " #load_this_data", function(response, status, xhr) {
@@ -401,60 +428,54 @@ $(document).ready(function() {
 
 
 
-
-
-
-
-
-
 function d3_top_area_thing(fill_colour, stroke_colour, move_distance) {
 	/* https://github.com/d3/d3-timer Copyright 2015 Mike Bostock */
 	/* original code from http://bl.ocks.org/mbostock/280d83080497c8c13152 */
 	"undefined" == typeof requestAnimationFrame && (requestAnimationFrame = "undefined" != typeof window && (window.msRequestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.oRequestAnimationFrame) || function(e) {
-		return setTimeout(e, 17)
-	}),
-	function(e, n) {
-		"object" == typeof exports && "undefined" != typeof module ? n(exports) : "function" == typeof define && define.amd ? define(["exports"], n) : n(e.timer = {})
-	}(this, function(e) {
-		"use strict";
+			return setTimeout(e, 17)
+		}),
+		function(e, n) {
+			"object" == typeof exports && "undefined" != typeof module ? n(exports) : "function" == typeof define && define.amd ? define(["exports"], n) : n(e.timer = {})
+		}(this, function(e) {
+			"use strict";
 
-		function n() {
-			r = m = 0, c = 1 / 0, t(u())
-		}
-
-		function t(e) {
-			if (!r) {
-				var t = e - Date.now();
-				t > 24 ? c > e && (m && clearTimeout(m), m = setTimeout(n, t), c = e) : (m && (m = clearTimeout(m), c = 1 / 0), r = requestAnimationFrame(n))
+			function n() {
+				r = m = 0, c = 1 / 0, t(u())
 			}
-		}
 
-		function i(e, n, i) {
-			i = null == i ? Date.now() : +i, null != n && (i += +n);
-			var o = {
-				callback: e,
-				time: i,
-				flush: !1,
-				next: null
-			};
-			a ? a.next = o : f = o, a = o, t(i)
-		}
+			function t(e) {
+				if (!r) {
+					var t = e - Date.now();
+					t > 24 ? c > e && (m && clearTimeout(m), m = setTimeout(n, t), c = e) : (m && (m = clearTimeout(m), c = 1 / 0), r = requestAnimationFrame(n))
+				}
+			}
 
-		function o(e, n, t) {
-			t = null == t ? Date.now() : +t, null != n && (t += +n), l.callback = e, l.time = t
-		}
+			function i(e, n, i) {
+				i = null == i ? Date.now() : +i, null != n && (i += +n);
+				var o = {
+					callback: e,
+					time: i,
+					flush: !1,
+					next: null
+				};
+				a ? a.next = o : f = o, a = o, t(i)
+			}
 
-		function u(e) {
-			e = null == e ? Date.now() : +e;
-			var n = l;
-			for (l = f; l;) e >= l.time && (l.flush = l.callback(e - l.time, e)), l = l.next;
-			l = n, e = 1 / 0;
-			for (var t, i = f; i;) i.flush ? i = t ? t.next = i.next : f = i.next : (i.time < e && (e = i.time), i = (t = i).next);
-			return a = t, e
-		}
-		var a, m, r, f, l, c = 1 / 0;
-		e.timer = i, e.timerReplace = o, e.timerFlush = u
-	});
+			function o(e, n, t) {
+				t = null == t ? Date.now() : +t, null != n && (t += +n), l.callback = e, l.time = t
+			}
+
+			function u(e) {
+				e = null == e ? Date.now() : +e;
+				var n = l;
+				for (l = f; l;) e >= l.time && (l.flush = l.callback(e - l.time, e)), l = l.next;
+				l = n, e = 1 / 0;
+				for (var t, i = f; i;) i.flush ? i = t ? t.next = i.next : f = i.next : (i.time < e && (e = i.time), i = (t = i).next);
+				return a = t, e
+			}
+			var a, m, r, f, l, c = 1 / 0;
+			e.timer = i, e.timerReplace = o, e.timerFlush = u
+		});
 
 	var canvas = document.querySelector("#node_top_visual"),
 		context = canvas.getContext("2d"),

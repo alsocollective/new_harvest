@@ -1,3 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="initial-scale=1.0"><!-- So that mobile webkit will display zoomed in -->
+    <meta name="format-detection" content="telephone=no"><!-- disable auto telephone linking in iOS -->
+    <title>NationBuilder</title>
+    <style type="text/css">
+
+        /* Resets:see reset.css for details */
+        body{background-color:#ffffff;-webkit-text-size-adjust:none; -ms-text-size-adjust:none;}
+        body{color:#333333;font-family:Helvetica,'Helvetica',sans-serif;margin:0;padding:0;}
+        table{border-spacing:0;border-collapse:collapse;border-spacing:0;}
+      table td{border-collapse:collapse;font-family:sans-serif;}
+        p{margin-bottom:1em;}
+        img{max-width:100%;}
+    
+        /* Constrain email width for small screens */
+        @media screen and (max-width:600px) {
+            table[class="container"] { width:100%!important; }
+        }
+
+        /* Give content more room on mobile */
+        @media screen and (max-width:480px) {
+          table[class="container"] { width:100%!important; }
+            div[class="body-content"]img { width:100%; }
+        }
+
+        /* Styles for forcing columns to rows */
+        @media only screen and (max-width:600px) {
+
+            /* force container columns to (horizontal) blocks */
+            table[class="container"] { width:100%!important; }
+        }
+
+    </style>
+</head>
+<body style="margin:0; padding:0;" bgcolor="#ffffff" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<!-- 100% wrapper -->
+<table border="0" width="100%" height="100%" cellpadding="0" cellspacing="0" bgcolor="#ffffff">
+  <tr>
+    <td align="center" valign="top" bgcolor="#ffffff" style="background-color:#ffffff;">
+
+   <!-- ### 600PX CONTAINER ### -->
+       <table width="600" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="background-color:#ffffff;margin-top:30px;" class="container">
+       <tr>
+        <td style="padding-left:15px;padding-right:15px;">
+          {% if settings.site.has_meta_image? %}
+        {% endif %}
+        </td>
+       </tr>
+        <tr>
+          <td style="padding-left:15px;padding-right:15px;padding-top:30px;text-align:left;line-height:1.4;font-family:'Whitney SSm A',sans-serif;" class="body-content">{{ body }}</td>
+        </tr>
+         <tr>
+           <td><a style="text-decoration:none;color:black;padding:15px;background-color:#ffd000;width:150px;border-radius:4px;margin-left:auto;margin-right:auto;margin-top:20px;display:block;font-size:1.1rem;text-align:center;" href="https://newharvest.nationbuilder.com/donate-onetime" target="_blank">Donate Now</a></td>
+         </tr>  
+         <tr>
+           <td style="padding-left:30px;padding-right:15px;padding-top:30px;line-height:1.4;font-family:'Whitney SSm A',sans-serif;font-size:0.8rem;" class="body-content"><p style="color:#333333;font-size:12px;line-height:1.5;text-align:center;"><br/>New Harvest is a nonprofit 501(c)(3) organization.<br/>EIN/tax ID number: 20-1425438<br/>All donations are fully tax deductible.</p></td>
+         </tr>
+          <tr>
+            <td style="padding-left:15px;padding-right:15px;padding-top:30px;">
+              <p style="color:#333333;font-size:14px;line-height:1.5;">
+            {{ settings.official_name }}{% if settings.has_address? %} &middot; {{ settings.address.one_line }} {% endif %} 
+                <br/>This email was sent to <a style="color:#1488b9;" href="{{ recipient.email }}">{{ recipient.email }}</a>.  To stop receiving emails, <a style="color:#1488b9;" href="{{ settings.site.unsubscribe_url }}">click here</a>.
+                {% if broadcaster.has_twitter? or broadcaster.has_facebook? %}
+                <br/>You can also keep up with {{ broadcaster.name }}
+                {% if broadcaster.has_twitter? and broadcaster.has_facebook_page? %}
+                on <a style="color:#1488b9;" href="{{ broadcaster.twitter_profile_url }}">Twitter</a> or <a style="color:#1488b9;" href="{{ broadcaster.facebook_page_profile_url }}">Facebook</a>.
+                {% elsif broadcaster.has_twitter? %}
+                on <a style="color:#1488b9;" href="{{ broadcaster.twitter_profile_url }}">Twitter</a>.
+                {% elsif broadcaster.has_facebook_page? %}
+                on <a style="color:#1488b9;" href="{{ broadcaster.facebook_page_profile_url }}">Facebook</a>.
+                {% endif %}
+                {% endif %}
+        </p>
+            </td>
+          </tr>
+       </table>
+       <p style="color:#414141;font-size:13px;padding:0;line-height:1.6;text-align:center;">Created with <a href="http://nationbuilder.com" style="color:#1488b9">NationBuilder</a>, software for leaders.</p>
+   <!-- ### 600PX CONTAINER ###  -->
+    </td>
+  </tr>
+</table>
+<!--/100% wrapper-->
+</body>
+</html>
+{% comment %}
+	
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <html><head><title></title>
 <style type="text/css">
@@ -30,3 +122,5 @@ td div p { margin: 1em 0em; }
 Created with <a href="http://nationbuilder.com/">NationBuilder</a>, software for leaders.
 </font>
 </body></html>
+
+{% endcomment %}

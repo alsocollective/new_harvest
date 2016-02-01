@@ -6,8 +6,8 @@
 {% endcomment %}
 <div id="content" class="donor_page_style">
 	<div id="donors_data">
-		<ul id="load_this_data">{% for donor in page.directory.listings %}<li>
-			<img src="{{ donor.profile_image_url }}">
+		<ul id="load_this_data">{% for donor in page.directory.listings %}<li {% if donor.profile_image_url contains "buddy.png" or donor.profile_image_url contains "buddy1.png" %}class="give_random_image"{% endif %}>
+				<img src="{{ donor.profile_image_url }}" data-count="">
 		</li>{% endfor %}</ul>
 	</div>
 </div>

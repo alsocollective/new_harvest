@@ -58,9 +58,6 @@
 
 			<div class="excerpt">
 				<a href="{{ post.url }}">{{ post.blog_post.content }}</a>
-				{% if post.blog_post.is_extended? %}
-				<span class="read-more"><a href="{{ post.url }}">Read more</a></span>
-				{% endif %}
 			</div>
 
 			
@@ -75,6 +72,7 @@
 					{% endif %}
 					</a>
 				{% endif %}
+				{% if post.blog_post.is_extended? %}<a class="get btn btn-default small-btn" href='{{ post.url }}'>Read more</a>{% endif %}
 				{{ "Share" | share_button page_id: post.id | replace:'button small-button','btn btn-default small-btn' }}
 			</div>
 		</div>

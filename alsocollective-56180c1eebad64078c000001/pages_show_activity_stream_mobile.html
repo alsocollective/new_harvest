@@ -19,7 +19,7 @@
 	  {% if request.logged_in? == false or request.current_signup.has_facebook_authorization? == false %}
 
 	    <div class="padtop">
-	    <img src="{{ "indicator_red.png" | asset_path }}" width="13" height="13" class="dashboard_icon" style="padding-bottom: 1px;" /> <b>Connect to Facebook to find your friends here.</b>
+	    <img src="/{{ "indicator_red.png" | asset_path }}" width="13" height="13" class="dashboard_icon" style="padding-bottom: 1px;" /> <b>Connect to Facebook to find your friends here.</b>
 	    {% comment %}
 	    <span class="label label-default">+1pc</span> <span class="pc_details">per person who follows you</span>
 	    {% endcomment %}

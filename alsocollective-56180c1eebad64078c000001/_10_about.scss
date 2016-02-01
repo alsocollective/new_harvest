@@ -49,6 +49,7 @@
 				// width: 100%;
 				height: auto;
 				max-height: 400px;
+				width: auto;
 				display: inline-block !important;
 				@include at-query($max,$inbetween) {
 					max-height: none;
