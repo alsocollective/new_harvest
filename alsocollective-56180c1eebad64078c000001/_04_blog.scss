@@ -175,3 +175,9 @@
 h3 a {
 	color: #000;
 }
+
+@include at-query($max,900px){	
+	.container-fluid #content #page_tags p {
+		width: 100%;
+	}	
+}
