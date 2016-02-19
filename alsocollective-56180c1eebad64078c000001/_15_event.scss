@@ -1,3 +1,89 @@
+.page-type-event{
+	.column {
+		max-width: 700px;
+		margin: 10rem auto;
+	}
+	footer{
+		display: none;
+	}
+	.container-fluid{
+		z-index: 0;
+	}
+
+	#event_header_image{
+		position: relative;
+		color: $white;
+		padding-bottom: 400px;
+		padding-bottom: 46vh;
+
+		img{
+			position: absolute;
+			left: -40%;
+			width: 190%;
+			max-width: inherit;
+			top: -310px;
+		}
+		h1,h2{
+			position: relative;
+		}
+		h1{
+			font-family: $din;
+			font-size: 9rem;
+			line-height: 4rem;
+		}
+		h2{
+			font-family: $sans;
+			font-size: 3.5rem;
+		}
+	}
+	#event_header_bottom{
+		position: relative;
+		font-family: $sans;
+		color: $black;
+		padding-bottom: 3rem;
+		p{
+			max-width: 80%;
+			font-weight: bolder;
+		}
+		button{
+			position: absolute;
+			bottom: -67.5px;
+			right: 0;
+			background-color: $golden;
+			color: $black;
+			font-weight: bold;
+			border-radius: 100%;
+			border: none;
+			width: 135px;
+			height: 135px;
+			font-size: 2.5rem;
+			line-height: 3rem;
+		}
+	}
+	.blue_background{
+		background-color: $sky-blue;
+		position: relative;
+		font-family: $sans;
+		font-weight: bolder;
+
+	}
+	#yellow_nonprofit_text{
+		width: 50%;
+		color: $golden;
+		padding: 3rem 0;
+	}
+	.half_width_large{
+		display: inline-block;
+		width: 50%;
+		vertical-align: bottom;
+		font-weight: bold;
+		color: $white;
+		padding-bottom: 3rem;
+	}
+}
+
+
+/*
 .page-pages-show-event-wide {
 	.column {
 		max-width: 700px;
@@ -38,3 +124,4 @@
 		padding-left: 10px;
 	}
 }
+*/
