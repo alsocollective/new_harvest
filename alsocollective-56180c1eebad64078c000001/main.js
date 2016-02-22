@@ -16,7 +16,21 @@ var app = {
 		if ($("#load_this_data").length > 0) {
 			app.people_list.init()
 		};
+		app.events.init()
 
+	}
+}
+
+app.events = {
+	init: function() {
+		$(".event_buy_now").click(app.events.open_buy_tickets);
+		$(".modal_buy_ticket .close").click(app.events.close_buy_tickets);
+	},
+	close_buy_tickets: function(event) {
+		$(".modal_buy_ticket").removeClass("open");
+	},
+	open_buy_tickets: function(event) {
+		$(".modal_buy_ticket").addClass("open");
 	}
 }
 
