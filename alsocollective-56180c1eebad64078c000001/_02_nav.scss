@@ -362,7 +362,7 @@ x5bGluZT48L3N2Zz4=]");*/
 	}
 
 }
-@media screen and (min-height: 800px) {
+@media screen and (min-height: 800px) and (min-width: $inbetween) {
 	.side-menu:hover {
 		z-index: 3;
 	}

@@ -4,7 +4,7 @@
 	}
 	.side-body{
 		min-height: 100vh;
-		background-color: $sky-blue;
+		background-color: $blue_dark;
 	}
 	.main{
 		background-color: $white;
@@ -69,7 +69,7 @@
 		position: absolute;
 		top: -67.5px;
 		right: 0;
-		background-color: $golden;
+		background-color: $yellow;
 		color: $black;
 		font-weight: bold;
 		border-radius: 100%;
@@ -83,7 +83,7 @@
 		box-shadow: 0px 0px 34px 0px rgba(0,0,0,0.25);
 	}
 	.blue_background{
-		background-color: $sky-blue;
+		background-color: $blue_dark;
 		position: relative;
 		font-family: $sans;
 		font-weight: bolder;
@@ -94,7 +94,7 @@
 	}
 	#yellow_nonprofit_text{
 		width: 50%;
-		color: $golden;
+		color: $yellow;
 		padding: 3.7rem 0;
 		font-size: 1.5rem;
 	}
@@ -139,7 +139,7 @@
 			vertical-align: middle;
 			>div{
 				position: relative;
-				background-color: $golden;
+				background-color: $yellow;
 				display: inline-block;
 				padding: 2rem;
 				-webkit-box-shadow: 0px 0px 34px 0px rgba(0,0,0,0.25);
@@ -152,6 +152,97 @@
 			}
 		}
 	}
+
+	@media screen and (max-height: 850px) {
+		#event_header_image {
+			min-height: inherit;
+			padding-bottom: 25vh;
+			img{
+				left: -35%;
+				width: 170%;
+				top: -300px;
+			}
+		}
+		#event_header_bottom{
+			padding-bottom: 1rem;
+		}
+		#yellow_nonprofit_text{
+			padding: 2rem 0;
+		}
+	}
+
+	@media screen and (min-width:850px) and (min-height: 850px){
+	// @include at-query($min,1300px){
+		#event_header_image img {
+			left: -50%;
+			width: 220%;
+			top: -390px;
+		}
+	}
+	@include at-query($max,$inbetween){
+		#event_header_image {
+			width: 95%;
+			margin: 0 auto;
+			padding-bottom: 3rem;
+			min-height: 0;
+			img{
+				display: none;
+			}
+			h1,h2{
+				text-align: center;
+				color: $blue_dark;
+			}
+			h1{
+				font-size: 5rem;
+				line-height: 7rem;
+			}
+			h2{
+				margin-top: -1rem;
+				font-size: 2rem;
+			}
+		}
+		#event_header_bottom{
+			width: 95%;
+			margin: 0 auto;
+			padding-bottom: 90px;
+			p{
+				width: 100%;
+				max-width: inherit;
+				text-align: center;
+			}
+		}
+		#yellow_nonprofit_text{
+			padding-top: 90px;
+			width: 95%;
+			margin: 0 auto;
+			color: $white;
+			text-align: center;
+		}
+		.half_width_large{
+			width: 95%;
+			margin: 0 auto;
+			text-align: center;
+		}
+		.event_buy_now{
+			right: calc(50% - 67.5px);
+		}
+	}
+
+	@media screen and (max-height: 650px) and (min-width:$inbetween) {
+		.column{
+			margin-top: 5rem;
+		}
+		#event_header_image {
+			padding-bottom: 20vh;
+			min-height: 210px;
+			img {
+				left: -30%;
+				width: 140%;
+				top: -290px;
+			}
+		}
+	}
+
 }
 
 
