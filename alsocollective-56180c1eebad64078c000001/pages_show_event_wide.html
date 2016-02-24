@@ -12,15 +12,77 @@
 	</div>
 </div>
 </div>
+<div class="yellow_middle">
+	<div class="column content-pages-show-event-wide no_margin">
+
+	{% if page.event.is_maximum_capacity? %}
+			<div class="modal_buy_ticket">
+				<div>
+					<div>Sorry, this event is sold out.</div>
+				</div>
+			</div>
+	{% else %}
+
+		{% form_for order %}
+
+		<div class="modal_buy_ticket">
+			<div class="form">
+				<div>
+					<button class="close">close</button>
+					
+					{% for ticket_level in page.event.ticket_levels %}
+
+						{% if ticket_level.description.size > 0 %}
+							{{ ticket_level.description }}
+						{% endif %}
+						<div class="form-group form-inline">
+							<label for="event_ticket_level_{{ticket_level.id}}">Select the number of {{ticket_level.name}} ticket(s)</label>
+							<input id="event_ticket_level_{{ticket_level.id}}" type="number" min="0" placeholder="Number of tickets" name="event_ticket_level[{{ticket_level.id}}]">
+							{% comment %}
+							<strong>{{ ticket_level.form_quantity | replace:'class="quantity"','class="quantity form-control",value:="1"' }}</strong>
+							{% endcomment %}</div>
+
+					{% endfor %}
+
+					{% comment %}
+					{% if page.event.is_hosts? or request.current_recruiter %}
+						<label for="order_recruiter_id" class="padtopmore">Did a host refer you?</label>
+						<select name="order[recruiter_id]">
+							<option value="">No</option>
+							{% if request.current_recruiter %}
+							<option value="{{ request.current_recruiter.id }}" selected>{{ request.current_recruiter.published_name }}</option>
+							{% endif %}
+							{% for host in page.event.hosts %}
+							<option value="{{ host.signup_id }}">{{ host.name }}</option>
+							{% endfor %}
+						</select>
+					{% endif %}
+					{% endcomment %}
+					<input value="proceed to payment" type="submit" name="commit" class="submit-button btn btn-primary">
+					{% comment %}
+						{% submit_tag "proceed to payment", class:"submit-button btn btn-primary" %}
+					{% endcomment %}
+
+				</div>
+			</div>	
+		</div>
+
+		{% endform_for %}
+
+	{% endif %}
+
+	</div>
+</div>
 <div class="blue_background">
 	<div class="column content-pages-show-event-wide no_margin">
-		<button class="event_buy_now">Buy<br>Tickets</button>	
+		<button class="event_buy_now">Register</button>	
+		<div class="half_width_large">
+			July 13, SF
+		</div>
 		<p id="yellow_nonprofit_text">
 			Presented by New Harvest, the premier non-profit building the emerging post-animal bioeconomy.
 		</p>
-		<div class="half_width_large">
-			July 13, San Francisco
-		</div>
+		
 		{% comment %}
 		<div class="half_width_large">
 			Golden Gate Club <br>
@@ -32,61 +94,6 @@
 		</div>
 		{% endcomment %}
 	</div>
-</div>
-<div class="column content-pages-show-event-wide no_margin">
-
-{% if page.event.is_maximum_capacity? %}
-	<div class="modal_buy_ticket">
-		<div>
-			<div>Sorry, this event is sold out.</div>
-		</div>
-	</div>
-{% else %}
-
-	{% form_for order %}
-
-	<div class="modal_buy_ticket">
-		<div class="form">
-			<div>
-				<button class="close">close</button>
-				
-				{% for ticket_level in page.event.ticket_levels %}
-
-					{% if ticket_level.description.size > 0 %}
-						{{ ticket_level.description }}
-						<br>
-					{% endif %}
-					<div class="form-group form-inline"><strong>{{ ticket_level.form_quantity | replace:'class="quantity"','class="quantity form-control",value:="1"' }}</strong></div>
-
-				{% endfor %}
-
-				{% comment %}
-				{% if page.event.is_hosts? or request.current_recruiter %}
-					<label for="order_recruiter_id" class="padtopmore">Did a host refer you?</label>
-					<select name="order[recruiter_id]">
-						<option value="">No</option>
-						{% if request.current_recruiter %}
-						<option value="{{ request.current_recruiter.id }}" selected>{{ request.current_recruiter.published_name }}</option>
-						{% endif %}
-						{% for host in page.event.hosts %}
-						<option value="{{ host.signup_id }}">{{ host.name }}</option>
-						{% endfor %}
-					</select>
-				{% endif %}
-				{% endcomment %}
-
-				<div class="padtopmore">
-					{% submit_tag "Purchase tickets", class:"submit-button btn btn-primary" %}
-					<div class="form-submit"></div>
-				</div>
-			</div>
-		</div>	
-	</div>
-
-	{% endform_for %}
-
-{% endif %}
-
 
 
 

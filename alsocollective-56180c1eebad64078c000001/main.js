@@ -31,6 +31,7 @@ app.events = {
 	},
 	open_buy_tickets: function(event) {
 		$(".modal_buy_ticket").addClass("open");
+		$("#event_ticket_level_1").select();
 	}
 }
 

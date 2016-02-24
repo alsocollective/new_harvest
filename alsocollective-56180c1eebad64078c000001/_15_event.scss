@@ -61,8 +61,10 @@
 		padding-bottom: 3rem;
 		p{
 			max-width: 60%;
-			font-weight: bolder;
-			font-size: 1.5rem;
+			// font-weight: bolder;
+			// font-size: 1.5rem;
+			font-size: 1.75rem;
+			font-weight: normal;
 		}
 	}
 	.event_buy_now{
@@ -95,8 +97,10 @@
 	#yellow_nonprofit_text{
 		width: 50%;
 		color: $yellow;
-		padding: 3.7rem 0;
-		font-size: 1.5rem;
+		padding: 3.7rem 0 5rem 0;
+		margin-bottom: 0;
+		font-size: 1.75rem;
+		font-weight: normal;
 	}
 	.half_width_large{
 		display: inline-block;
@@ -104,7 +108,7 @@
 		vertical-align: bottom;
 		font-weight: bold;
 		color: $white;
-		padding-bottom: 3rem;
+		padding: 3.7rem 0;
 		font-size: 3.5rem;
 	}
 	.no_margin{
@@ -148,9 +152,55 @@
 				input[type="number"]{
 					display: block;
 					margin: 1rem 0;
+					padding: 0.25rem 1rem;
+				}
+				font-family: $sans;
+				font-weight: normal;
+				.submit-button{
+					font-family: $sans;
+					font-weight: bold;
+					background-color: $blue_dark;
+					border: none;
+					text-transform: capitalize;
 				}
 			}
 		}
+	}
+
+	.yellow_middle{
+		background-color: $yellow;
+		position: relative;
+		max-width: inherit;
+		.modal_buy_ticket{
+			position: relative;
+			display: none;
+			width: 100%;
+			z-index: 0;
+			&.open{
+				display: table;
+			}
+			> div{
+				> div{
+					.form-group{
+						margin-bottom: 12px;
+					}
+					text-align: left;
+					display: block;
+					padding: 3rem 0;
+					-webkit-box-shadow: none;
+					-moz-box-shadow: none;
+					box-shadow: none;
+					label{
+						font-weight: normal;
+						text-align: left;
+					}
+				}
+			}
+		}
+		.close{
+			display: none;
+		}
+
 	}
 
 	@media screen and (max-height: 850px) {

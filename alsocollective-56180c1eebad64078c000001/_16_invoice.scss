@@ -3,7 +3,7 @@
 		display: none;
 	}
 	#blue_title_section{
-		background-color: $sky-blue;
+		background-color: $blue_dark;
 		color: $white;
 		width: 100%;
 		padding: 3rem 0;
@@ -28,6 +28,7 @@
 			color: $black;
 			font-size: 2rem;
 			margin: 0;
+			text-transform: inherit;
 		}
 		table th{
 			font-family: $sans;
@@ -37,6 +38,7 @@
 		}
 		table td{
 			text-align: center;
+			text-transform: capitalize;
 		}
 		table td,table th{
 			border-color: $black;
@@ -51,12 +53,20 @@
 			border-radius: 0;
 			border-color: $black;
 		}
+		.invoice-total strong{
+			font-family: $sans;
+			text-transform: capitalize;
+		}
 		.form-group {
 			margin-bottom: 7px;
 			label{
 				font-family: $sans;
 				font-size: 1rem;
 				margin-bottom: 0;
+				display: none;
+			}
+			input{
+				font-family: $sans;
 			}
 		}
 		.form-wrap{
@@ -65,6 +75,12 @@
 		}
 		.paynow{
 			padding-top: 2rem;
+			input{
+				background-color: $blue_dark;
+				font-family: $sans;
+				border:none;
+				font-weight: bold;
+			}
 		}
 		.col-md-6, .col-md-12{
 			padding-left: 5px;
