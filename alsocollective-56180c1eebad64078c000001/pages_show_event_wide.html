@@ -29,36 +29,37 @@
 			<div class="form">
 				<div>
 					<button class="close">close</button>
-					
-					{% for ticket_level in page.event.ticket_levels %}
-
-						{% if ticket_level.description.size > 0 %}
-							{{ ticket_level.description }}
-						{% endif %}
-						<div class="form-group form-inline">
-							<label for="event_ticket_level_{{ticket_level.id}}">Select the number of {{ticket_level.name}} ticket(s)</label>
-							<input id="event_ticket_level_{{ticket_level.id}}" type="number" min="0" placeholder="Number of tickets" name="event_ticket_level[{{ticket_level.id}}]">
-							{% comment %}
-							<strong>{{ ticket_level.form_quantity | replace:'class="quantity"','class="quantity form-control",value:="1"' }}</strong>
-							{% endcomment %}</div>
-
-					{% endfor %}
-
-					{% comment %}
-					{% if page.event.is_hosts? or request.current_recruiter %}
-						<label for="order_recruiter_id" class="padtopmore">Did a host refer you?</label>
-						<select name="order[recruiter_id]">
-							<option value="">No</option>
-							{% if request.current_recruiter %}
-							<option value="{{ request.current_recruiter.id }}" selected>{{ request.current_recruiter.published_name }}</option>
-							{% endif %}
-							{% for host in page.event.hosts %}
-							<option value="{{ host.signup_id }}">{{ host.name }}</option>
-							{% endfor %}
-						</select>
-					{% endif %}
-					{% endcomment %}
-					<input value="proceed to payment" type="submit" name="commit" class="submit-button btn btn-primary">
+					<p>
+						<strong>Select the number of ticket(s)</strong>
+					</p>
+					<table>
+						<tr>
+							<th>Quantity</th>
+							<th>Ticket Information</th>
+							<th>Price</th>
+							<th>Fee</th>
+						</tr>
+						{% for ticket_level in page.event.ticket_levels %}
+							<tr>
+								<td>
+									<input id="event_ticket_level_{{ticket_level.id}}" type="number" min="0" placeholder="" value="1" name="event_ticket_level[{{ticket_level.id}}]">
+								</td>
+								<td>
+									{{ ticket_level.description }}
+								</td>	
+								<td>
+									$250
+								</td>
+								<td>
+									$7.78
+								</td>
+							</tr>
+						{% endfor %}
+					</table>
+					<p>
+						Are you a student or biohacker? <a href="mailto:isha">Contact</a> us for discounts.
+					</p>
+					<input value="Complete Registration" type="submit" name="commit" class="submit-button btn btn-primary">
 					{% comment %}
 						{% submit_tag "proceed to payment", class:"submit-button btn btn-primary" %}
 					{% endcomment %}
@@ -77,7 +78,7 @@
 	<div class="column content-pages-show-event-wide no_margin">
 		<button class="event_buy_now">Register</button>	
 		<div class="half_width_large">
-			July 13, SF
+			July 13, San Francisco
 		</div>
 		<p id="yellow_nonprofit_text">
 			Presented by New Harvest, the premier non-profit building the emerging post-animal bioeconomy.

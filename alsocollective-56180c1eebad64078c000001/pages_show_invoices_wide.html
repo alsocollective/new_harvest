@@ -21,27 +21,31 @@
 		{% for invoice in outstanding_invoices %}
 
 		{% comment %}<h4 class="padbottomless">{{ invoice.name }}</h4>{% endcomment %}
-		<h4 class="padbottomless">New Harvest 2016:<br> Experience Cellular Agriculture, {% for item in invoice.items %}<br>{{ item.quantity }} {% if item.quantity > 1 %}tickets {%else%} ticket{% endif %}{% endfor %}</h4>
+		<h4 class="padbottomless">New Harvest 2016:<br><span>Experience Cellular Agriculture, {% for item in invoice.items %}<br>{{ item.quantity }} {% if item.quantity > 1 %}tickets {%else%} ticket{% endif %}{% endfor %}</span></h4>
 		<table class="table">
 			<tr>
 				<th width="12%">Quantity</th>
 				<th class="middle_column">Name</th>
-				<th class="amount" width="12%">Amount</th>
+				<th class="amount" width="12%">Price</th>
+				<th class="amount" width="12%">Fee</th>
 			</tr>
 
 			{% for item in invoice.items %}
 
 				<tr>
-					<td class="invoice-quantity">{{ item.quantity }}</td>
-					<td>{{ item.name }}</td>
-					<td class="amount">{{ item.amount }}</td>
+					<td class="invoice-quantity">{{ item.quantity }} <span class="no_mobile">{% if item.quantity > 1 %}Tickets {%else%} Ticket{% endif %}</span></td>
+					<td>General Admission to #NewHarvest2016</td>
+					<td class="amount">$250</td>
+					<td>$7.78</td>
 				</tr>
 
 			{% endfor %}
 
 			<tr>
-				<td colspan="3" class="invoice-total">
-					<strong>Total</strong> <span class="price-invoice">{{ invoice.amount_due_format }}</span>
+				<td colspan="2"></td>
+				<td><strong>Total:</strong></td>
+				<td  class="invoice-total">
+					 <span class="price-invoice">{{ invoice.amount_due_format }}</span>
 				</td>
 			</tr>
 		</table>

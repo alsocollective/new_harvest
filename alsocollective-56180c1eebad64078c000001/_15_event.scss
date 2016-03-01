@@ -69,15 +69,15 @@
 	}
 	.event_buy_now{
 		position: absolute;
-		top: -67.5px;
+		top: -77.5px;
 		right: 0;
 		background-color: $yellow;
 		color: $black;
 		font-weight: bold;
 		border-radius: 100%;
 		border: none;
-		width: 135px;
-		height: 135px;
+		width: 155px;
+		height: 155px;
 		font-size: 2.5rem;
 		line-height: 3rem;
 		-webkit-box-shadow: 0px 0px 34px 0px rgba(0,0,0,0.25);
@@ -95,7 +95,7 @@
 		}
 	}
 	#yellow_nonprofit_text{
-		width: 50%;
+		width: 70%;
 		color: $yellow;
 		padding: 3.7rem 0 5rem 0;
 		margin-bottom: 0;
@@ -108,7 +108,7 @@
 		vertical-align: bottom;
 		font-weight: bold;
 		color: $white;
-		padding: 3.7rem 0;
+		padding: 0.7rem 0 1.7rem 0;
 		font-size: 3.5rem;
 	}
 	.no_margin{
@@ -153,6 +153,8 @@
 					display: block;
 					margin: 1rem 0;
 					padding: 0.25rem 1rem;
+					width: 8rem;
+					margin-right: 1rem;
 				}
 				font-family: $sans;
 				font-weight: normal;
@@ -163,6 +165,30 @@
 					border: none;
 					text-transform: capitalize;
 				}
+			}
+		}
+		table{
+			width: 100%;
+			margin-bottom: 2rem;
+			th{
+				font-size: 1.3rem;
+				font-weight: normal;
+				padding: 0 0 1rem 0;
+			}
+			tr{
+				border-bottom: solid 1px $black;
+			}
+			td{
+				font-size: 1.5rem;
+				padding-right: 0.5rem;
+			}
+		}
+		p{
+			margin-bottom: 2rem;
+			a{
+				color: $black;
+				font-weight: bold;
+				text-decoration: underline;
 			}
 		}
 	}
@@ -217,7 +243,7 @@
 			padding-bottom: 1rem;
 		}
 		#yellow_nonprofit_text{
-			padding: 2rem 0;
+			padding: 0 0 2rem 0;
 		}
 	}
 
@@ -262,19 +288,38 @@
 			}
 		}
 		#yellow_nonprofit_text{
-			padding-top: 90px;
 			width: 95%;
 			margin: 0 auto;
 			color: $white;
 			text-align: center;
 		}
 		.half_width_large{
+			display: block;
 			width: 95%;
 			margin: 0 auto;
 			text-align: center;
+			padding-top: 90px;
 		}
 		.event_buy_now{
-			right: calc(50% - 67.5px);
+			right: calc(50% - 77.5px);
+		}
+		.yellow_middle .modal_buy_ticket{
+			p {
+				width: 95%;
+				margin: 0 auto 2rem auto;
+				text-align: center;
+			}
+			>div >div{
+				text-align: center;
+				table{
+					text-align: left;
+					width: 95%;
+				    margin: 0 auto 2rem auto;
+				}
+			}
+			.submit-button{
+				margin-bottom: 7rem;
+			}
 		}
 	}
 

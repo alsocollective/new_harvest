@@ -29,6 +29,9 @@
 			font-size: 2rem;
 			margin: 0;
 			text-transform: inherit;
+			span{
+				font-weight: normal;
+			}
 		}
 		table th{
 			font-family: $sans;
@@ -87,5 +90,26 @@
 			padding-right: 5px;
 		}
 
+	}
+	@include at-query($max,$inbetween){
+		#content {
+			table{
+				width: 95%;
+				margin: 0 auto 2rem auto;
+			}
+			.invoice_payment_form{
+				.form-wrap{
+					width: 95%;
+					margin: 0 auto;
+					display: block;
+				}
+			}
+		}
+
+	}
+}
+@include at-query($max,$inbetween){
+	.no_mobile{
+		display: none !important;
 	}
 }
