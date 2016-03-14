@@ -15,6 +15,9 @@
 	}
 	.main-container{
 		overflow: hidden;
+		// overflow-y: initial;
+		// overflow-x:hidden
+		// overflow-y: initial;
 	}
 	footer{
 		display: none;
@@ -31,7 +34,7 @@
 		position: relative;
 		color: $white;
 		padding-bottom: 400px;
-		padding-bottom: 37vh;
+		padding-bottom: 40vh;//27vh;//37vh;
 		min-height: 310px;
 
 		img{
@@ -94,10 +97,23 @@
 			position: relative;
 		}
 	}
+	#white_address_text{
+		line-height: 1.5rem;
+		padding-bottom: 1.7rem;
+		font-size: 1.4rem;
+		a{
+			color: $white;
+			font-weight: normal;
+			&:hover{
+				color: $blue_dark;
+			}
+		}
+
+	}
 	#yellow_nonprofit_text{
 		width: 70%;
 		color: $yellow;
-		padding: 3.7rem 0 5rem 0;
+		padding: 3.7rem 0 8rem 0;
 		margin-bottom: 0;
 		font-size: 1.75rem;
 		font-weight: normal;
@@ -108,7 +124,7 @@
 		vertical-align: bottom;
 		font-weight: bold;
 		color: $white;
-		padding: 0.7rem 0 1.7rem 0;
+		padding: 0.7rem 0 0 0;
 		font-size: 3.5rem;
 	}
 	.no_margin{
@@ -197,6 +213,11 @@
 		background-color: $yellow;
 		position: relative;
 		max-width: inherit;
+		&.animate_open{
+			@include animation('animate_open 0.5s');
+			@include vendorize(transition-timing-function, ease-in-out);
+		}
+
 		.modal_buy_ticket{
 			position: relative;
 			display: none;
@@ -229,10 +250,125 @@
 
 	}
 
+
+	#event_speakers{
+		padding-bottom: 13rem;
+
+		h2{
+			color: $red;
+			text-align: center;
+			font-family: $din;
+			font-size: 9rem;
+			text-transform: uppercase;
+			margin: 6rem 0;
+		}
+		> div{
+			max-width: 1000px;
+			width: 95%;
+			margin: 0 auto;
+			text-align: center;
+		}
+		.speaker{
+			width: 25%;
+			min-width: 250px;
+			text-align: center;
+			display: inline-block;
+			vertical-align: top;
+			position: relative;
+			padding-top: 3rem;
+			padding-bottom: 2rem;
+			img{
+				width: 70%;
+				min-width: 150px;
+				max-width: 250px;
+				border-radius: 100%;
+
+			}
+			h3{
+
+			}
+			h4{
+				font-family: $sans;
+				font-size: 1.5rem;
+    			line-height: 0.9rem;
+    			a{
+    				color: inherit;
+    				font-family: inherit;
+    				font-size: inherit;
+    				line-height: inherit;
+    				text-decoration: underline;
+    			}
+			}
+			> a {
+				color: inherit;
+				font-style: italic;
+			}
+			a:hover{
+				background-color: inherit;
+				color: $blue_dark;
+			}
+			.fullbio_open{
+				display: none;
+			}
+			p{
+				padding-top: 4rem;
+				padding-top: 1rem;
+				text-align: left;
+				width: 80%;
+				margin: 0 auto;
+				// position: absolute;
+				// top: 100%;
+				// left: 0;
+				display: none;
+			}
+			&.open{
+				background-color: $red;
+				color: $white;
+				&.blue{
+					background-color: $blue_dark;
+				}
+				&.blue_light{
+					background-color: $blue_light;
+					color: $black;
+				}
+				&.gold{
+					background-color: $yellow;
+					color: $black;
+				}
+				
+				p {
+					display: block;
+				}
+
+				.fullbio_close{
+					display: none;
+				}
+				.fullbio_open{
+					display: inline-block;
+				}
+			}
+
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	@media screen and (max-height: 850px) {
 		#event_header_image {
-			min-height: inherit;
-			padding-bottom: 25vh;
+			// min-height: inherit;
+			padding-bottom: 20vh;
 			img{
 				left: -35%;
 				width: 170%;
@@ -243,7 +379,7 @@
 			padding-bottom: 1rem;
 		}
 		#yellow_nonprofit_text{
-			padding: 0 0 2rem 0;
+			padding: 0 0 5rem 0;
 		}
 	}
 
@@ -321,6 +457,14 @@
 				margin-bottom: 7rem;
 			}
 		}
+		#event_speakers{
+			>div{
+				width: 100%;
+			}
+			.speaker{
+				width: 100%;		
+			}
+		}
 	}
 
 	@media screen and (max-height: 650px) and (min-width:$inbetween) {
@@ -341,45 +485,12 @@
 }
 
 
-/*
-.page-pages-show-event-wide {
-	.column {
-		max-width: 700px;
-		margin: 10rem auto;
-		#headline {
-			.byline {
-				display: none;
-			}
-		}
-		#content {
-			padding-top: 80px;	
-			h6.subhead {
-				margin-bottom: 4px;
-			}
-		}
+
+@include keyframes(animate_open) {
+	0%{
+		top: 500px
+	}
+	100%{
+		top: 0px
 	}
 }
-#content .event-info {
-	max-width: 700px;
-	margin: 100px auto;
-	h2 a {
-		color: #000;
-		&:hover {
-			background: none;
-			color: $sky-blue;
-		}
-	}
-	p {
-		margin: 0 auto;
-	}
-	.event-venue p {
-		margin: 0 auto 10px;
-	}
-	@include at-query($max,1050px){
-		padding-left: 40px;
-	}
-	@include at-query($max,900px){
-		padding-left: 10px;
-	}
-}
-*/

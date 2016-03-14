@@ -17,26 +17,42 @@
 
 {% else %}
 
-	{% if outstanding_invoices.size == 1 %}
-		{% for invoice in outstanding_invoices %}
+		
 
-		{% comment %}<h4 class="padbottomless">{{ invoice.name }}</h4>{% endcomment %}
-		<h4 class="padbottomless">New Harvest 2016:<br><span>Experience Cellular Agriculture, {% for item in invoice.items %}<br>{{ item.quantity }} {% if item.quantity > 1 %}tickets {%else%} ticket{% endif %}{% endfor %}</span></h4>
+		{% comment %}<h4 class="padbottomless">{{ outstanding_invoices[0].name }}</h4>{% endcomment %}
+		<h4 class="padbottomless">
+			Order Summary
+		</h4>
+		{% comment %}
+		<h4 class="padbottomless">New Harvest 2016:<br><span>Experience Cellular Agriculture, {% for item in outstanding_invoices[0].items %}<br>{{ item.quantity }} {% if item.quantity > 1 %}tickets {%else%} ticket{% endif %}{% endfor %}</span></h4>
+		{% endcomment %}
 		<table class="table">
 			<tr>
-				<th width="12%">Quantity</th>
 				<th class="middle_column">Name</th>
 				<th class="amount" width="12%">Price</th>
 				<th class="amount" width="12%">Fee</th>
+				<th width="12%">Quantity</th>
 			</tr>
 
-			{% for item in invoice.items %}
+			{% for item in outstanding_invoices[0].items %}
 
 				<tr>
-					<td class="invoice-quantity">{{ item.quantity }} <span class="no_mobile">{% if item.quantity > 1 %}Tickets {%else%} Ticket{% endif %}</span></td>
 					<td>General Admission to #NewHarvest2016</td>
-					<td class="amount">$250</td>
-					<td>$7.78</td>
+					<td class="amount">
+						{% if item.amount == "$50.00" %}
+							$50
+						{% else %}
+							$250
+						{% endif %}
+					</td>
+					<td>
+						{% if item.amount == "$50.00" %}
+							$0
+						{% else %}
+							$7.78
+						{% endif %}
+					</td>
+					<td class="invoice-quantity">{{ item.quantity }} <span class="no_mobile">{% if item.quantity > 1 %}Tickets {%else%} Ticket{% endif %}</span></td>
 				</tr>
 
 			{% endfor %}
@@ -45,54 +61,13 @@
 				<td colspan="2"></td>
 				<td><strong>Total:</strong></td>
 				<td  class="invoice-total">
-					 <span class="price-invoice">{{ invoice.amount_due_format }}</span>
+					 <span class="price-invoice">{{ outstanding_invoices[0].amount_due_format }}</span>
 				</td>
 			</tr>
 		</table>
 
 
-		{% endfor %}
-
-	{% else %}
-
-		{% for invoice in outstanding_invoices %}
-
-			<div class="expander">
-				<h4 class="expander-head">{{ invoice.name }}
-					<span class="expander-sign"><strong>[ + ]</strong></span>
-				</h4>
-
-				<div class="expander-content">
-					<!-- EXPANDING CONTENT BEGIN -->
-					<table class="table">
-						<tr>
-							<th width="12%">Quantity</th>
-							<th class="middle_column">Name</th>
-							<th class="amount" width="12%">Amount</th>
-						</tr>
-
-						{% for item in invoice.items %}
-
-						<tr>
-							<td class="invoice-quantity">{{ item.quantity }}</td>
-							<td>{{ item.name }}</td>
-							<td class="amount">{{ item.amount }}</td>
-						</tr>
-
-						{% endfor %}
-
-					</table>
-				</div>
-			</div>
-			<!-- EXPANDING CONTENT END -->
-			<table class="table">
-				<tr>
-					<td colspan="3" class="invoice-total">
-						<strong>Total</strong> <span class="price-invoice">{{ invoice.amount_due_format }}</span>
-					</td>
-			</table>
-		{% endfor %}
-	{% endif %}
+		
 
 	{% form_for invoice_payment %}
 
@@ -111,6 +86,10 @@
 				</div>
 			{% endif %}
 
+
+			<input type="hidden" name="invoice_payment[invoice_id]" id="invoice_payment_invoice_id" value="{{ outstanding_invoices[0].id }}">
+
+			{% comment %}
 			{% if outstanding_invoices.size > 1 %}
 			<div class="row">
 				<div class="col-md-12"><div class="form-group"><label for="invoice_payment_invoice_id">Invoice to pay</label>{% collection_select "invoice_id", outstanding_invoices, "id", "name", class:"select form-control" %}</div></div>
@@ -118,8 +97,9 @@
 			{% else %}
 			<input type="hidden" name="invoice_payment[invoice_id]" id="invoice_payment_invoice_id" value="{{ outstanding_invoices[0].id }}">
 			{% endif %}
+			{% endcomment %}
 
-			<h4>Information</h4>
+			<h4>Ticket Buyer</h4>
 			<div class="row">
 				<div class="">
 

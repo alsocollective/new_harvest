@@ -38,10 +38,16 @@
 			font-size: 1.3rem;
 			text-align: center;
 			border-top: none;
+			&:first-child{
+				text-align: left;
+			}
 		}
 		table td{
 			text-align: center;
 			text-transform: capitalize;
+			&:first-child{
+				text-align: left;
+			}
 		}
 		table td,table th{
 			border-color: $black;
