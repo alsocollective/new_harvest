@@ -16,6 +16,9 @@
 <div class="yellow_middle">
 	<div class="column content-pages-show-event-wide no_margin">
 
+	{% if page.event.accept_rsvps? == false %}
+		
+	
 	{% if page.event.is_maximum_capacity? %}
 			<div class="modal_buy_ticket">
 				<div>
@@ -85,26 +88,27 @@
 		{% endform_for %}
 
 	{% endif %}
-
+	
+	{% endif %}
 
 
 
 
 	{% if page.event.is_rsvped? %}
 
-		<div class="padtop">
 
 			{% form_for event_rsvp %}
-			{% endform_for %}
+			
 
-			<div class="form-wrap">
-				<div class="form">
-
+			<div class="modal_buy_ticket">
+				<div class="form"><div>
+					<p><strong>
 					{% if page.event.current_rsvp.is_canceled? %}
-						<h3>Your RSVP was canceled.</h3>
+						Your RSVP was canceled.
 					{% else %}
-						<h3>Thank you for rsvp'ing.  We'll see you there!</h3>
+						Thank you for rsvp'ing.  We'll see you there!
 					{% endif %}
+					</strong></p>
 
 					{% if request.sorta_logged_in? and request.logged_in? == false %}
 						If you're not {{ request.current_signup.name_or_email }}, <a href="{{ request.current_signup.logout_url }}">click here</a>.
@@ -117,17 +121,23 @@
 							<div class="form-errors">{% error_messages_for event_rsvp %}</div>
 
 							{% if page.event.allow_guests? and page.event.current_rsvp.is_canceled? == false %}
-								<label for="event_rsvp_guests_count" class="padtop">Change the number of guests you're bringing</label>
-								{% text_field "guests_count", class:"text form-control" %}
+								<div class="form-group">
+									<label for="event_rsvp_guests_count" class="padtop">Change the number of guests you're bringing</label>
+									{% text_field "guests_count", class:"text form-control" %}
+								</div>
 							{% endif %}
 
 							<label for="event_rsvp_is_canceled" class="checkbox padtop">
-								{% check_box "is_canceled", class:"checkbox" %} Cancel, I'm not coming. 
+								<div class="form-group">
+									{% check_box "is_canceled", class:"checkbox" %} Cancel, I'm not coming. 
+								</div>
 							</label>
 
 							<div class="padtopmore">
-								{% submit_tag "Update RSVP", class:"submit-button btn btn-primary" %}
-								<div class="form-submit"></div>
+								<div class="form-group">
+									{% submit_tag "Update RSVP", class:"submit-button btn btn-primary" %}
+									<div class="form-submit"></div>
+								</div>
 							</div>
 						{% else %}
 							<div class="padtop">
@@ -135,92 +145,102 @@
 							</div>
 						{% endif %}
 					{% endif %}
-				</div>
+				</div></div>
 			</div>
+			{% endform_for %}
 
-			</div>
-		</div>
+
 
 	{% elsif page.event.accept_rsvps?  %}
-
-		<div class="padtop padbottom">
 
 			{% if page.event.is_maximum_capacity? %}
 				<div class="padbottom"><span class="warning">Sorry, this event is sold out.</span></div>
 			{% else %}
 
 				{% form_for event_rsvp %}
+				<div class="modal_buy_ticket">
+					<div class="form"><div>
+						<p>
+							<strong>
+								Please RSVP to New Harvest 2016: Experience Cellular Agriculture
+							</strong>
+						</p>
 
-				<div class="form-wrap">
-					<div class="form">
-						{% if request.sorta_logged_in? %}
-
-							<h4>Hi {{ request.current_signup.name_or_email }}, will you come?</h4>
-
-							{% if request.logged_in? == false %}
-								<div class="padtop text-content">
-									If you're not {{ request.current_signup.name_or_email }}, <a href="{{ request.current_signup.logout_url }}">click here</a>.
-								</div>
-							{% endif %}
-
-						{% else %}
-
-							<h4>Will you come?</h4>
-
-						{% endif %}
-
-						<div class="padtopmore"></div>
 						<div class="form-errors">{% error_messages_for event_rsvp %}</div>
 
 						{% if request.sorta_logged_in? == false or request.current_signup.has_name? == false %}
-							<div class="row">
-								<div class="col-md-6"><div class="form-group"><label for="event_rsvp_first_name">First Name</label>{% text_field "first_name", class:"text form-control" %}</div></div>
-								<div class="col-md-6"><div class="form-group"><label for="event_rsvp_last_name">Last Name</label>{% text_field "last_name", class:"text form-control" %}</div></div>
+							<div class="form-group">
+								<input class="text form-control user-success" id="event_rsvp_first_name" name="event_rsvp[first_name]" type="text" placeholder="First Name">
+								<input class="text form-control user-success" id="event_rsvp_last_name" name="event_rsvp[last_name]" type="text" placeholder="Last Name">
 							</div>
+							{% comment %}
+								<div class="form-group"><label for="event_rsvp_first_name">First Name</label>{% text_field "first_name", class:"text form-control" %}</div>
+								<div class="form-group"><label for="event_rsvp_last_name">Last Name</label>{% text_field "last_name", class:"text form-control" %}</div>
+							{% endcomment %}
 						{% endif %}
 
 						{% if request.sorta_logged_in? == false %}
-							<div class="row">
-								<div class="col-md-6"><div class="form-group"><label for="event_rsvp_email">Email</label>{% email_field "email", class:"text form-control" %}</div></div>
-								{% if site.ask_for_mobiles? %}
-									<div class="col-md-6"><div class="form-group"><label for="event_rsvp_mobile_number">Mobile phone (optional)</label>{% phone_field "mobile_number", class:"text form-control" %}</div></div>
-								{% endif %}
+							<div class="form-group">
+								<input class="text form-control user-success" id="event_rsvp_email" name="event_rsvp[email]" type="email" placeholder="Email">
 							</div>
+							{% comment %}
+								<div class="form-group"><label for="event_rsvp_email">Email</label>{% email_field "email", class:"text form-control" %}</div>
+								{% if site.ask_for_mobiles? %}
+									<div class="form-group"><label for="event_rsvp_mobile_number">Mobile phone (optional)</label>{% phone_field "mobile_number", class:"text form-control" %}</div>
+								{% endif %}
 
-							<div class="row">
-								<div class="col-md-6"><div class="checkbox"><label for="event_rsvp_email_opt_in">{% check_box "email_opt_in", class:"checkbox" %} Send me email updates</label></div></div>
+								<div class="checkbox"><label for="event_rsvp_email_opt_in">{% check_box "email_opt_in", class:"checkbox" %} Send me email updates</label></div>
 								{% if site.ask_for_mobiles? %}
-									<div class="col-md-6"><div class="checkbox"><label for="event_rsvp_mobile_opt_in">{% check_box "mobile_opt_in", class:"checkbox" %} Send me text messages</label></div></div>
+									<div class="checkbox"><label for="event_rsvp_mobile_opt_in">{% check_box "mobile_opt_in", class:"checkbox" %} Send me text messages</label></div>
 								{% endif %}
-							</div>
+							{% endcomment %}
 						{% endif %}
 						{% if page.event.is_phone? %}
-							<div class="row">
-								<div class="col-md-12"><div class="form-group"><label for="event_rsvp_phone_number">Phone</label>{% phone_field "phone_number", class:"text form-control" %}</div></div>
+							{% comment %}
+								<div class="form-group"><label for="event_rsvp_phone_number">Phone</label>{% phone_field "phone_number", class:"text form-control" %}</div>
+							{% endcomment %}
+							<div class="form-group">
+								<input class="text form-control" id="event_rsvp_phone_number" name="event_rsvp[phone_number]" type="tel" placeholder="Phone">
 							</div>
 						{% endif %}
 
 						{% if page.event.is_address? %}
-							<div class="row">
-								<div class="col-md-12"><div class="form-group"><label for="event_rsvp_submitted_address">Address (Street, City, State, Postal code)</label>{% text_field "submitted_address", class:"text form-control" %}</div></div>
+							{% comment %}
+								<div class="form-group"><label for="event_rsvp_submitted_address">Address (Street, City, State, Postal code)</label>{% text_field "submitted_address", class:"text form-control" %}</div>
+							{% endcomment %}
+							<div class="form-group">
+								<input class="text form-control user-success" id="event_rsvp_submitted_address" name="event_rsvp[submitted_address]" type="text" placeholder="Address (Street, City, State, Postal code)">
 							</div>
 						{% endif %}
 					
 						{% if page.event.allow_guests? %}
-							<div class="row">
-								<div class="col-md-6"><div class="form-group"><label for="event_rsvp_guests_count">How many other people are you bringing?</label>{% text_field "guests_count", class:"text form-control" %}</div></div>
-							</div>
+							<div class="form-group"><label for="event_rsvp_guests_count">How many other people are you bringing?</label>{% text_field "guests_count", class:"text form-control" %}</div>
 						{% endif %}
-					</div>
+
+						<br>
+						{% submit_tag "Complete Registration", class:"submit-button btn btn-primary" %}
+						<div class="form-submit"></div>
+						{% comment %}
+						<input value="Complete Registration" type="submit" name="commit" class="submit-button btn btn-primary">
+						{% endcomment %}
+					</div></div>
 				</div>
 				{% endform_for %}
 			{% endif %}
-		</div>
 
 	{% endif %}
 
 	</div>
 </div>
+
+
+
+
+
+
+
+
+
 
 <div class="blue_background">
 	<div class="column content-pages-show-event-wide no_margin">
@@ -252,44 +272,101 @@
 				<h4><a target="_blank" href="http://culturedbeef.net/mark-post/">University of Maastricht</a></h4>
 				<h4><a target="_blank" href="http://www.new-harvest.org/mark_post_cultured_beef">The new hamburger</a></h4>
 				<a href="#mark-post"><span class="fullbio_open">hide</span><span class="fullbio_close">read more</span></a>
-				<p>
-					Professor Mark Post is the chair of the Physiology Department at Maastricht University, as well as a co-founder of Mosa Meats. Dr. Post works on tissue-engineered blood vessels for medical  applications, as well as tissue engineered muscle tissue for food. His work on food let to the  world’s first cultured beef hamburger, which was tasted in August of 2013.
-				</p>
+				<div class="fullbio">
+					<p>
+						Professor Mark Post is the chair of the Physiology Department at Maastricht University, as well as a co-founder of Mosa Meats. Dr. Post works on tissue-engineered blood vessels for medical  applications, as well as tissue engineered muscle tissue for food. His work on food let to the  world’s first cultured beef hamburger, which was tasted in August of 2013.
+					</p>
+				</div>
 			</div><div class="speaker gold" id="perumal-gandhi">
 				<img src="http://data.new-harvest.org/speakers/perumal-gandhi.jpg">
 				<h3>Perumal Gandhi</h3>
 				<h4><a target="_blank" href="http://muufri.com/">Muufri</a></h4>
 				<h4><a target="_blank" href="http://www.new-harvest.org/muufri_milk">The new milk</a></h4>
 				<a href="#perumal-gandhi"><span class="fullbio_open">hide</span><span class="fullbio_close">read more</span></a>
-				<p>
-					Perumal is a 24-year-old scientist and entrepreneur from India. He has a BSc. In Biotechnology & a Masters in Biomedical Engineering from State University of New York, Stonybrook. After graduation he co-founded Muufri: a food technology company based out of San Francisco, CA that is creating a future where milk comes from breweries instead of dairy farms; It’s a cleaner, healthier, and more sustainable future, without any compromises.
-				</p>
+				<div class="fullbio">
+					<p>
+						Perumal is a 24-year-old scientist and entrepreneur from India. He has a BSc. In Biotechnology & a Masters in Biomedical Engineering from State University of New York, Stonybrook. After graduation he co-founded Muufri: a food technology company based out of San Francisco, CA that is creating a future where milk comes from breweries instead of dairy farms; It’s a cleaner, healthier, and more sustainable future, without any compromises.
+					</p>
+				</div>
 			</div><div class="speaker blue" id="arturo-elizondo">
 				<img src="http://data.new-harvest.org/speakers/arturo-elizondo.jpg">
 				<h3>Arturo Elizondo</h3>
 				<h4><a target="_blank" href="http://clarafoods.com/">Clara Foods</a></h4>
 				<h4><a target="_blank" href="http://www.new-harvest.org/clara_foods">The new egg</a></h4>
 				<a href="#arturo-elizondo"><span class="fullbio_open">hide</span><span class="fullbio_close">read more</span></a>
-				<p>
-					Arturo Elizondo is CEO of Clara Foods, a sustainable ingredients company making the world's  first animal-free egg white and other performance egg replacers. Prior to joining Clara Foods, Arturo served under Supreme Court Justice Sonia Sotomayor, the U.S. Department of Agriculture, and the investment bank Credit Suisse. Arturo holds a degree in Government and Comparative Politics from Harvard University.
-				</p>
+				<div class="fullbio">
+					<p>
+						Arturo Elizondo is CEO of Clara Foods, a sustainable ingredients company making the world's  first animal-free egg white and other performance egg replacers. Prior to joining Clara Foods, Arturo served under Supreme Court Justice Sonia Sotomayor, the U.S. Department of Agriculture, and the investment bank Credit Suisse. Arturo holds a degree in Government and Comparative Politics from Harvard University.
+					</p>
+				</div>
 			</div><div class="speaker blue_light" id="alex-lorestani">
 				<img src="http://data.new-harvest.org/speakers/alex-lorestani.jpg">
 				<h3>Alexander Lorestani</h3>
 				<h4><a target="_blank" href="http://www.gelzen.com/">Gelzen</a></h4>
 				<h4><a target="_blank" href=""></a>The new gelatin</h4>
 				<a href="#alex-lorestani"><span class="fullbio_open">hide</span><span class="fullbio_close">read more</span></a>
+				<div class="fullbio">
+					<p>
+						Alexander Lorestani is the co-founder and CEO of Gelzen, Inc. Prior to his work at Gelzen,Alexander was an MD/PhD candidate at the Rutgers University-Princeton University Physician-Scientist Training Program, with the PhD in microbiology focused on antibiotic-resistant bacteria. Alex has a passion for translating discoveries forged through high-quality basic research into tools that can be used to improve lives.
+					</p>
+				</div>
+			</div>
+
+
+		{% if page.slug == "nh2016_dev" %}
+
+
+		<div class="speaker blue" id="matthew-markus">
+			<img src="http://data.new-harvest.org/speakers/matthew-markus.jpg">
+			<h3>Matthew Markus</h3>
+			<h4><a target="_blank" href="http://signup.pembient.com/">Pembient</a></h4>
+			<h4><a target="_blank" href="http://www.new-harvest.org/pembient_rhino_horns">The new wildlife trade</a></h4>
+			<a href="#matthew-markus"><span class="fullbio_open">hide</span><span class="fullbio_close">read more</span></a>
+			<div class="fullbio bottom_out_3">
 				<p>
-					Alexander Lorestani is the co-founder and CEO of Gelzen, Inc. Prior to his work at Gelzen,Alexander was an MD/PhD candidate at the Rutgers University-Princeton University Physician-Scientist Training Program, with the PhD in microbiology focused on antibiotic-resistant bacteria. Alex has a passion for translating discoveries forged through high-quality basic research into tools that can be used to improve lives.
+					Matthew is Co-founder and CEO of Pembient, a company biofabricating wildlife products in order to stop the poaching of, and prevent the farming of, iconic species such as the rhinoceros. A serial entrepreneur, Matthew's past ventures include PrivacyBank.com, an internet company that was acquired by InfoSpace (now NASDAQ: BCOR). Matthew holds a Masters of Engineering Management, as well as a M.S. in Genetic Epidemiology, from the University of Washington in St. Louis.
 				</p>
 			</div>
+		</div><div class="speaker red" id="josh-tetrick">
+			<img src="http://data.new-harvest.org/speakers/josh-tetrick.jpg">
+			<h3>Josh Tetrick</h3>
+			<h4><a target="_blank" href="https://www.hamptoncreek.com/">Hampton Creek</a></h4>
+			<h4><a target="_blank" href="">The new food movement</a></h4>
+			<a href="#josh-tetrick"><span class="fullbio_open">hide</span><span class="fullbio_close">read more</span></a>
+			<div class="fullbio bottom_out_3">
+				<p>
+					Josh Tetrick is the CEO/Founder of Hampton Creek, a company dedicated to making it easier for everyone to eat better. Founded in 2011, Hampton Creek was named Fast Company’s 2nd most innovative company in food, earned a spot on CNBC’s top 50 disrupter list and called the fastest growing food company on earth by Inc. magazine. Previously, Josh led a UN business initiative in Kenya, worked for both former President Clinton and the President of Liberia, and taught street children as a Fulbright Scholar in Africa.
+				</p>
+			</div>
+		</div><div class="speaker blue_light" id="camille-delebecque">
+			<img src="http://data.new-harvest.org/speakers/camille-delebecque.jpg">
+			<h3>Camille Delebecque</h3>
+			<h4><a target="_blank" href="http://www.afineur.com/">Afineur</a></h4>
+			<h4><a target="_blank" href="">The new food processing</a></h4>
+			<a href="#camille-delebecque"><span class="fullbio_open">hide</span><span class="fullbio_close">read more</span></a>
+			<div class="fullbio bottom_out_2">
+				<p>
+					Camille is the co-founder and CEO of Afineur, a Brooklyn based biotechnology company using controlled fermentations to enhance plant-based foods. Afineur is a pioneer in consumer biotechnology, raising awareness about the potential of cultured products notably through a successful Kickstarter campaign. Previously, Camille founded Synbio Consulting to foster biotechnological innovation. Camille holds a PhD in Synthetic Biology he completed between Harvard and Paris Universities. He has been recognized an emerging leader shaping the future of biotechnology and food by LEAP and Grist. 
+				</p>
+			</div>
+		</div><div class="speaker gold" id="nicki-briggs">
+			<img src="http://data.new-harvest.org/speakers/nicki-briggs.jpg">
+			<h3>Nicki Briggs</h3>
+			<h4><a target="_blank" href="http://www.nearboil.com/">Near Boil</a></h4>
+			<h4><a href="">The new food conversation</a></h4>
+			<a href="#nicki-briggs"><span class="fullbio_open">hide</span><span class="fullbio_close">read more</span></a>
+			<div class="fullbio bottom_out_1">
+				<p>
+					Recognized as one of PRWeek's 40 Under 40 ‘Trailblazers to Watch,’ Nicki Briggs is a brand marketing and communications leader, passionate food and nutrition expert, and contributing writer and media spokesperson. Prior to starting her own practice, Nicki led global communications for Chobani. She built the brand's voice and played a pivotal role in transforming a regional yogurt company into a billion dollar brand in under five years, making Chobani one of the fastest-growing startups ever. Nicki's work was featured in the Harvard Business School case study, “Growing a Live and Active Culture.”
+				</p>
+			</div>
+		</div>
+
+		{% endif %}
 			<h3>More to come</h3>
 			<br>
 			<p>
 				Many thanks to the sponsors and volunteers that are bringing this conference to life.  <br>To become a sponsor or volunteer please email: <a href="mailto:hello@new-harvest.org">hello@new-harvest.org </a>
 			</p>
 		</div>
-
 	</div>
-{% if page.slug == "nh2016_dev" %}		
-{% endif %}

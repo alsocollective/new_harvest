@@ -207,6 +207,11 @@
 				text-decoration: underline;
 			}
 		}
+		input[type="checkbox"]{
+			display: inline-block;
+			margin: 0 10px;
+			position: static;
+		}
 	}
 
 	.yellow_middle{
@@ -310,9 +315,20 @@
 			.fullbio_open{
 				display: none;
 			}
+			.fullbio{
+				position: absolute;
+				top: 100%;
+				width: 100%;
+				height: auto;
+				z-index: 99;
+				background: #fff;
+				@include at-query($max,$inbetween){
+					position: static;
+				}
+			}
 			p{
-				padding-top: 4rem;
-				padding-top: 1rem;
+				// padding-top: 4rem;
+				// padding-top: 1rem;
 				text-align: left;
 				width: 80%;
 				margin: 0 auto;
@@ -320,20 +336,38 @@
 				// top: 100%;
 				// left: 0;
 				display: none;
+				padding-bottom: 1.5rem;
+				font-size: 1.4rem;
 			}
 			&.open{
 				background-color: $red;
 				color: $white;
+				.fullbio{
+					background-color: $red;
+					color: $white;
+				}
 				&.blue{
 					background-color: $blue_dark;
+					.fullbio{
+						background-color: $blue_dark;
+						color: $white;
+					}
 				}
 				&.blue_light{
 					background-color: $blue_light;
 					color: $black;
+					.fullbio{
+						background-color: $blue_light;
+						color: $black;
+					}
 				}
 				&.gold{
 					background-color: $yellow;
 					color: $black;
+					.fullbio{
+						background-color: $yellow;
+						color: $black;
+					}
 				}
 				
 				p {
@@ -351,7 +385,26 @@
 		}
 	}
 
-
+	#event_speakers .speaker .fullbio{
+		&.bottom_out_3{
+			position: static;
+			@include at-query($max,1352px){
+				position: absolute;
+			}
+		}
+		&.bottom_out_2{
+			position: static;
+		// 	@include at-query($max,){
+		// 		position: static;
+		// 	}
+		}
+		&.bottom_out_1{
+			position: static;
+		// 	@include at-query($max,$inbetween){
+		// 		position: static;
+		// 	}
+		}
+	}
 
 
 
