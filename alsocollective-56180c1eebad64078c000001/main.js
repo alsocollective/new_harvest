@@ -17,9 +17,80 @@ var app = {
 			app.people_list.init()
 		};
 		app.events.init()
-
+		if ($("#conference").length > 0) {
+			app.conference.init();
+		}
 	}
 }
+
+app.conference = {
+	init: function() {
+		app.conference.speaker.init();
+		app.conference.nav.init();
+		app.conference.agenda.init();
+		app.conference.exhibitor.init();
+	},
+	speaker: {
+		init: function() {
+			$(".con_speaker_button").click(app.conference.speaker.click);
+		},
+		click: function(event) {
+			$("#con_speakers .active").removeClass("active");
+			$(this).addClass("active");
+			$("#" + $(this).data("slug")).addClass("active");
+		}
+	},
+	agenda: {
+		init: function() {
+			$("#con_agenda #con_right tr").click(app.conference.agenda.click);
+			$("#con_agenda #con_right tr a").click(app.conference.agenda.click_ignore);
+		},
+		click: function(event) {
+			$("#con_agenda .active").removeClass("active");
+			$(this).addClass("active");
+			$("#" + $(this).data("slug")).addClass("active");
+		},
+		click_ignore: function(event) {
+			event.preventDefault();
+			return false;
+		}
+	},
+	exhibitor: {
+		init: function() {
+			$(".con_exhibitor_button").click(app.conference.exhibitor.click);
+		},
+		click: function(event) {
+			$("#con_exhibitors .active").removeClass("active");
+			$(this).addClass("active");
+			$("#" + $(this).data("slug")).addClass("active");
+		}
+	},
+	nav: {
+		init: function() {
+			$("#con_regnow_circle").click(app.nav.click_register_now);
+			$(".con_svg_nav_button").click(app.conference.nav.click);
+			$("#con_nav_toggle a").click(app.conference.nav.toggle_open);
+			$("#con_nav_list a").click(app.conference.nav.close);
+		},
+		click_register_now: function(event) {
+			event.preventDefault();
+			$(this).find("a").click();
+			return false;
+		},
+		click: function(event) {
+			window.location.hash = this.id.split("target_").pop();
+		},
+		toggle_open: function(event) {
+			event.preventDefault();
+			$(document.body).toggleClass("nav_open");
+			return false;
+		},
+		close: function(event) {
+			$(document.body).removeClass("nav_open");
+		}
+	}
+}
+
 
 app.events = {
 	init: function() {
@@ -35,7 +106,7 @@ app.events = {
 		$(".yellow_middle").addClass("animate_open")
 		$("#event_ticket_level_1").select();
 	},
-	toggle_bio:function(event){
+	toggle_bio: function(event) {
 		var parent = $(this.parentNode);
 		if (parent.hasClass("open")) {
 			parent.removeClass("open");

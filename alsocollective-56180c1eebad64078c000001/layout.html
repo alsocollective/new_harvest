@@ -54,6 +54,12 @@
 	</head>
 	<body class="aware-theme v2-theme {{ page.page_class_name }} page-{{ request.template | replace: '_', '-' }} js">
 		
+		{% if page.slug == "nh2016_dev" %}
+			{% include "page_nh2016" %}
+		{% else %}
+		
+
+
 		<div id="donateBG"></div>
 		<a id="donateBtnLabel" href="/donate-onetime">Donate</a>
 
@@ -112,7 +118,7 @@
 				</div> <!-- side-body -->    
 			</div> <!-- container-fluid -->
 		</div><!-- row -->
-
+		{% endif %}
 		<script src="bootstrap.js"></script>
 		<script type="text/javascript" src="jquery.lazyload.min.js"></script>
 		<script type="text/javascript" src="jquery.waypoints.min.js"></script>

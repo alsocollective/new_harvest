@@ -1,0 +1,18 @@
+{% for post in page.blog.most_recent_blog_posts limit:1 offset:0 %}
+	{% comment %}
+
+	{{ post.url }}
+	{{ post.published_at | date: '%b %d, %Y' }}
+	{{ post.blog_post.content | strip_html | truncatewords:50 }}
+
+	{% endcomment %}
+	
+	
+	{% if post.features_count > 0 %}<div class="con_announ_articel_image">
+		{% for feature in post.features %}<img {% if feature.image_width == feature.image_height %}class="con_rounded"{% endif %} src="{{feature.image_url}}">{% endfor %}
+	</div>{% endif %}<div class="con_announ_articel_text">
+		<h3>{{ post.headline }}</h3>
+		
+		{{ post.blog_post.content_full }}
+	</div>
+{% endfor %}

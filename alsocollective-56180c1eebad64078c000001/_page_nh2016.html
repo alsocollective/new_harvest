@@ -1,0 +1,208 @@
+<div id="conference">
+
+
+	<div id="con_nav">
+		<div id="con_nav_toggle"><a href="#menu">&#215;</a></div>
+		<div id="con_nav_list">
+			<ul>
+				<li><a href="#con_about">About</a></li>
+				<li><a href="#con_registe">Register</a></li>
+				<li><a href="#con_speakers">Speakers</a></li>
+				<li><a href="#con_exhibitors">Exhibitors</a></li>
+				<li><a href="#con_agenda">Agenda</a></li>
+				<li><a href="#con_sponsors">Sponsors</a></li>
+				<li><a href="#con_announcements">Announcements</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="con_regnow">
+		<button id="con_regnow_circle">
+			<a href="#con_registe">Register<br>Now</a>
+		</button>
+	</div>
+
+
+
+	<section><div id="con_intro" class="con_section"><div class="con_container"><div class="con_contain_max">
+		{% subpage "nh2016_twitter_feed" with "page_nh2016_svg_tophalf" %}
+		<h4>July 13 2016</h4>
+		<h1>New Harvest 2016:</h1>
+		<h2>Experience Cellular Agriculture</h2>
+		<h4>San Francisco</h4>
+		{% subpage "nh2016_twitter_feed" with "page_nh2016_svg_bottomhalf" %}
+	</div></div></div></section>
+
+
+
+	<section ><div id="con_announcment" class="con_section"><div class="con_container"><div class="con_contain_max">
+		<h2 class="con_section_titles">Announcement</h2>
+		<article>
+		<div class="con_announ_articel">
+			{% subpage "alerts_dev" with "page_nh2016_single_alert" %}
+		</div>
+		</article>
+	</div></div></div></section>
+
+
+
+	<section><div id="con_about" class="con_section"><div class="con_container"><div class="con_contain_max">
+		<div id="con_about_left">
+			<h2 class="con_section_titles" >New Harvest 2016</h2>
+			<div id="con_about_twitter">
+				{% subpage "nh2016_twitter_feed" with "twitter_most_recent" %}
+			</div>
+		</div><div id="con_about_right">
+			<blockquote>
+				Experience the newest harvest of cell cultured products at <b>the world’s first conference dedicated to cellular agriculture.</b>
+			</blockquote>
+			<h3>July 13, San Francisco</h3>
+			<p><a href="">The Golden Gate Club at the Presidio</a></p>
+			<p><a href="">135 Fisher Loop, San Francisco, CA 94129</a></p>
+			<h4>Presented by</h4>
+			<div id="con_about_presented">
+				{% subpage "speakers_dev" with "page_new_harvest_logo" %}
+				<p>New Harvest, the premier nonprofit building the emerging post-animal bioeconomy.</p>
+			</div>
+		</div>
+	</div></div></div></section>
+
+
+
+	<section><div id="con_registe" class="con_section"><div class="con_container"><div class="con_contain_max">
+		<h2 class="con_section_titles">Register</h2>
+		<p>
+			Are you a student or biohacker? <a href="mailto:isha@new-harvest.org">Contact</a> us for discounts.
+		</p>
+
+		{% form_for order %}
+
+		<div class="form">
+		<table>
+			<tr>
+				<th>Quantity</th>
+				<th>Ticket Information</th>
+				<th>Price</th>
+				<th>Fee</th>
+			</tr>
+			{% for ticket_level in page.event.ticket_levels %}
+				<tr>
+					<td>
+						<input id="event_ticket_level_{{ticket_level.id}}" type="number" min="0" placeholder="" value="1" name="event_ticket_level[{{ticket_level.id}}]">
+					</td>
+					<td>
+						{{ ticket_level.description }}
+					</td>	
+					<td>						
+						{% if ticket_level.amount == "$50.00" %}
+						$50
+						{% else %}
+						
+						$250
+						{% endif %}
+						
+					</td>
+					<td>
+						{% if ticket_level.amount == "$50.00" %}
+							$0
+						{% else %}
+							$7.78	
+						{% endif %}
+					</td>
+				</tr>
+			{% endfor %}
+		</table>
+		<div id="con_submit_container">
+			<input value="Complete Registration" type="submit" name="commit" class="submit-button btn btn-primary">
+		</div>
+		</div>	
+		{% endform_for %}
+	</div></div></div></section>
+
+
+
+	<section><div id="con_speakers" class="con_section"><div class="con_container"><div class="con_contain_max">
+		<div id="con_left">
+			<h2 class="con_section_titles">Speakers</h2>
+			{% subpage "speakers_dev" with "page_nh2016_presenters_bios" %}
+		</div><div id="con_right">
+			{% subpage "speakers_dev" with "page_nh2016_presenters_images" %}
+		</div>
+	</div></div></div></section>
+	
+
+
+
+	<section><div id="con_exhibitors" class="con_section"><div class="con_container"><div class="con_contain_max">
+		<div id="con_left">
+			<h2 class="con_section_titles">Exhibitors</h2>
+			{% subpage "speakers_dev" with "page_nh2016_exhibitor_bios" %}
+		</div><div id="con_right">
+			{% subpage "speakers_dev" with "page_nh2016_exhibitors_images" %}
+		</div>
+	</div></div></div></section>
+	
+
+
+
+	<section><div id="con_agenda" class="con_section"><div class="con_container"><div class="con_contain_max">
+		<div id="con_left">
+			<h2 class="con_section_titles">Agenda</h2>
+			{% subpage "agenda_dev" with "page_nh2016_presenters_bios" %}
+		</div><div id="con_right">
+			{% subpage "agenda_dev" with "page_nh2016_presenters_agenda" %}
+		</div>
+	</div></div></div></section>
+
+
+
+
+	<section><div id="con_sponsors" class="con_section"><div class="con_container"><div class="con_contain_max">
+		<div id="con_left">
+			<h2 class="con_section_titles">Sponsors</h2>
+			<div>
+				<h3>Thank You</h3>
+				<p>
+					New Harvest would like to thank all of its sponsors for their generous donations, and for making this event possible.
+				</p>
+			</div>
+		</div><div id="con_right">
+			{% subpage "speakers_dev" with "page_nh2016_sponsors_images" %}
+		</div>
+	</div></div></div></section>
+
+
+	<section><div id="con_announcements" class="con_section"><div class="con_container"><div class="con_contain_max">
+		<h2 class="con_section_titles">Previous Announcement</h2>
+		{% subpage "alerts_dev" with "page_nh2016_alerts" %}
+	</div></div></div></section>
+
+
+	<footer>
+				
+		{% if request.current_user.is_admin? %}
+	    	<p id="edit-this-page"><a href="{{ page.admin_edit_url }}">{{ "fugue-edit-signiture" | icon }} Edit this page</a></p>
+	    {% endif %}
+
+		<div id="quote_footer">
+			{{ site.footer_content }}
+		</div>
+		<div class="container {% if site.has_background_image? %}well well-lg{% endif %}">
+
+			{{ content_for_footer }}
+
+			{% if site.footer_content.size > 0 %}
+			
+			{% endif %}
+
+			<div class="row" id="nb_footer">
+				<div class="col-xs footer-right text-right">
+					Created with <a href="http://nationbuilder.com/">NationBuilder</a>
+					&nbsp; &nbsp;<span class="copy_right_footer">&copy; New Harvest</span>
+				</div>
+
+			</div>
+		</div>
+		<!-- container -->
+	</footer>	
+
+</div>

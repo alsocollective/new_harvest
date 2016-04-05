@@ -323,6 +323,7 @@
 				z-index: 99;
 				background: #fff;
 				@include at-query($max,$inbetween){
+					padding-top: 2rem;
 					position: static;
 				}
 			}
@@ -387,18 +388,22 @@
 
 	#event_speakers .speaker .fullbio{
 		&.bottom_out_3{
+			padding-top: 2rem;
 			position: static;
 			@include at-query($max,1352px){
+				padding-top: 0rem;
 				position: absolute;
 			}
 		}
 		&.bottom_out_2{
+			padding-top: 2rem;
 			position: static;
 		// 	@include at-query($max,){
 		// 		position: static;
 		// 	}
 		}
 		&.bottom_out_1{
+			padding-top: 2rem;
 			position: static;
 		// 	@include at-query($max,$inbetween){
 		// 		position: static;

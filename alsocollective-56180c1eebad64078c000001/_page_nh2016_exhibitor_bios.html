@@ -1,0 +1,15 @@
+{% for post in page.blog.most_recent_blog_posts offset:0 %}
+	{% comment %}
+
+	{{ post.url }}
+	{{ post.published_at | date: '%b %d, %Y' }}
+	{{ post.blog_post.content | strip_html | truncatewords:50 }}
+
+	{% endcomment %}
+	<div id="exhibitor_{{post.slug}}" {% if forloop.first %}class="active"{% endif %}>
+	<h3>{{post.name}}</h3>
+		{{post.blog_post.content}}
+		{{post.blog_post.content_flip}}
+	</div>
+
+{% endfor %}

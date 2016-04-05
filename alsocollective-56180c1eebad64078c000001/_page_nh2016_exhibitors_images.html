@@ -1,0 +1,9 @@
+{% for post in page.blog.most_recent_blog_posts offset:0 %}<button class="con_exhibitor_button" data-slug="exhibitor_{{post.slug}}">
+			
+			{% for feature in post.features %}<img src="{{feature.image_url}}">{% endfor %}
+			<p>
+				{{post.name}}<br>
+				<i>view bio</i>
+			</p>
+
+		</button>{% endfor %}

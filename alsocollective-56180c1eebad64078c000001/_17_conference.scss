@@ -1,0 +1,531 @@
+$width_left: 30%;
+$width_right: 65%;
+$width_right_margin: 5%;
+
+#conference{
+	h1,h2,h3,h4,h5{
+		font-family: $sans;
+		font-weight: bolder;
+	}
+	p{
+		line-height: 1.2;
+		margin-bottom: 1rem;
+	}
+
+	.con_section{
+		padding-top: 1px;
+		padding-bottom: 1px;
+	}
+	.con_container{
+		width: 90%;
+		width: calc(100% - 100px);
+		margin: 50px auto;
+		width: calc(100% - 10rem);
+    	margin: 5rem auto;
+    	padding: 50px 0;
+    	padding: 5rem 0;
+	}
+	.con_contain_max{
+		max-width: 1200px;
+		width: 90%;
+		margin: 0 auto;
+	}
+	.con_section_titles{
+		font-family: $din;
+		margin: 0;
+		font-size: 8rem;
+		text-transform: uppercase;
+		font-weight: normal;
+	}
+}
+
+
+
+#con_nav,#con_regnow{
+	position: fixed;
+	top: 50px;
+	top: 7rem;
+}
+#con_nav{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	height: 100vh;
+	z-index: 80;
+	right: 100%;
+	top: 0;
+
+	#con_nav_toggle{
+		left: 100%;
+		position: absolute;
+		z-index: 2;
+		a{
+			display: inline-block;
+			padding: 2rem;
+			font-weight: bolder;
+			font-size: 5rem;
+			line-height: 1rem;
+			color: $yellow;
+			position: relative;
+			top: 7rem;
+			left: 7rem;			
+			@include vendorize(transform,rotateZ(45deg));
+			&:active,&:hover,&:focus{
+				text-decoration: none;
+			}
+		}
+	}
+	#con_nav_list{
+		background-color: $white;
+		color: $yellow;
+		display: none;
+		position: relative;
+		width: 100%;
+		height: 100%;
+		overflow: scroll;
+		left: 100%;
+		padding: 5rem;
+		ul{
+			display: table-cell;
+			vertical-align: middle;
+			text-align: center;
+			padding: 0;
+			margin: 0;
+			background-color: $blue_light;
+		}
+		li{
+			list-style: none;
+			text-align: center;
+			margin: 0;
+			padding: 0;
+		}
+		a{
+			padding: 0;
+			font-family: $din;
+			font-size: 6rem;
+			color: $white;
+			text-transform: uppercase;
+			display: block;
+			line-height: 1.15;
+			&:active,&:hover,&:focus{
+				color: $yellow;
+				text-decoration: none;
+			}
+		}
+	}
+}
+body.nav_open{
+	overflow: hidden;
+	#con_nav{
+		#con_nav_toggle a{
+			@include vendorize(transform,none);
+		}
+	}
+	#con_nav #con_nav_list{
+		display: block;
+		display: table;
+	}
+}
+
+#con_regnow{
+	right: 50px;
+	right: 7rem;
+	
+	#con_regnow_circle{
+		border-radius: 100%;
+		// background-color: $blue_green_dark;
+		background-color: $yellow;
+		height: 10rem;
+		width: 10rem;
+		padding: 0;
+		text-align: center;
+		border: 1px solid $yellow;
+		font-family: $sans;	
+		font-size: inherit;
+		a{
+			font-weight: bolder;
+			// color: $white;
+			color: $blue_green_dark;
+			font-family: inherit;
+			padding-top: 0.5rem;
+			display: inline-block;
+			&:hover{
+				text-decoration: none;
+			}
+		}
+		&:hover{
+			background-color: $white;
+			border-color: $blue_green_dark;
+			a{
+				color: $blue_green_dark;
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+
+
+#con_intro{
+	color: $white;
+	text-align: center;
+	.con_container{
+		background-color: $blue_green_dark;
+	}
+	svg{
+		max-width: 900px;
+	}
+	#con_intro_top_svg{
+		padding-top: 1px;
+		margin-bottom: -3.5rem;
+	}
+	#con_intro_bottom_svg{
+		margin-top: -4.5rem;
+		// padding-bottom: 5rem;
+	}
+	h1{
+		font-family: $din;
+		text-shadow: 4px 4px 6px rgba(0,0,0,0.3);
+		text-transform: uppercase;
+		font-size: 12rem;
+		font-weight: normal;
+		margin-top: 0;
+	}
+	h2{
+		margin-top: -1rem;
+		font-size: 3rem;
+	}
+	h4{
+		color: $yellow;
+		font-size: 2.25rem;
+		margin-bottom: 0;
+	}
+	.con_svg_nav_button:hover{
+		rect{
+			fill:$white;
+		}
+		path{
+			fill:$blue_green_dark;
+		}
+	}
+}
+
+
+
+#con_announcment,#con_announcements{
+	color: $white;
+	.con_container{
+		background-color: $red;
+	}
+	h2.con_section_titles{
+		margin-bottom: 5rem;
+		text-align: center;
+	}
+	.con_announ_articel{
+		border-top: 1px solid $white;
+		border-bottom: 1px solid $white;
+		text-align: center;
+	}
+	img.con_rounded{
+		@include vendorize(border-radius,100%);
+	}
+}
+.con_announ_articel_image,.con_announ_articel_text{
+	text-align: left;
+	display: inline-block;
+	vertical-align: top;
+}
+.con_announ_articel_image{
+	width: $width_left;
+	text-align: center;
+	img{
+		width: 80%;
+		width: calc(100% - 4rem);
+		max-width: 220px;
+	    margin: 3.5rem 2rem;
+	}
+}
+.con_announ_articel_text{
+	width: $width_right;
+	margin-left: $width_right_margin;
+	h3{
+		margin: 2.5rem 0;
+	}
+	a{
+		color: inherit;
+		font-weight: bolder;
+	}
+}
+
+
+
+#con_about{
+	background-color: $blue_light;
+	.con_container{
+		background-color: $white;
+		color: $blue_dark;
+	}
+	#con_about_left,#con_about_right{
+		display: inline-block;
+		vertical-align: top;
+	}
+	#con_about_left{
+		width: $width_left;
+		a{
+			color: $blue_dark;
+		}
+		#con_about_twitter {
+			margin-top: 15rem;
+			border-top: 0.7rem solid;
+			width: 80%;
+			font-family: $sans;
+			font-size: 1.3rem;
+			padding-top: 2rem;
+		}
+		.tweet{
+			max-width: 90%;
+		}
+		.tweet_actions{
+			a{
+				font-weight: bolder;
+				display: inline-block;
+				padding-right: 1rem;
+				text-transform: uppercase;
+			}
+		}
+	}
+	#con_about_right{
+		width: $width_right;
+		margin-left: $width_right_margin;
+		h3 {
+			padding-top: 3rem;
+			font-size: 3rem;
+		}
+		h4{
+			padding-top: 6rem;
+			padding-bottom: 1rem;
+		}
+	}
+
+	h2.con_section_titles{
+		text-decoration: underline;
+	}
+	blockquote{
+		font-family: $sans;
+		margin: 0;
+		font-size: 4rem;
+		max-width: 600px;
+		b{
+			font-style: italic;
+			text-decoration: underline;
+		}
+	}
+	#con_about_presented{
+		svg{
+			width: 30%;
+			margin-right: 5%;
+			vertical-align: top;
+		}
+		p{
+			display: inline-block;
+			vertical-align: top;
+			width: 40%;
+		}
+	}
+}
+
+
+
+#con_registe{
+	.con_container{
+		background-color: $blue_green_dark;
+		color: $white;
+		font-family: $sans;
+	}
+	h2.con_section_titles{
+		margin-bottom: 5rem;
+		text-align: center;
+	}
+	p{
+		text-align: center;
+		a{
+			color: inherit;
+			font-weight: bolder;
+		}
+		margin-bottom: 5rem;
+	}
+	table{
+		width: 100%;
+		margin-bottom: 5rem;
+	}
+	tr{
+		border-bottom: 1px solid $white;
+	}
+	th{
+		padding-bottom: 2rem;
+	}
+	td{
+		padding: 2rem 0;
+		input{
+			border: none;
+			padding: 0.5rem 0 0.5rem 2rem;
+			color: $blue_dark;
+		}
+	}
+	div#con_submit_container{
+		text-align: center;
+		input{
+			font-family: $fortescue;
+			background-color: inherit;
+			font-size: inherit;
+			font-weight: inherit;
+			background-color: transparent;
+			border: solid 1px $white;
+			display: inline-block;
+			margin: 0 auto;
+			border-radius: 0;
+		}
+	}
+}
+
+
+
+
+#con_left,#con_right{
+	display: inline-block;
+	vertical-align: top;
+}
+#con_left{
+	width: $width_left;
+	color: $red;
+	> div{
+		display: none;
+	}
+	> div.active{
+		display: block;
+	}
+	h3{
+		padding-top: 4rem;
+		padding-bottom: 3rem;
+		text-transform: uppercase;
+	}
+	h5{
+		a{
+			color: inherit;
+			text-decoration: underline;
+		}
+		margin: 0.25rem 0;
+		&:last-of-type{
+			margin-bottom: 4rem;
+		}
+	}
+
+}
+#con_right{
+	width: $width_right;
+    margin-left: $width_right_margin;
+
+	p{
+		margin-top: 1rem;
+		line-height: 2rem;
+	}
+}
+
+
+
+
+#con_speakers,#con_exhibitors,#con_agenda,#con_sponsors{
+	h2.con_section_titles{
+		text-decoration: underline;
+	}
+
+	button{
+		background-color: transparent;
+		border: none;
+		width: 25%;
+		display: inline-block;
+		color: inherit;
+		font-family: inherit;
+		font-size: inherit;
+		text-align: center;
+	    margin: 0 2.5%;
+	    &.active img{
+			box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
+		}
+	}
+}
+
+#con_speakers{
+	background-color: $blue_dark;
+	.con_container{
+		background-color: $white;
+		color: $black;
+	}
+}
+
+#con_exhibitors{
+	background-color: $yellow;
+	.con_container{
+		background-color: $white;
+		color: $black;
+	}
+	#con_left{
+		color: $organge_light;
+	}
+}
+
+#con_agenda{
+	background-color: $white;
+	.con_container{
+		background-color: $blue_light;
+		color: $white;
+	}
+	#con_left{
+		color: $white;
+	}
+	table{
+		width: 100%;
+		border-bottom: 1px solid $white;
+	}
+	td{
+		border-top: 1px solid $white;
+		padding: 1.5rem 0 1.5rem 3rem;
+		cursor: pointer;
+		h5{
+			font-family: inherit;
+			font-weight: inherit;
+			text-transform: capitalize;
+			font-size: inherit;
+			margin: 0;
+		}
+	}
+	tr.active{
+		background-color: $blue_dark;
+	}
+}
+
+#con_sponsors{
+	background-color: $rouge;
+	.con_container{
+		background-color: $white;
+		color: $black;
+	}
+	#con_left > div{
+		display: block;
+	}
+	
+}
+
+#con_announcements{
+	background-color: $white;
+	.con_container{
+		background-color: $blue_dark;
+		color: $white;
+	}
+}
+
+
+
+
+
+
