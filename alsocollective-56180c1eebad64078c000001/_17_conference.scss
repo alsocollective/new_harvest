@@ -1,12 +1,22 @@
 $width_left: 30%;
 $width_right: 65%;
 $width_right_margin: 5%;
-
+// html{
+// 	font-size: 10px;
+// }
 #conference{
 	h1,h2,h3,h4,h5{
 		font-family: $sans;
 		font-weight: bolder;
 	}
+	h1{
+		font-family: $din;
+		text-shadow: 4px 4px 6px rgba(0,0,0,0.3);
+		text-transform: uppercase;
+		font-size: 12rem;
+		font-weight: normal;
+		margin-top: 0;
+	}	
 	p{
 		line-height: 1.2;
 		margin-bottom: 1rem;
@@ -174,6 +184,7 @@ body.nav_open{
 	}
 	svg{
 		max-width: 900px;
+		max-width: 70rem;
 	}
 	#con_intro_top_svg{
 		padding-top: 1px;
@@ -183,14 +194,7 @@ body.nav_open{
 		margin-top: -4.5rem;
 		// padding-bottom: 5rem;
 	}
-	h1{
-		font-family: $din;
-		text-shadow: 4px 4px 6px rgba(0,0,0,0.3);
-		text-transform: uppercase;
-		font-size: 12rem;
-		font-weight: normal;
-		margin-top: 0;
-	}
+
 	h2{
 		margin-top: -1rem;
 		font-size: 3rem;
