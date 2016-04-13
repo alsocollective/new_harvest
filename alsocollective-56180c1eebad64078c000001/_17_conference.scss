@@ -31,9 +31,16 @@ $width_right_margin: 5%;
 		width: calc(100% - 100px);
 		margin: 50px auto;
 		width: calc(100% - 10rem);
-    	margin: 5rem auto;
-    	padding: 50px 0;
-    	padding: 5rem 0;
+		margin: 5rem auto;
+		padding: 50px 0;
+		padding: 5rem 0;
+		@include at-query($max,$inbetween) {
+			width: calc(100% - 40px);
+			margin: 20px auto;
+			width: calc(100% - 4rem);
+			padding: 50px 0;
+			padding: 5rem 0;
+		}
 	}
 	.con_contain_max{
 		max-width: 1200px;
@@ -172,6 +179,9 @@ body.nav_open{
 			}
 		}
 	}
+	@include at-query($max,$inbetween) {
+		display: none;
+	}
 }
 
 
@@ -238,6 +248,7 @@ body.nav_open{
 	text-align: left;
 	display: inline-block;
 	vertical-align: top;
+
 }
 .con_announ_articel_image{
 	width: $width_left;
@@ -248,10 +259,19 @@ body.nav_open{
 		max-width: 220px;
 	    margin: 3.5rem 2rem;
 	}
+	@include at-query($max,$inbetween) {
+		display: block;
+		width: 100%;
+		img{
+			margin-bottom: 1rem;
+		}
+	}
 }
 .con_announ_articel_text{
 	width: $width_right;
 	margin-left: $width_right_margin;
+	margin-bottom: 2.5rem;
+
 	h3{
 		margin: 2.5rem 0;
 	}
@@ -259,6 +279,15 @@ body.nav_open{
 		color: inherit;
 		font-weight: bolder;
 	}
+	@include at-query($max,$inbetween) {
+		width: 100%;
+		max-width: 500px;
+		text-align: center;
+		margin-left: 0;
+		h3{
+			text-transform: uppercase;
+		}
+	}	
 }
 
 
@@ -268,38 +297,72 @@ body.nav_open{
 	.con_container{
 		background-color: $white;
 		color: $blue_dark;
+		text-align: center;
 	}
 	#con_about_left,#con_about_right{
 		display: inline-block;
 		vertical-align: top;
+		text-align: left;
 	}
-	#con_about_left{
+	#con_about_left,#con_about_right_2{
+		text-align: left;
 		width: $width_left;
+		width: 20%;
+		display: inline-block;
+		min-width: 20rem;
 		a{
 			color: $blue_dark;
 		}
+		#con_about_twitter_header{
+			font-family: $sans;
+			a{
+				font-weight: bolder;
+			}
+		}
 		#con_about_twitter {
-			margin-top: 15rem;
-			border-top: 0.7rem solid;
-			width: 80%;
+			// margin-top: 15rem;
+			// border-top: 0.7rem solid;
+
+			width: 100%;
 			font-family: $sans;
 			font-size: 1.3rem;
 			padding-top: 2rem;
+			p{
+				margin-top: 2rem;
+				padding-top: 2rem;
+				border-top: 1px solid;
+			    line-height: 1.7rem;
+			}
+			p:first-child{
+				margin-top: 0;
+			}
 		}
 		.tweet{
 			max-width: 90%;
+			@include at-query($max,$inbetween) {
+				margin: 0 auto 1rem auto;
+			}
 		}
 		.tweet_actions{
 			a{
-				font-weight: bolder;
+				// font-weight: bolder;
+				font-weight: normal;
 				display: inline-block;
 				padding-right: 1rem;
-				text-transform: uppercase;
+				// text-transform: uppercase;
 			}
+		}
+	}
+	#con_about_left{
+		@include at-query($max,$large+100px) {
+			width: 100%;
+			text-align: center;
+			margin-bottom: 5rem;
 		}
 	}
 	#con_about_right{
 		width: $width_right;
+		width: 50%;
 		margin-left: $width_right_margin;
 		h3 {
 			padding-top: 3rem;
@@ -307,21 +370,50 @@ body.nav_open{
 		}
 		h4{
 			padding-top: 6rem;
-			padding-bottom: 1rem;
+			// padding-bottom: 1rem;
+			padding-bottom: 0;
+			margin-top: 0;
+		}
+		a{
+			font-family: $sans;
+			color: inherit;
+		}
+		@include at-query($max,$large+100px) {
+			margin-left: 0;
+		}
+		@include at-query($max,$inbetween) {
+			text-align: center;
+			width: 100%;
 		}
 	}
-
+	#con_about_right_2{
+		margin-left: 5%;
+		@include at-query($max,$inbetween) {
+			margin-left: 0;
+			width: 70%;
+			text-align: center;
+			margin-top: 5rem;
+			border-top: 4px solid;
+			padding-top: 2rem;
+			min-width: 400px;
+		}
+	}
 	h2.con_section_titles{
 		text-decoration: underline;
 	}
 	blockquote{
 		font-family: $sans;
 		margin: 0;
-		font-size: 4rem;
+		font-size: 3.5rem;
+		width: 85%;
 		max-width: 600px;
+		font-weight: bolder;
 		b{
 			font-style: italic;
 			text-decoration: underline;
+		}
+		@include at-query($max,$inbetween) {
+			margin: 0 auto;
 		}
 	}
 	#con_about_presented{
@@ -331,9 +423,17 @@ body.nav_open{
 			vertical-align: top;
 		}
 		p{
-			display: inline-block;
+			// display: inline-block;
 			vertical-align: top;
-			width: 40%;
+			width: 60%;
+			font-family: $sans;
+			line-height: 1.7rem;
+			@include at-query($max,$inbetween) {
+				margin: 0 auto;
+				width: 90%;
+				padding-top: 1.5rem;
+				max-width: 350px;
+			}
 		}
 	}
 }
