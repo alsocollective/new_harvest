@@ -33,6 +33,10 @@
 				margin-bottom: -4rem;
 				box-shadow: -3px 3px 8px rgba(0,0,0,0.3);
 			}
+			img[alt="jc foundation logo"] {
+				box-shadow: none;
+				margin: 4rem 0;
+			}
 		}
 		.illustration {
 			background: $golden;

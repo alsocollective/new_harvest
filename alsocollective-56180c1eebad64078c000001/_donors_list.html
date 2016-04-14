@@ -1,9 +1,12 @@
-<ul>{% for donor in page.directory.listings %}<li {% if donor.profile_image_url contains "buddy.png" or donor.profile_image_url contains "buddy1.png" %}class="give_random_image"{% endif %}>
+<ul id="load_this_data">{% for donor in page.directory.listings %}<li {% if donor.profile_image_url contains "buddy.png" or donor.profile_image_url contains "buddy1.png" %}class="give_random_image"{% endif %}>
 	<img src="{{ donor.profile_image_url }}">
 </li>{% endfor %}</ul>
+{% comment %}
+
 <div id="donnor_text">
 	{{page.directory.content}}
 </div>
+{% endcomment %}
 
 	{% if donor.profile_image_url contains "buddy.png" %}{% else %}{% endif %}
 			<!-- width="48px" height="48px" -->

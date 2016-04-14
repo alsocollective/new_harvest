@@ -24,6 +24,7 @@ var app = {
 }
 
 app.conference = {
+	mobile: false,
 	init: function() {
 		app.conference.speaker.init();
 		app.conference.nav.init();
@@ -33,8 +34,21 @@ app.conference = {
 	speaker: {
 		init: function() {
 			$(".con_speaker_button").click(app.conference.speaker.click);
+			if ($(window).outerWidth() < 1000) {
+				$(".active").removeClass("active");
+				app.conference.mobile = true;
+				$("#con_left > div").click(function() {
+					$(".active").removeClass("active");
+				});
+			};
+			$(".con_left_exit_button").click(function() {
+				$(".active").removeClass("active");
+			});
 		},
 		click: function(event) {
+			if (app.conference.mobile) {
+				$(".active").removeClass("active");
+			}
 			$("#con_speakers .active").removeClass("active");
 			$(this).addClass("active");
 			$("#" + $(this).data("slug")).addClass("active");
@@ -46,6 +60,9 @@ app.conference = {
 			$("#con_agenda #con_right tr a").click(app.conference.agenda.click_ignore);
 		},
 		click: function(event) {
+			if (app.conference.mobile) {
+				$(".active").removeClass("active");
+			}
 			$("#con_agenda .active").removeClass("active");
 			$(this).addClass("active");
 			$("#" + $(this).data("slug")).addClass("active");
@@ -60,6 +77,9 @@ app.conference = {
 			$(".con_exhibitor_button").click(app.conference.exhibitor.click);
 		},
 		click: function(event) {
+			if (app.conference.mobile) {
+				$(".active").removeClass("active");
+			}
 			$("#con_exhibitors .active").removeClass("active");
 			$(this).addClass("active");
 			$("#" + $(this).data("slug")).addClass("active");
@@ -454,7 +474,7 @@ app.about = {
 		if (parent.length) {
 			for (var i = total - 1; i >= 0; i--) {
 				if ($(children[i]).hasClass("give_random_image")) {
-					$(children[i]).find("img")[0].src = "http://data.new-harvest.org/donors/donor-icons-" + (Math.floor(Math.random() * 12) + 1) + ".jpg";
+					$(children[i]).find("img")[0].src = "http://data.new-harvest.org/emoji/NH-Emoji-" + (Math.floor(Math.random() * 216) + 1) + ".png";
 				};
 				parent.append(children[Math.floor(Math.random() * i)])
 			};
@@ -472,7 +492,7 @@ app.people_list = {
 		if (parent.length) {
 			for (var i = total - 1; i >= 0; i--) {
 				if ($(children[i]).hasClass("give_random_image")) {
-					$(children[i]).find("img")[0].src = "http://data.new-harvest.org/donors/donor-icons-" + (Math.floor(Math.random() * 12) + 1) + ".jpg";
+					$(children[i]).find("img")[0].src = "http://data.new-harvest.org/emoji/NH-Emoji-" + (Math.floor(Math.random() * 216) + 1) + ".png";
 				};
 				parent.append(children[Math.floor(Math.random() * i)])
 			};
@@ -494,7 +514,7 @@ app.people_list = {
 
 				for (var i = total - 1; i >= 0; i--) {
 					if ($(children[i]).hasClass("give_random_image")) {
-						$(children[i]).find("img")[0].src = "http://data.new-harvest.org/donors/donor-icons-" + (Math.floor(Math.random() * 12) + 1) + ".jpg";
+						$(children[i]).find("img")[0].src = "http://data.new-harvest.org/emoji/NH-Emoji-" + (Math.floor(Math.random() * 216) + 1) + ".png";
 					};
 					local_parent.append(children[Math.floor(Math.random() * i)]);
 				};

@@ -7,9 +7,14 @@
 
 	{% endcomment %}
 	<div id="exhibitor_{{post.slug}}" {% if forloop.first %}class="active"{% endif %}>
-	<h3>{{post.name}}</h3>
-		{{post.blog_post.content}}
-		{{post.blog_post.content_flip}}
+		<div>
+			<button class="con_left_exit_button">
+				&#10005;
+			</button>
+			<h3>{{post.name}}</h3>
+				{{post.blog_post.content}}
+				{{post.blog_post.content_flip}}
+		</div>
 	</div>
 
 {% endfor %}

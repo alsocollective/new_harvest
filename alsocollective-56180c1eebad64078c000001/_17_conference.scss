@@ -16,10 +16,16 @@ $width_right_margin: 5%;
 		font-size: 12rem;
 		font-weight: normal;
 		margin-top: 0;
+		@include at-query($max,$large) {
+			font-size: 8rem;
+		}
 	}	
 	p{
 		line-height: 1.2;
 		margin-bottom: 1rem;
+		@include at-query($max,$inbetween) {
+		    font-size: 1.3rem;
+		}
 	}
 
 	.con_section{
@@ -46,6 +52,7 @@ $width_right_margin: 5%;
 		max-width: 1200px;
 		width: 90%;
 		margin: 0 auto;
+		position: relative;
 	}
 	.con_section_titles{
 		font-family: $din;
@@ -53,6 +60,12 @@ $width_right_margin: 5%;
 		font-size: 8rem;
 		text-transform: uppercase;
 		font-weight: normal;
+		@include at-query($max,$large+100px) {
+			font-size: 6.5rem;
+		}
+		@include at-query($max,$inbetween) {
+			font-size: 5rem;
+		}
 	}
 }
 
@@ -62,6 +75,9 @@ $width_right_margin: 5%;
 	position: fixed;
 	top: 50px;
 	top: 7rem;
+	@media screen and ( max-height: 600px ){
+		top: 4rem;
+	}
 }
 #con_nav{
 	position: fixed;
@@ -79,7 +95,7 @@ $width_right_margin: 5%;
 		a{
 			display: inline-block;
 			padding: 2rem;
-			font-weight: bolder;
+			// font-weight: bolder;
 			font-size: 5rem;
 			line-height: 1rem;
 			color: $yellow;
@@ -89,6 +105,13 @@ $width_right_margin: 5%;
 			@include vendorize(transform,rotateZ(45deg));
 			&:active,&:hover,&:focus{
 				text-decoration: none;
+			}
+			@media screen and ( max-height: 600px ){
+				top: 4rem;
+			}
+			@include at-query($max,$inbetween) {
+				top: 2rem;
+				left: 1rem;
 			}
 		}
 	}
@@ -102,6 +125,12 @@ $width_right_margin: 5%;
 		overflow: scroll;
 		left: 100%;
 		padding: 5rem;
+		@media screen and ( max-height: 600px ){
+			padding: 2rem 5rem 5rem 5rem;
+		}
+		@include at-query($max,$inbetween) {
+			padding: 2rem;
+		}
 		ul{
 			display: table-cell;
 			vertical-align: middle;
@@ -128,6 +157,9 @@ $width_right_margin: 5%;
 				color: $yellow;
 				text-decoration: none;
 			}
+			@include at-query($max,$inbetween) {
+				font-size: 4rem;
+			}
 		}
 	}
 }
@@ -141,12 +173,17 @@ body.nav_open{
 	#con_nav #con_nav_list{
 		display: block;
 		display: table;
+		@include animation('fade_in 0.25s');
 	}
 }
 
 #con_regnow{
 	right: 50px;
 	right: 7rem;
+	z-index: 50;
+	@media screen and ( max-height: 600px ){
+		top: 4rem;
+	}
 	
 	#con_regnow_circle{
 		border-radius: 100%;
@@ -191,10 +228,20 @@ body.nav_open{
 	text-align: center;
 	.con_container{
 		background-color: $blue_green_dark;
+		@include at-query($max,$inbetween) {
+			padding-top: 0;
+		}
+		@media screen and ( max-height: 600px ){
+			margin-top: 2rem;
+		}
 	}
 	svg{
 		max-width: 900px;
 		max-width: 70rem;
+		@include at-query($max,$large) {
+			margin-left: 3rem;
+			max-width: 60rem;
+		}
 	}
 	#con_intro_top_svg{
 		padding-top: 1px;
@@ -203,16 +250,28 @@ body.nav_open{
 	#con_intro_bottom_svg{
 		margin-top: -4.5rem;
 		// padding-bottom: 5rem;
+		@include at-query($max,$large) {
+			margin-left: 0;
+		}
+	}
+	img{
+		display: none;
 	}
 
 	h2{
 		margin-top: -1rem;
 		font-size: 3rem;
+		@include at-query($max,$large) {
+			font-size: 2.4rem;
+		}
 	}
 	h4{
 		color: $yellow;
 		font-size: 2.25rem;
 		margin-bottom: 0;
+		@include at-query($max,$large) {
+			font-size: 2rem;
+		}
 	}
 	.con_svg_nav_button:hover{
 		rect{
@@ -220,6 +279,27 @@ body.nav_open{
 		}
 		path{
 			fill:$blue_green_dark;
+		}
+	}
+	#con_reg_now_image{
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	
+	@include at-query($max,$inbetween) {
+		svg,h1,h2,h4{
+			display: none;
+		}
+		img{
+			display: inline-block;
+			max-height: 120vh;
+		}
+		.con_contain_max{
+			width: auto;
+			max-width: 90%;
+			text-align: center;
+			display: inline-block;
 		}
 	}
 }
@@ -293,7 +373,7 @@ body.nav_open{
 
 
 #con_about{
-	background-color: $blue_light;
+	background-color: $blue_dark;
 	.con_container{
 		background-color: $white;
 		color: $blue_dark;
@@ -367,12 +447,19 @@ body.nav_open{
 		h3 {
 			padding-top: 3rem;
 			font-size: 3rem;
+			@include at-query($max,$inbetween) {
+				padding-top: 2rem;
+				font-size: 2rem;
+			}
 		}
 		h4{
 			padding-top: 6rem;
 			// padding-bottom: 1rem;
 			padding-bottom: 0;
 			margin-top: 0;
+			@include at-query($max,$inbetween) {
+				padding-top: 4rem;
+			}
 		}
 		a{
 			font-family: $sans;
@@ -390,12 +477,15 @@ body.nav_open{
 		margin-left: 5%;
 		@include at-query($max,$inbetween) {
 			margin-left: 0;
-			width: 70%;
+			// width: 70%;
+			width: 100%;
 			text-align: center;
 			margin-top: 5rem;
 			border-top: 4px solid;
 			padding-top: 2rem;
-			min-width: 400px;
+			// min-width: 400px;
+			// min-width: 310px;
+			max-width: 400px;
 		}
 	}
 	h2.con_section_titles{
@@ -412,8 +502,14 @@ body.nav_open{
 			font-style: italic;
 			text-decoration: underline;
 		}
+		@include at-query($max,$large){
+			width: 100%;
+		}
 		@include at-query($max,$inbetween) {
 			margin: 0 auto;
+			font-size: 2.5rem;
+			line-height: 1.3;
+			width: 95%;
 		}
 	}
 	#con_about_presented{
@@ -421,6 +517,8 @@ body.nav_open{
 			width: 30%;
 			margin-right: 5%;
 			vertical-align: top;
+			min-width: 170px;
+			height: auto;
 		}
 		p{
 			// display: inline-block;
@@ -428,6 +526,7 @@ body.nav_open{
 			width: 60%;
 			font-family: $sans;
 			line-height: 1.7rem;
+			margin-top: 1rem;
 			@include at-query($max,$inbetween) {
 				margin: 0 auto;
 				width: 90%;
@@ -467,13 +566,30 @@ body.nav_open{
 	}
 	th{
 		padding-bottom: 2rem;
+		padding-right: 1rem;
+		&:last-child{
+			padding-right: 0;
+		}
+		@include at-query($max,$inbetween) {
+			font-size: 1.2rem;
+		}
 	}
 	td{
-		padding: 2rem 0;
+		padding: 2rem 1rem 2rem 0;
+		&:last-child{
+			padding-right: 0;
+		}
 		input{
 			border: none;
 			padding: 0.5rem 0 0.5rem 2rem;
 			color: $blue_dark;
+			@include at-query($max,$inbetween) {
+				width: 40px;
+				padding-left: 10px;
+			}
+		}
+		@include at-query($max,$inbetween) {
+			font-size: 1.2rem;
 		}
 	}
 	div#con_submit_container{
@@ -507,11 +623,19 @@ body.nav_open{
 	}
 	> div.active{
 		display: block;
+		@include animation('fade_in 0.5s');
 	}
 	h3{
 		padding-top: 4rem;
 		padding-bottom: 3rem;
 		text-transform: uppercase;
+		@include at-query($max,$inbetween) {
+			padding-top: 0;
+			text-align: center;
+			padding-bottom: 1rem;
+			text-transform: uppercase;
+			margin-top: 1rem;
+		}
 	}
 	h5{
 		a{
@@ -521,9 +645,45 @@ body.nav_open{
 		margin: 0.25rem 0;
 		&:last-of-type{
 			margin-bottom: 4rem;
+			@include at-query($max,$inbetween) {
+				margin-bottom: 2rem;
+			}
 		}
 	}
-
+	.con_left_exit_button{
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: auto;
+		margin: 0;
+		padding: 1rem;
+		line-height: 1;
+	}
+	@include at-query($max,$inbetween) {
+		width: 100%;
+		text-align: center;
+		padding-bottom: 3rem;
+		margin-left: 0;
+		.active{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+    		text-align: left;
+			z-index: 2;
+			> div{
+		  		background: $white;
+    			padding: 2rem;
+    			position: relative;
+    			margin: 0 auto;
+    			max-width: 350px;
+			}
+			.con_left_exit_button{
+				display: block;
+			}
+		}
+	}
 }
 #con_right{
 	width: $width_right;
@@ -532,6 +692,18 @@ body.nav_open{
 	p{
 		margin-top: 1rem;
 		line-height: 2rem;
+		@include at-query($max,$inbetween) {
+			line-height: 1.5rem
+		}
+	}
+	.active p{
+		text-decoration: underline;
+		color: $red;
+	}
+	@include at-query($max,$inbetween) {
+		width: 100%;
+		margin-left: 0;
+		text-align: center;
 	}
 }
 
@@ -553,6 +725,7 @@ body.nav_open{
 		font-size: inherit;
 		text-align: center;
 	    margin: 0 2.5%;
+	    padding: 0;
 	    &.active img{
 			box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
 		}
@@ -565,6 +738,12 @@ body.nav_open{
 		background-color: $white;
 		color: $black;
 	}
+	@include at-query($max,$inbetween) {
+		#con_left .active > div{
+			background-color: $red;
+			color: $white;
+		}
+	}
 }
 
 #con_exhibitors{
@@ -574,14 +753,20 @@ body.nav_open{
 		color: $black;
 	}
 	#con_left{
-		color: $organge_light;
+		color: $red;
+	}
+	@include at-query($max,$inbetween) {
+		#con_left .active > div{
+			background-color: $red;
+			color: $white;
+		}
 	}
 }
 
 #con_agenda{
 	background-color: $white;
 	.con_container{
-		background-color: $blue_light;
+		background-color: $blue_dark;
 		color: $white;
 	}
 	#con_left{
@@ -589,12 +774,14 @@ body.nav_open{
 	}
 	table{
 		width: 100%;
+		border-collapse: collapse;
 		border-bottom: 1px solid $white;
 	}
 	td{
 		border-top: 1px solid $white;
 		padding: 1.5rem 0 1.5rem 3rem;
 		cursor: pointer;
+
 		h5{
 			font-family: inherit;
 			font-weight: inherit;
@@ -602,10 +789,22 @@ body.nav_open{
 			font-size: inherit;
 			margin: 0;
 		}
+		@include at-query($max,$inbetween) {
+			padding: 1rem 0.2rem;
+			font-size: 1.3rem;
+			text-align: left;
+			line-height: 1.2;
+		}
 	}
 	tr.active{
-		background-color: $blue_dark;
+		background-color: $red;
 	}
+	@include at-query($max,$inbetween) {
+		#con_left .active > div{
+			background-color: $red;
+			color: $white;
+		}
+	}	
 }
 
 #con_sponsors{
