@@ -33,7 +33,7 @@ app.conference = {
 	},
 	speaker: {
 		init: function() {
-			$(".con_speaker_button").click(app.conference.speaker.click);
+			$(".con_speaker_button,.con_exhibitor_button").click(app.conference.speaker.click);
 			if ($(window).outerWidth() < 1000) {
 				$(".active").removeClass("active");
 				app.conference.mobile = true;
@@ -52,6 +52,7 @@ app.conference = {
 			$("#con_speakers .active").removeClass("active");
 			$(this).addClass("active");
 			$("#" + $(this).data("slug")).addClass("active");
+			window.location.hash = $(this).data("slug")
 		}
 	},
 	agenda: {
@@ -87,15 +88,14 @@ app.conference = {
 	},
 	nav: {
 		init: function() {
-			$("#con_regnow_circle").click(app.nav.click_register_now);
+			console.log("ran nav init")
+			$("#con_regnow_circle").click(app.conference.nav.click_register_now);
 			$(".con_svg_nav_button").click(app.conference.nav.click);
 			$("#con_nav_toggle a").click(app.conference.nav.toggle_open);
 			$("#con_nav_list a").click(app.conference.nav.close);
 		},
 		click_register_now: function(event) {
-			event.preventDefault();
-			$(this).find("a").click();
-			return false;
+			window.location.hash = "con_registe"
 		},
 		click: function(event) {
 			window.location.hash = this.id.split("target_").pop();

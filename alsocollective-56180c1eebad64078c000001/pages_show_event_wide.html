@@ -57,6 +57,8 @@
 										
 									{% if ticket_level.amount == "$50.00" %}
 									$50
+									{% else if ticket_level.amount == "$125.00" %}
+									$125
 									{% else %}
 									
 									$250
@@ -64,7 +66,7 @@
 									
 								</td>
 								<td>
-									{% if ticket_level.amount == "$50.00" %}
+									{% if ticket_level.amount == "$50.00" or ticket_level.amount == "$125.00" %}
 										$0
 									{% else %}
 										$7.78	
@@ -262,6 +264,8 @@
 		</p>
 	</div>
 </div>
+{% comment %}
+	
 
 	<div id="event_speakers">
 		<h2>Speakers</h2>
@@ -366,3 +370,4 @@
 			</p>
 		</div>
 	</div>
+{% endcomment %}

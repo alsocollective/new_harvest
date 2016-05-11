@@ -54,7 +54,7 @@
 	</head>
 	<body class="aware-theme v2-theme {{ page.page_class_name }} page-{{ request.template | replace: '_', '-' }} js">
 		
-		{% if page.slug == "nh2016_dev" %}
+		{% if page.slug == "nh2016_dev" or page.slug =="nh2016" %}
 			{% include "page_nh2016" %}
 		{% else %}
 		

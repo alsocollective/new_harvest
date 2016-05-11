@@ -41,12 +41,14 @@
 					<td class="amount">
 						{% if item.amount == "$50.00" %}
 							$50
+						{% else if item.amount == "$125.00"%}
+							$125
 						{% else %}
 							$250
 						{% endif %}
 					</td>
 					<td>
-						{% if item.amount == "$50.00" %}
+						{% if item.amount == "$50.00" or item.amount == "$125.00" %}
 							$0
 						{% else %}
 							$7.78

@@ -1,11 +1,10 @@
 {% for post in page.blog.most_recent_blog_posts offset:0 %}<button > {% comment %} class="con_speaker_button" data-slug="presenter_{{post.slug}}" {% endcomment %}
 			
 			{% for feature in post.features %}<img src="{{feature.image_url}}">{% endfor %}
-			{% comment %}
 			<p>
 				{{post.name}}<br>
-				<i>view bio</i>
 			</p>
+			{% comment %}
 			{% endcomment %}
 
 		</button>{% endfor %}

@@ -185,14 +185,24 @@
 						{{descendants.basic.content}}
 
 						{% if descendants.slug == "people" %}
+							
 							<div id="donors_data">
 								{% subpage "donors" with "donors_list" %}
 							</div>
+
 						{% endif %}
 					</div>
 					{% endfor %}
 				{% endif %}{% endfor %}
 
+			{% endif %}
+
+			{% if page.slug == "people" %}
+				<div id="people">
+					<div id="donors_data">
+						{% subpage "donors" with "donors_list" %}
+					</div>
+				</div>
 			{% endif %}
 		</div>
 

@@ -3,7 +3,7 @@
 			{% for feature in post.features %}<img src="{{feature.image_url}}">{% endfor %}
 			<p>
 				{{post.name}}<br>
-				<i>view bio</i>
+				<small>{{post.blog_post.content | strip_html}}</small>
 			</p>
 
 		</button>{% endfor %}

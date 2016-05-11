@@ -4,7 +4,72 @@ $width_right_margin: 5%;
 // html{
 // 	font-size: 10px;
 // }
+
+
+
+
+.con_parallax_image{
+	position: absolute;
+	top: 0;
+	@include vendorize(transform, translateZ(-1px) scale(2));
+	width: 14rem;
+	@include at-query($max,$inbetween) {
+		width: 7rem;
+	}
+}
+#con_parallax_1{
+	top: 13%;
+	left: -30%;
+}
+#con_parallax_2{
+	top: 24%;
+	right: -180%;
+	@include vendorize(transform, translateZ(-4px) scale(4));
+}
+#con_parallax_3{
+	top: 32%;
+	left: -40%;
+}
+#con_parallax_4{
+	top: 48%;
+	left: -70%;
+	@include vendorize(transform, translateZ(-1.5px) scale(2.5));
+}
+#con_parallax_5{
+	top: 56%;
+	right: -50%;
+}
+#con_parallax_6{
+	top: 70%;
+	right: -140%;
+	@include vendorize(transform, translateZ(-4px) scale(4));
+}
+#con_parallax_7{
+	top: 74%;
+	left: -50%;
+	width: 6rem;
+	@include at-query($max,$inbetween) {
+		width: 4rem;
+	}
+}
+#con_parallax_8{
+    top: 95%;
+    left: -40%;
+    @include vendorize(transform, translateZ(-1.2px) scale(2.3));
+}
+
+
+
 #conference{
+	height: 100vh;
+	overflow-x: hidden;
+	overflow-y: auto;
+	@include vendorize(perspective, 1px);
+	@include vendorize(overflow-scrolling, touch);
+	> div{
+		position: relative;
+		display: block;
+	}
 	h1,h2,h3,h4,h5{
 		font-family: $sans;
 		font-weight: bolder;
@@ -196,6 +261,7 @@ body.nav_open{
 		border: 1px solid $yellow;
 		font-family: $sans;	
 		font-size: inherit;
+		margin-right: 20px;
 		a{
 			font-weight: bolder;
 			// color: $white;
@@ -358,6 +424,13 @@ body.nav_open{
 	a{
 		color: inherit;
 		font-weight: bolder;
+	}
+	img {
+		max-width: 80%;
+		display: block;
+		margin: 0px auto 2rem;
+		height: auto;
+		width: auto;
 	}
 	@include at-query($max,$inbetween) {
 		width: 100%;
@@ -744,6 +817,10 @@ body.nav_open{
 			color: $white;
 		}
 	}
+	.con_right{
+		line-height: 1;
+		padding-bottom: 1rem;
+	}
 }
 
 #con_exhibitors{
@@ -816,7 +893,18 @@ body.nav_open{
 	#con_left > div{
 		display: block;
 	}
-	
+	#con_sponsors_temp{
+		color: $red;
+		text-align: center;
+		h2{
+			margin-bottom: 4rem;
+		}
+		p{
+			max-width: 500px;
+			margin: 0 auto;
+			padding-bottom: 4rem;
+		}
+	}	
 }
 
 #con_announcements{
@@ -828,7 +916,17 @@ body.nav_open{
 }
 
 
-
+#svg_for_scrolling{
+	svg{
+		width: 50px;
+		width: 4rem;
+		height: auto;
+	}
+	img{
+		width: 100px;
+		height: auto;
+	}
+}
 
 
 
