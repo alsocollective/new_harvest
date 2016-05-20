@@ -1,0 +1,9 @@
+.page-pages-show-event{
+	.page-type-event .column{
+		min-height: 100vh;
+		min-height: calc(100vh - 20rem);
+	}
+	.container-fluid #content{
+		padding: 0;
+	}
+}

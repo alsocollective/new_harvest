@@ -17,7 +17,7 @@
   {% endif %}
 
   <div class="event-detail">
-    <h6 class="subhead">WHEN</h6>
+    <h4 class="subhead">WHEN</h4>
     <div class="subtext">
       {% if page.event.is_multi_day? %}
       {{ page.event.local_start_at | event_time }} - {{ page.event.local_end_at | event_date }}
@@ -30,7 +30,7 @@
   {% if page.event.has_venue? %}
 
   <div class="event-detail">
-    <h6 class="subhead">WHERE</h6>
+    <h4 class="subhead">WHERE</h4>
     <div class="subtext">
       {% if page.event.venue_name.size > 0 %}
       {{ page.event.venue_name }}<br/>
@@ -49,7 +49,7 @@
   {% if page.event.has_contact? %}
 
   <div class="event-detail">
-    <h6 class="subhead">CONTACT</h6>
+    <h4 class="subhead">CONTACT</h4>
     <div class="subtext">
       {{ page.event.contact_name }}
       {% if page.event.has_public_contact_email? %}
@@ -67,7 +67,7 @@
 
   {% if page.event.show_guests? and page.event.rsvps_count > 0 %}
   <div class="event-detail">
-    <h6 class="subhead">{{ page.event.rsvps_count | number_with_commas }} RSVP{% if page.event.rsvps_count > 1 %}S{% endif %}</h6>
+    <h4 class="subhead">{{ page.event.rsvps_count | number_with_commas }} RSVP{% if page.event.rsvps_count > 1 %}S{% endif %}</h4>
     <div class="subtext">
       {% for rsvp in page.event.rsvps %}
       {{ rsvp.signup.smaller_profile_image }}
@@ -136,7 +136,7 @@
   {% if page.event.is_user_ticket_required? %}
 
   <div class="event-detail">
-    <h6 class="subhead">TICKETS</h6>
+    <h4 class="subhead">TICKETS</h4>
     <div class="subtext">
       {{ page.event.user_ticket_price_with_currency }}
       {% if page.event.has_user_ticket_purchase_url? %}
@@ -148,7 +148,7 @@
   {% elsif page.event.has_user_ticket_purchase_url? %}
 
   <div class="event-detail">
-    <h6 class="subhead">TICKETS</h6>
+    <h4 class="subhead">TICKETS</h4>
     <div class="subtext">
       <a href="{{ page.event.user_ticket_purchase_url }}">FREE</a>
     </div>
@@ -158,7 +158,7 @@
 
   {% if page.event.show_guests? and page.event.rsvps_count > 0 %}
   <div class="event-detail">
-  <h6 class="subhead">{{ page.event.rsvps_count | number_with_commas }} RSVP{% if page.event.rsvps_count > 1 %}S{% endif %}</h6>
+  <h4 class="subhead">{{ page.event.rsvps_count | number_with_commas }} RSVP{% if page.event.rsvps_count > 1 %}S{% endif %}</h4>
   <div class="subtext">
     {% for rsvp in page.event.rsvps %}
     {{ rsvp.signup.smaller_profile_image }}

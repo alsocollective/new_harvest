@@ -156,9 +156,9 @@
 		</div>
 	</div></div></div></section>
 	
-	{% comment %}
+	
 
-
+	{% if page.slug == "nh2016_dev" %}
 	<section><div id="con_agenda" class="con_section"><div class="con_container"><div class="con_contain_max">
 		<div id="con_left">
 			<h2 class="con_section_titles">Agenda</h2>
@@ -167,7 +167,8 @@
 			{% subpage "agenda_dev" with "page_nh2016_presenters_agenda" %}
 		</div>
 	</div></div></div></section>
-	{% endcomment %}
+	{% endif %}
+	{% comment %}{% endcomment %}
 
 
 

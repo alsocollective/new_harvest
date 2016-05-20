@@ -3,7 +3,6 @@
 		<div class="span6 staged-donation-form">
 
 			{% form_for donation autocomplete:off %}
-
 			<div class="form-wrap">
 
 				<div class="form">
@@ -12,15 +11,7 @@
 						{% error_messages_for donation %}
 					</div>
 
-					{% if page.donation.has_merchant_account? == false %}
-					<div class="padbottommore">
-						<span class="red"><strong>No bank account:</strong> This page will not work until you add a bank account</span>
-					</div>
-					{% elsif page.donation.merchant_account.is_test_mode? %}
-					<div class="padbottommore">
-						<span class="red"><strong>Testing mode:</strong> Transactions will not be processed. Use your regular credit card to test, you will not actually be charged.</span>
-					</div>
-					{% endif %}
+					
 
 					<div class="row-fluid">
 						<div class="span12">
@@ -41,6 +32,7 @@
 					</div>
 
 					<div class="progress-stages">
+						{% comment %}<h2 class="headline">Donate by PayPal</h2>{% endcomment %}
 						<div class="progress-stage stage-0 active" data-stageID="0">
 							<div>
 								<div class="row-fluid {{page.slug}}">

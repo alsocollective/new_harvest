@@ -113,6 +113,9 @@
 				margin-right: 0;
 			}
 			.progress-stages {
+				h2{
+					margin: 0;
+				}
 				input{
 				    font-family: $sans;//"Whitney SSm A","Whitney SSm B",sans-serif;
 				}
@@ -234,6 +237,7 @@
 			width: 45%;
 			margin-left: 50px;
 			display: inline-block;
+			vertical-align: top;
 			@include at-query($max,1200px){
 				width: 100%;
 				margin: 0 0;
