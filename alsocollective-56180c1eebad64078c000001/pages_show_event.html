@@ -349,9 +349,11 @@
         {% endif %}
 
         {% if site.ask_to_publish_to_stream? %}
+        {% comment %}
         <div class="row">
           <div class="col-md-6"><div class="checkbox"><label for="event_rsvp_is_private">{% check_box "is_private", class:"checkbox" %} Don't publish my RSVP on the website</label></div></div>
         </div>
+        {% endcomment %}
         {% endif %}
         {% if page.event.has_facebook? %}
         <div class="row">
