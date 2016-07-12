@@ -33,6 +33,7 @@
 				<th class="amount" width="12%">Fee</th>
 				<th width="12%">Quantity</th>
 			</tr>
+	
 
 			{% for item in outstanding_invoices[0].items %}
 
@@ -41,10 +42,12 @@
 					<td class="amount">
 						{% if item.amount == "$50.00" %}
 							$50
-						{% else if item.amount == "$125.00"%}
-							$125
-						{% else %}
-							$250
+							{% else %}
+								{% if item.amount == "$125.00"%}
+									$125
+								{% else %}	
+									$250
+								{% endif %}
 						{% endif %}
 					</td>
 					<td>

@@ -6,21 +6,44 @@
 			<li><a href="#con_registe">Register</a></li>
 			<li><a href="#con_speakers">Speakers</a></li>
 			<li><a href="#con_exhibitors">Exhibitors</a></li>
-			{% comment %}
 			<li><a href="#con_agenda">Agenda</a></li>
-			{% endcomment %}
 			<li><a href="#con_sponsors">Sponsors</a></li>
 			<li><a href="#con_announcements">Announcements</a></li>
 		</ul>
 	</div>
 </div>
 <div id="con_regnow">
+	{% comment %}
 	<button id="con_regnow_circle">
-		<a href="#con_registe">Register<br>Now</a>
+		<a href="#con_registe">Registration<br>Closed</a>
 	</button>
+	{% endcomment %}
+	
 </div>
 
 <div id="conference">
+	<style type="text/css">
+		#alert_text_top_temp{
+			position: absolute;
+			height: 5.2rem;
+			z-index: 99;
+			width: 100%;
+			background-color: #f05331;
+			border: none;
+			color: #fff;
+			font-weight: bold;
+			font-family: "Whitney SSm A","Whitney SSm B",sans-serif;
+		}
+		@media screen and (max-width: 900px){
+			#alert_text_top_temp{
+				position: static;
+				margin-bottom: -3rem;
+			}
+		}
+	</style>
+	<button id="alert_text_top_temp">
+		Ticket sales and registration closed.
+	</button>
 	<div>
 
 
@@ -29,7 +52,6 @@
 
 	<section><div id="con_intro" class="con_section"><div class="con_container"><div class="con_contain_max">
 		<img src="http://data.new-harvest.org/conference_mobile_index.png">
-		<a href="#con_registe" id="con_reg_now_image"><img src="http://data.new-harvest.org/conference_mobile_index_reg.png"></a>
 		{% subpage "nh2016_twitter_feed" with "page_nh2016_svg_tophalf" %}
 		<h4>July 13 2016</h4>
 		<h1>New Harvest 2016:</h1>
@@ -83,12 +105,82 @@
 
 
 
+
+
+
+	<section><div id="con_speakers" class="con_section"><div class="con_container"><div class="con_contain_max">
+		<div id="con_left">
+			<h2 class="con_section_titles">Speakers</h2>
+			{% subpage "nh2016_speakers" with "page_nh2016_presenters_bios" %}
+		</div><div id="con_right">
+			{% subpage "nh2016_speakers" with "page_nh2016_presenters_images" %}
+		</div>
+	</div></div></div></section>
+	
+
+
+
+	<section><div id="con_exhibitors" class="con_section"><div class="con_container"><div class="con_contain_max">
+		<div id="con_left">
+			<h2 class="con_section_titles">Exhibitors</h2>
+			{% subpage "nh2016_exhibitors" with "page_nh2016_exhibitor_bios" %}
+		</div><div id="con_right">
+			{% subpage "nh2016_exhibitors" with "page_nh2016_exhibitors_images" %}
+		</div>
+	</div></div></div></section>
+	
+	
+
+	{% comment %}
+	<section><div id="con_agenda" class="con_section"><div class="con_container"><div class="con_contain_max">
+		<div id="con_left">
+			<h2 class="con_section_titles">Agenda</h2>
+			{% subpage "agenda_dev" with "page_nh2016_presenters_bios" %}
+		</div><div id="con_right">
+			{% subpage "agenda_dev" with "page_nh2016_presenters_agenda" %}
+		</div>
+	</div></div></div></section>
+	{% if page.slug == "nh2016_dev" %}{% endif %}
+	{% endcomment %}	
+	{% comment %}{% endcomment %}
+
+
+
+
+
+	<section><div id="con_sponsors" class="con_section"><div class="con_container"><div class="con_contain_max">
+		<div id="con_sponsors_temp">
+			<h2 class="con_section_titles">Sponsors</h2>
+			<p>
+				Sponsors bring <a href="https://twitter.com/hashtag/newharvest2016?src=hash">#NewHarvest2016</a> to life. To become our partner please contact us at <a href="mailto:hello@new-harvest.org">hello@new-harvest.org</a>
+			</p>
+		</div>
+		
+			
+		
+		<div id="con_left">
+			{% comment %}<h2 class="con_section_titles">Sponsors</h2>{% endcomment %}
+			{% subpage "nh2016_sponsors" with "page_nh2016_sponsors_left" %}
+		</div><div id="con_right">
+			{% subpage "nh2016_sponsors" with "page_nh2016_sponsors_images" %}
+		</div>
+		{% comment %}{% endcomment %}
+	</div></div></div></section>
+
+
+
 	<section><div id="con_registe" class="con_section"><div class="con_container"><div class="con_contain_max">
 		<h2 class="con_section_titles">Register</h2>
 		<p>
+			Tickets sales and registration are now closed.
+		</p>
+		{% comment %}
+		<p>
 			Are you a student or biohacker? <a href="mailto:isha@new-harvest.org">Contact</a> us for discounts.
 		</p>
-
+		
+			
+		
 		{% form_for order %}
 
 		<div class="form">
@@ -131,67 +223,12 @@
 		</div>
 		</div>	
 		{% endform_for %}
-	</div></div></div></section>
-
-
-
-	<section><div id="con_speakers" class="con_section"><div class="con_container"><div class="con_contain_max">
-		<div id="con_left">
-			<h2 class="con_section_titles">Speakers</h2>
-			{% subpage "nh2016_speakers" with "page_nh2016_presenters_bios" %}
-		</div><div id="con_right">
-			{% subpage "nh2016_speakers" with "page_nh2016_presenters_images" %}
-		</div>
-	</div></div></div></section>
-	
-
-
-
-	<section><div id="con_exhibitors" class="con_section"><div class="con_container"><div class="con_contain_max">
-		<div id="con_left">
-			<h2 class="con_section_titles">Exhibitors</h2>
-			{% subpage "nh2016_exhibitors" with "page_nh2016_exhibitor_bios" %}
-		</div><div id="con_right">
-			{% subpage "nh2016_exhibitors" with "page_nh2016_exhibitors_images" %}
-		</div>
-	</div></div></div></section>
-	
-	
-
-	{% if page.slug == "nh2016_dev" %}
-	<section><div id="con_agenda" class="con_section"><div class="con_container"><div class="con_contain_max">
-		<div id="con_left">
-			<h2 class="con_section_titles">Agenda</h2>
-			{% subpage "agenda_dev" with "page_nh2016_presenters_bios" %}
-		</div><div id="con_right">
-			{% subpage "agenda_dev" with "page_nh2016_presenters_agenda" %}
-		</div>
-	</div></div></div></section>
-	{% endif %}
-	{% comment %}{% endcomment %}
-
-
-
-	<section><div id="con_sponsors" class="con_section"><div class="con_container"><div class="con_contain_max">
-		<div id="con_sponsors_temp">
-			<h2 class="con_section_titles">Sponsors</h2>
-			<p>
-				Sponsors bring <a href="https://twitter.com/hashtag/newharvest2016?src=hash">#NewHarvest2016</a> to life. To become our partner please contact us at <a href="mailto:hello@new-harvest.org">hello@new-harvest.org</a>
-			</p>
-
-
-		</div>
-		{% comment %}
-			
-		
-		<div id="con_left">
-			<h2 class="con_section_titles">Sponsors</h2>
-			{% subpage "nh2016_sponsors" with "page_nh2016_sponsors_left" %}
-		</div><div id="con_right">
-			{% subpage "nh2016_sponsors" with "page_nh2016_sponsors_images" %}
-		</div>
 		{% endcomment %}
 	</div></div></div></section>
+
+
+
+
 
 
 	<section><div id="con_announcements" class="con_section"><div class="con_container"><div class="con_contain_max">
@@ -200,9 +237,30 @@
 	</div></div></div></section>
 
 	
+
+
+
+
+
+
+	
+
+
+
+
 		{% subpage "nh2016_twitter_feed" with "page_nh2016_svgs" %}
 	<div id="svg_for_scrolling">
 	</div>
+
+
+	
+
+
+
+
+
+
+
 	<footer>
 				
 		{% if request.current_user.is_admin? %}
