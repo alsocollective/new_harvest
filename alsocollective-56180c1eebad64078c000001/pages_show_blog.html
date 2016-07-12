@@ -2,10 +2,24 @@
 {% include "breadcrumbs" %}
 {% endcomment %}
 
-<canvas id="node_top_visual" ></canvas>
-	{% if page.headline.size > 0 %}
-	<h2 class="headline">{{ page.headline }}</h2>
-	{% endif %}
+{% case page.slug %}
+{% when "in_the_media" %}
+	<div id="content">
+		{% subpage page.slug with "pages_blog_logos" %}
+	</div>
+	
+{% else %}
+
+
+<div class="header_area">
+	<h1 class="headline"><span>{{ page.headline }}</span></h1>
+
+	<div class="text-content">
+		{% for descendants in page.descendants %}
+			{{descendants.basic.content}}
+		{% endfor %}
+	</div>
+</div>
 
 <div id="content">
 	{% for descendants in page.descendants %}
@@ -83,3 +97,4 @@
 
 	{{ page.blog.most_recent_blog_posts | paginate prev_label: "&laquo;" next_label: "&raquo;" | replace:'<div class="pagination">','<nav class="pagination-container">' | replace:'<ul>','<ul class="pagination">' | replace:'</div>','</nav>' }}
 </div>
+{% endcase %}

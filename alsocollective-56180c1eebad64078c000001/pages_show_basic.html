@@ -1,4 +1,9 @@
 {% comment %}{% include "breadcrumbs" %}{% endcomment %}
+{% case page.slug %}
+{% when "index_in_the_media" %}
+	{% subpage page.slug with "pages_show_basic_logos" %}
+	
+{% else %}
 <div class='basic_page'>
 {% if page.headline.size > 0 %}
 <div class="headline">
@@ -41,3 +46,4 @@
 
 </div>
 </div>
+{% endcase %}
