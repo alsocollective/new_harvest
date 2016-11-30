@@ -1,0 +1,15 @@
+<div id="content">
+	<h2>In The Media</h2>
+	<div class="index_grey_logos">
+		{% for feature in page.features %}
+		<div class="index_grey_logo">
+			<a href="{{feature.headline}}">
+				<img src="{{feature.image_url}}">
+			</a>
+		</div>
+		{% endfor %}
+	</div>
+
+	
+
+</div>

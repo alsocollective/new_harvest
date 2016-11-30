@@ -26,10 +26,11 @@
 		</div>
 
 	</div>
-		<div id="index_blog">
-			<h2>Here's what we've been up to</h2>
-			{% subpage "blog" with "index_blog" %}
-		</div>
+	<div id="index_blog">
+		{% subpage "in_the_media" with "pages_blog_logos" %}
+		<h2>Here's what we've been up to</h2>
+		{% subpage "blog" with "index_blog" %}
+	</div>
 	<div id="signup-in-indexpage">
 		<h2>Are you excited about the future New Harvest is building?<br/>Keep updated with our newsletter.</h2>
 		{% form_for signup %}
@@ -48,6 +49,9 @@
 			{% submit_tag ">", class:"submit-button" %}
 		{% endform_for %}
 	</div>
+
+
+
 {% when "portfolio" %}
 
 	<!--<div class="header_area">

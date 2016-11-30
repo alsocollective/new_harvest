@@ -132,6 +132,11 @@
 												{% endif %}">{{ child_child.name }}</a>
 											</li>
 										{% endfor %}
+										{% if child.name == "Resources" %}
+											<li {% if page.slug == "nh2016" %}class="active"{% endif %}>
+												<a href="/nh2016">New Harvest 2016: Conference</a>
+											</li>
+										{% endif %}
 									</ul>
 								</div>
 							</div>

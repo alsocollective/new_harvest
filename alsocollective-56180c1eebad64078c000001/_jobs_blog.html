@@ -1,0 +1,45 @@
+<div class="header_area">
+	<h1 class="headline"><span>{{ page.headline }}</span></h1>
+
+	<div class="text-content">
+		{% for descendants in page.descendants %}
+			{{descendants.basic.content}}
+			
+		{% endfor %}
+	</div>
+</div>
+
+<div id="content">
+	<div class="job_postings" id="blog-page-{{ page.id }}">
+		{% for post in page.blog.most_recent_blog_posts %}
+		<div class="job_post">
+		{% for feature in post.features %}
+		<div class="job_post_logo">
+			<img src="{{feature.image_url}}">
+		
+		</div>{% endfor %}<div class="job_post_text" id="blog-post-page-{{ post.id }}">
+			<div class="job_post_header">
+				<h3>{{ post.headline }}
+				</h3><div class="job_post_date">
+					{{ post.published_at | date: '%B %d, %Y' }}
+				</div>
+			</div>
+			<h4 class="job_post_subheader">{{post.name}}</h4>
+			<button class="job_post_hideshow">
+				<svg version="1.1" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" width="38.236px" height="81.932px" viewBox="0 0 38.236 81.932" xml:space="preserve"><defs></defs><polyline fill="#FFFFFF" stroke="#000000" stroke-width="10" stroke-miterlimit="10" points="34.211,78.966 6.211,40.966 34.211,2.966 "></polyline></svg>
+			</button>
+			<div class="excerpt">
+				{{ post.blog_post.content }}
+			</div>
+
+		</div>
+
+		{% if post.blog_post.is_extended? %}<a class="btn btn-default small-btn" href='{{ post.url }}'>Read more</a>{% endif %}
+	
+		<hr/>
+		</div>
+		{% endfor %}
+	</div>
+
+	{{ page.blog.most_recent_blog_posts | paginate prev_label: "&laquo;" next_label: "&raquo;" | replace:'<div class="pagination">','<nav class="pagination-container">' | replace:'<ul>','<ul class="pagination">' | replace:'</div>','</nav>' }}
+</div>

@@ -2,7 +2,8 @@
 {% case page.slug %}
 {% when "index_in_the_media" %}
 	{% subpage page.slug with "pages_show_basic_logos" %}
-	
+{% when "2016" %}
+	{% subpage page.slug with "2016_donations" %}
 {% else %}
 <div class='basic_page'>
 {% if page.headline.size > 0 %}

@@ -35,9 +35,25 @@ $width: 90%;
 $indsideWidth: 1000px;
 $min-width:500px;
 
+@font-face {
+    font-family: 'fortescue-regular';
+    src: url('http://data.new-harvest.org/fonts/fortescue-regular.eot');
+    src: url('http://data.new-harvest.org/fonts/fortescue-regular.eot?#iefix') format('embedded-opentype'),
+         url('http://data.new-harvest.org/fonts/fortescue-regular.woff') format('woff'),
+         url('http://data.new-harvest.org/fonts/fortescue-regular.woff2') format('woff2'),
+         url('http://data.new-harvest.org/fonts/fortescue-regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 $sans: "Whitney SSm A", "Whitney SSm B", sans-serif;
-$fortescue: "Fortescue Regular", 'Times New Roman', Times, serif;
-$din: "DIN 1451 Engschrift Standard", Calibri, Helvetica, Arial, sans-serif;
+$fortescue: "fortescue-regular","Fortescue Regular", 'Times New Roman', Times, serif;
+$din: "din-condensed-web","DIN 1451 Engschrift Standard", Calibri, Helvetica, Arial, sans-serif;
+
+// $primary-font: "Fortescue Regular", 'Times New Roman', Times, serif; 
+// $secondary-font: "Whitney SSm A","Whitney SSm B",sans-serif;
+// $tertiary-font:  "DIN 1451 Engschrift Standard", Calibri, Helvetica, Arial, sans-serif, serif; 
+
 
 @function R2P($size) {
 	$pxSize: $size * 16;

@@ -140,6 +140,20 @@
 				font-style: italic;
 			}
 		}
+		blockquote a{
+			display: inline-block;
+			color: $sky-blue;
+			border: solid 1px $sky-blue;
+			padding: 0.1em 2em;
+			font-family: $din;
+			text-transform: uppercase;
+			margin-top: -5px;
+			margin-bottom: 15px;
+			&:hover{
+				color: $white;
+				background-color: $sky-blue;
+			}
+		}
 
 	}
 	#index_instagram_feed{

@@ -1,0 +1,11 @@
+
+	<h2>In The Media</h2>
+	<div class="index_grey_logos">
+		{% for post in page.blog.most_recent_blog_posts offset:0 %}
+			<div class="index_grey_logo">
+				<a href="{{post.url}}">
+					{% for feature in post.features %}<img src="{{feature.image_url}}">{% endfor %}
+				</a>
+			</div>
+		{% endfor %}
+	</div>

@@ -20,6 +20,18 @@ var app = {
 		if ($("#conference").length > 0) {
 			app.conference.init();
 		}
+		if ($(".job_post").length > 0) {
+			app.job_posts.init();
+		}
+		if ($("#donation_amount_other").length > 0) {
+			var l = location.search
+			if (l) {
+				ls = l.split("=")
+				if (ls.length > 0 && ls[0].indexOf("ammount") != -1) {
+					$("#donation_amount_other").val(parseFloat(ls[1]))
+				};
+			};
+		}
 	}
 }
 
@@ -657,4 +669,14 @@ function d3_top_area_thing(fill_colour, stroke_colour, move_distance) {
 
 		context.restore();
 	});
+}
+app.job_posts = {
+	init: function() {
+		console.log("app.job_posts.init");
+		$(".job_post_hideshow").click(app.job_posts.toggle_vissible);
+	},
+	toggle_vissible: function(event) {
+		console.log("app.job_posts.toggle_vissible");
+		$(this.parentNode).toggleClass("active");
+	}
 }

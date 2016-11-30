@@ -1,0 +1,116 @@
+.job_postings{
+    max-width: 1000px;
+    margin: 0 auto;
+	width: 95%;
+}
+.job_post{
+	text-align: right;
+	>div{
+		text-align: left;
+	}
+
+}
+.job_post_logo{
+	width: 25%;
+	margin-right: 5%;
+	display: inline-block;
+	vertical-align: top;
+	@include at-query($max,650px) {
+		width: 95%;
+		margin: 0 auto;
+		display: block;
+	}
+	img{
+		max-width: 100%;
+	}
+}
+#content .job_post_text{
+	width: 70%;
+	display: inline-block;
+	vertical-align: top;
+	@include at-query($max,650px) {
+		width: 95%;
+		margin: 0 auto;
+		display: block;
+	}
+	.excerpt{
+		display: none;
+		@include at-query($max,650px) {
+			padding: 0;
+			margin: 10px 0 10px 0;
+		}
+	}
+	a{
+		// color: $black;
+		&:hover{
+			background-color: transparent;
+		}
+	}
+	&.active {
+		.job_post_hideshow svg{
+			@include vendorize(transform,scale(0.5) rotate(90deg));
+		}
+		.excerpt{
+			margin-top: -18px;
+			display: block;
+		}
+	}
+}
+#content .job_post_header{
+	border-bottom: solid 1px $sky-blue;
+	padding-bottom: 6px;
+	h3{
+		width: 70%;
+		display: inline-block;
+		vertical-align: top;
+		margin-bottom: -3px;
+		@include at-query($max,650px) {
+			padding: 0;
+		}
+	}
+	.job_post_date{
+		width: 30%;
+		display: inline-block;
+		vertical-align: bottom;
+		color: $sky-blue;
+		text-align: right;
+		margin-bottom: -2px;
+		font-size: 1.4rem;
+		font-style: italic;
+		@include at-query($max,650px) {
+			display: none;
+		}
+	}
+}
+#content .job_post {
+	h4.job_post_subheader{
+		margin-top: 5px;
+		font-size: 2.5rem;
+		letter-spacing: 0;
+		font-family: $din;
+		font-weight: normal;
+		letter-spacing: 0;
+		@include at-query($max,650px) {
+			padding: 0;
+			margin: 5px 0 0 0;
+		}
+	}
+	.job_post_hideshow{
+		text-align: center;
+		width: 100%;
+		background: transparent;
+		border: none;
+		svg{
+			display: inline-block;
+			fill:$black;
+			@include vendorize(transform,scale(0.5) rotate(-90deg));
+		}
+	}
+	
+}
+
+
+
+
+
+
