@@ -34,20 +34,44 @@
 
 			<h1>How do you make cultured meat a reality?</h1>
 			<h3>With science!</h3>
-			<p>As the world's leading organization advancing cultured meat since 2004, <a href="http://www.new-harvest.org/portfolio"><u>New Harvest has already made important strides</u></a> in bringing cultured, animal-free foods closer to supermarket shelves.</p>
+			<p>As the world's leading organization advancing cultured meat since 2004, <a href="http://www.new-harvest.org/2016_year_in_review"><u>New Harvest has already made important strides</u></a> in bringing cultured, animal-free foods closer to supermarket shelves.</p>
 			<p>This December, all gifts up to a total of $100,000 will be matched by the Jeremy Coller Foundation. This means that the impact of your donation to advance new, much needed cultured meat research in 2017 will be doubled!</p>
 
 		</div>
 	</div><div class="fundraiser_half blue">
 		
-		<div id="fundraiser_right_container_temp">
-			<div>
-				<h2>New Harvest's <br><b>Raise for research</b> 2016</h2>
-				<p>
-					<a href="https://newharvest.nationbuilder.com/donate-monthly/">Donate Now</a> to have your gift doubled by the Jeremy Coller Foundation
-				</p>
+		<div id="fundraiser_right_container">
+			
+			<div class="circle">
+				<svg class="circleFill" viewBox="0 0 200 200" style="-webkit-stroke-dasharray: 127.626, 548;-ms-stroke-dasharray: 127.626, 548;-moz-stroke-dasharray: 127.626, 548;-o-stroke-dasharray: 127.626, 548;stroke-dasharray: 127.626, 548;">
+					<circle cx="100" cy="100" r="85" stroke="#4467B1" stroke-width="12" fill="none"></circle>
+				</svg>
+				<svg class="circleTrack" viewBox="0 0 200 200">
+					<defs>
+					<linearGradient id="linear" x1="0%" y1="0%" x2="100%" y2="0%">
+						<stop offset="25%" stop-color="#f05331"/>
+						<stop offset="50%" stop-color="#f69070"/>
+						<stop offset="100%" stop-color="#f06faa"/>
+					</linearGradient>
+					</defs>
+					<circle cx="100" cy="100" r="85" stroke="url(#linear)" stroke-width="12" fill="none"></circle>
+					<div class="fundraiser_half_info">
+						<h1>$47800.00 Raised</h1>
+						<h1 class="raised">$200000.00 Goal</h1>
+					</div>
+				</svg>
 			</div>
+			<div class="donate_button"><h3><a href="https://newharvest.nationbuilder.com/donate-onetime/">Donate</a></h3></div>
+			<small style="text-align:right;color:#fff;display:block;padding-right:5px;">*numbers updated daily</small>
+			
+			{% if request.current_user.is_admin? %}
+				<p id="edit-this-page"><a href="http://2016.new-harvest.org/93f34063d48e17d4ef67d74831d4a7ae1b764b76c982abaa177045c604de5818/" target="_blank">{{ "fugue-edit-signiture" | icon }} Edit numbers</a></p>
+			{% endif %}
+			
 		</div>
+		
+		
+		
 	</div>
 	<div class="fundraiser_slider_container">
 		<div class="fundraiser_slider">
