@@ -1,5 +1,7 @@
 {% comment %}{% include "breadcrumbs" %}{% endcomment %}
 {% case page.slug %}
+{% when "index" %}
+	
 {% when "index_in_the_media" %}
 	{% subpage page.slug with "pages_show_basic_logos" %}
 {% when "2016" %}

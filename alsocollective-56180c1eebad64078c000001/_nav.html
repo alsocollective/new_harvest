@@ -77,6 +77,36 @@
 		<div class="side-menu-container">
 			<ul class="nav">
 				{% for child in site.root_nav_pages %}
+					{% case child.name %}
+					{% when "index" %}
+					{% when "Contact" %}
+						<li class="dropdown-custom">
+							<div class="double-link">
+								<a data-toggle="collapse" href="#dropdown-nh-conference" role="button" ria-expanded="false" class="sdfgsdfg title_link_embed collapsed" aria-expanded="true">
+									<span class="title_link">New Harvest Conference</span>
+									<div class="arrow_svg">
+										<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" width="28px" height="47px" viewBox="0 0 28 47" style="enable-background:new 0 0 28 47;" xml:space="preserve"><defs></defs><polyline points="28,47 0,23.5 28,0 "></polyline></svg>
+									</div>
+								</a>
+							</div>
+							<div id="dropdown-nh-conference" class="panel-collapse collapse" role="menu">
+								<div class="panel-body">
+									<ul class="sub-nav">
+										<li {% if page.slug == "nh2016" %}class="active"{% endif %}>
+											<a href="/nh2016">2016</a>
+										</li>
+										<li {% if page.slug == "nh2017" %}class="active"{% endif %}>
+											<a href="/nh2017">2017</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+						<li {% if child.is_or_is_ancestor_of_current_page? %}class="active"{% endif %}>
+						  <a href="{{ child.url }}">{{ child.name }}</a>
+						</li> 
+					{% else %}
+					
 					{% if child.leaf? or child.nav_children.size == 0 %}
 						<li {% if child.is_or_is_ancestor_of_current_page? %}class="active"{% endif %}>
 						  <a href="{{ child.url }}">{{ child.name }}</a>
@@ -132,16 +162,19 @@
 												{% endif %}">{{ child_child.name }}</a>
 											</li>
 										{% endfor %}
+										{% comment %}
 										{% if child.name == "Resources" %}
 											<li {% if page.slug == "nh2016" %}class="active"{% endif %}>
 												<a href="/nh2016">New Harvest 2016: Conference</a>
 											</li>
 										{% endif %}
+										{% endcomment %}
 									</ul>
 								</div>
 							</div>
 						</li>
 					{% endif %}
+					{% endcase %}
 				{% endfor %}
 			</ul>
 		</div><!-- /.navbar-collapse -->

@@ -1,3 +1,51 @@
+{% comment %}
+	
+<style> 
+	@media screen and (max-width: 900px){
+		.video-background{
+			margin-top: 47px;
+		}
+	}
+	.video-background{
+		position: relative;
+	    padding-bottom: 56.25%; /* 16:9 */
+	    padding-top: 0px;
+	    height: 0;
+	}
+	.video-background iframe{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+	.video-bellow-text{
+		font-size: 16px;
+		max-width: 90%;
+		width: 719px;
+		margin: 2em auto;	
+	}
+
+	.video-bellow-text a{
+		
+	}
+</style>
+<section id="video_container">
+<div class="con_container">
+<div class="video-wrapper">
+<div style="position: relative;">
+	<div class="video-background">
+	    <iframe width="853" height="480" src="https://www.youtube.com/embed/1b8z7pxdq48?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+	</div>
+	<p class="video-bellow-text">New Harvest's first cellular agriculture conference in 2016 was a sold out event with over 309 attendees, speakers, and exhibitors from all over the world. Check out some of the feedback from people who came out to NH2016 <a href="http://medium.com/@NewHarvestOrg/feedback-from-newharvest2016-8821e7">here.</a></p>
+
+</div>
+</div>
+</div>
+</section>
+
+{% endcomment %}
+
 <div id="con_nav" class="">
 	<div id="con_nav_toggle"><a href="#menu">&#215;</a></div>
 	<div id="con_nav_list">
@@ -40,14 +88,62 @@
 				margin-bottom: -3rem;
 			}
 		}
+
+
+
+
+		@media screen and (max-width: 900px){
+		.video-background{
+				margin-top: 47px;
+			}
+		}
+		#video_container .con_container{
+			margin-top: 0;
+			margin-bottom: 0;
+			padding-bottom: 0;
+		}
+		.video-background{
+			position: relative;
+		    padding-bottom: 56.25%; /* 16:9 */
+		    padding-top: 0px;
+		    height: 0;
+		}
+		.video-background iframe{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+		.video-bellow-text{
+			font-size: 16px;
+			max-width: 90%;
+			width: 719px;
+			margin: 2em auto;	
+		}
 	</style>
+	<!--
 	<button id="alert_text_top_temp">
 		Ticket sales and registration closed.
 	</button>
+	-->
 	<div>
 
 
-
+	<section id="video_container">
+		<div class="con_container">
+			<div class="video-wrapper">
+				<div style="position: relative;">
+					<div class="video-background">
+					    <iframe width="853" height="480" src="https://www.youtube.com/embed/1b8z7pxdq48?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+					</div>
+					<p class="video-bellow-text">
+						New Harvest's first cellular agriculture conference in 2016 was a sold out event with over 309 attendees, speakers, and exhibitors from all over the world. Check out some of the feedback from people who came out to NH2016 <a href="http://medium.com/@NewHarvestOrg/feedback-from-newharvest2016-8821e79199ee#.yg4afsqwd">here.</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
 
 
 	<section><div id="con_intro" class="con_section"><div class="con_container"><div class="con_contain_max">

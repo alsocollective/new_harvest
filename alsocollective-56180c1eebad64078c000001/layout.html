@@ -58,10 +58,20 @@
 
 	</head>
 	<body class="aware-theme v2-theme {{ page.page_class_name }} page-{{ request.template | replace: '_', '-' }} js">
+		{% case page.slug %}
 		
-		{% if page.slug == "nh2016_dev" or page.slug =="nh2016" %}
+		{% when "nh2016_dev" %}
 			{% include "page_nh2016" %}
-		{% else %}
+		{% when "nh2016" %}
+			{% include "page_nh2016" %}
+		{% when "nh2017" %}
+			{% include "page_nh2017" %}
+		{% when "dev_nh2017" %}
+			{% include "page_nh2017_dev" %}
+		{% else %}		
+		
+			
+		
 		
 
 
@@ -123,7 +133,7 @@
 				</div> <!-- side-body -->    
 			</div> <!-- container-fluid -->
 		</div><!-- row -->
-		{% endif %}
+		{% endcase %}
 		<script src="bootstrap.js"></script>
 		<script type="text/javascript" src="jquery.lazyload.min.js"></script>
 		<script type="text/javascript" src="jquery.waypoints.min.js"></script>
