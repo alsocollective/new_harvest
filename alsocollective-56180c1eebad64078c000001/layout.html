@@ -70,69 +70,70 @@
 			{% include "page_nh2017_dev" %}
 		{% else %}		
 		
-			
-		
-		
+			{% if page.slug contains "nh2017" and page.type_slug == "blog_post" %}
+				{% include "page_nh2017_blog_post"%}
+				
+			{% else %}
 
+			<div id="donateBG"></div>
+			<a id="donateBtnLabel" href="/donate-onetime">Donate</a>
 
-		<div id="donateBG"></div>
-		<a id="donateBtnLabel" href="/donate-onetime">Donate</a>
+			<div class="row">
 
-		<div class="row">
+				<div class="side-menu">
+					{% include "nav" %}
+				</div><!-- side-menu -->
 
-			<div class="side-menu">
-				{% include "nav" %}
-			</div><!-- side-menu -->
+			 
 
-		 
+				<div class="container-fluid">
+					<div class="side-body">
+						<div class="main-container" id="middle">
 
-			<div class="container-fluid">
-				<div class="side-body">
-					<div class="main-container" id="middle">
+							<div class="main clearfix {% if site.has_background_image? %}well well-lg{% endif %}">
 
-						<div class="main clearfix {% if site.has_background_image? %}well well-lg{% endif %}">
-
-							{% if request.is_sidebar? %}
-							{% include "columns_2" %}
-							{% else %}
-							{% include "columns_1" %}
-							{% endif %}
-
-						</div>
-						<!-- .main -->
-					</div>
-					<!-- .main-container -->
-
-					<footer>
-						
-						{% if request.current_user.is_admin? %}
-					    	<p id="edit-this-page"><a href="{{ page.admin_edit_url }}">{{ "fugue-edit-signiture" | icon }} Edit this page</a></p>
-					    {% endif %}
-
-						<div id="quote_footer">
-							{{ site.footer_content }}
-						</div>
-						<div class="container {% if site.has_background_image? %}well well-lg{% endif %}">
-
-							{{ content_for_footer }}
-
-							{% if site.footer_content.size > 0 %}
-							
-							{% endif %}
-
-							<div class="row" id="nb_footer">
-								<div class="col-xs footer-right text-right">
-									Created with <a href="http://nationbuilder.com/">NationBuilder</a>
-									&nbsp; &nbsp;<span class="copy_right_footer">&copy; New Harvest</span>
-								</div>
+								{% if request.is_sidebar? %}
+								{% include "columns_2" %}
+								{% else %}
+								{% include "columns_1" %}
+								{% endif %}
 
 							</div>
+							<!-- .main -->
 						</div>
-						<!-- container -->
-					</footer>
-				</div> <!-- side-body -->    
-			</div> <!-- container-fluid -->
-		</div><!-- row -->
+						<!-- .main-container -->
+
+						<footer>
+							
+							{% if request.current_user.is_admin? %}
+						    	<p id="edit-this-page"><a href="{{ page.admin_edit_url }}">{{ "fugue-edit-signiture" | icon }} Edit this page</a></p>
+						    {% endif %}
+
+							<div id="quote_footer">
+								{{ site.footer_content }}
+							</div>
+							<div class="container {% if site.has_background_image? %}well well-lg{% endif %}">
+
+								{{ content_for_footer }}
+
+								{% if site.footer_content.size > 0 %}
+								
+								{% endif %}
+
+								<div class="row" id="nb_footer">
+									<div class="col-xs footer-right text-right">
+										Created with <a href="http://nationbuilder.com/">NationBuilder</a>
+										&nbsp; &nbsp;<span class="copy_right_footer">&copy; New Harvest</span>
+									</div>
+
+								</div>
+							</div>
+							<!-- container -->
+						</footer>
+					</div> <!-- side-body -->    
+				</div> <!-- container-fluid -->
+			</div><!-- row -->
+			{% endif %}
 		{% endcase %}
 		<script src="bootstrap.js"></script>
 		<script type="text/javascript" src="jquery.lazyload.min.js"></script>
