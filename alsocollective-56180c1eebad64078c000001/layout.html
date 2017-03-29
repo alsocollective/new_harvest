@@ -70,10 +70,7 @@
 			{% include "page_nh2017_dev" %}
 		{% else %}		
 		
-			{% if page.slug contains "nh2017" and page.type_slug == "blog_post" %}
-				{% include "page_nh2017_blog_post"%}
-				
-			{% else %}
+			
 
 			<div id="donateBG"></div>
 			<a id="donateBtnLabel" href="/donate-onetime">Donate</a>
@@ -133,7 +130,7 @@
 					</div> <!-- side-body -->    
 				</div> <!-- container-fluid -->
 			</div><!-- row -->
-			{% endif %}
+			
 		{% endcase %}
 		<script src="bootstrap.js"></script>
 		<script type="text/javascript" src="jquery.lazyload.min.js"></script>

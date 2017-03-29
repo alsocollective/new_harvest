@@ -1,0 +1,10 @@
+
+<div id="nh2017_speakers_list">
+<ul id="nh2017_slash_list">
+{% for post in page.blog.most_recent_blog_posts offset:0 %}
+	<li>
+		<a href="/{{post.slug}}" class="nh2017_select_show" data-target="{{forloop.index0}}"> {{post.name}}</a> /
+	</li>
+{% endfor %}
+</ul>
+</div>

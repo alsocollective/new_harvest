@@ -79,6 +79,10 @@
 				{% for child in site.root_nav_pages %}
 					{% case child.name %}
 					{% when "index" %}
+					{% when "Portfolio" %}
+						<li {% if child.is_or_is_ancestor_of_current_page? %}class="active"{% endif %}>
+						  <a href="{{ child.url }}">Projects</a>
+						</li> 
 					{% when "Contact" %}
 						<li class="dropdown-custom">
 							<div class="double-link">

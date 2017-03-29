@@ -1,0 +1,14 @@
+<div id="nh2017_speaker_slides">
+{% for post in page.blog.most_recent_blog_posts offset:0 %}
+	<div class="nh2017_speaker_slide">
+		<div class="nh2017_speaker_container">
+			<h3>{{post.name}}</h3>
+				{% for feature in post.features %}{% if feature.image_url %}
+					<img src="{{feature.image_url}}">
+				{% endif %}{% endfor %}
+				{{post.blog_post.content}}
+				{{post.blog_post.content_flip}}
+		</div>
+	</div>
+{% endfor %}
+</div>

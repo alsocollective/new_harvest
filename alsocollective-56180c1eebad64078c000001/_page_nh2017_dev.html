@@ -45,11 +45,11 @@
 <section id="nh2017_announcement">
 	<div class="nh2017_container">
 		<h2>NYC</h2>
-		{% include "nh2017_nh_logo.html" %}
+		<h4 class="nh2017_outlined_text">New Harvest 2017</h4>
 		<h2>JULY 13TH 2017</h2>
-		{% include "nh2017_nh_logo.html" %}
+		<h4 class="nh2017_outlined_text">New Harvest 2017</h4>
 		<h2>EXPERIENCE CELLULAR AGRICULTURE</h2>
-		{% include "nh2017_nh_logo.html" %}
+		<h4 class="nh2017_outlined_text">New Harvest 2017</h4>
 		<h2>#NH2017</h2>
 	</div>
 </section>
@@ -60,6 +60,9 @@
 
 <section id="nh2017_announcements">
 	<div class="nh2017_container" id="nh2017_announcements_container">
+		<h2 class="nh2017_outlined_text">Announcement</h2>
+	
+
 		{% include "nh2017_svg_announcement.html" %}
 		<h3>New Harvest ceo recognized as top leader in life sciences<!--{{post.name}}--></h3>
 		<p>
@@ -121,15 +124,14 @@
 	<div class="nh2017_container" id="nh2017_speakers_container">
 		{% include "nh2017_svg_speakers.html" %}
 
-		<div id="nh2017_speakers_list">
-			<ul id="nh2017_slash_list">
-				<li>
-					<a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">LANCE KIZER</a> /
-				</li><li>
-					<a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">JOHN BAKER</a> /	
-				</li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">PAUL SHAPIRO / </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">RYAN PANDYA / </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">ARTURO ELIZONDO /</a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">CAMILLE DELEBECQUE / </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">ALEXANDER LORESTANI / <a/></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">DAVID ZILBER / </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">MARIANNE ELLIS/ </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">MARK POST / </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">PAUL MOZDZIAK / </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">REBECCA CHESNEY / </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">ANDRAS FORGACS / </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">KENJI HIGASHI / </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">JOSHUA KATCHER / </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">CARA DEFABIO / </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">PIOTR JAKUBOWICZ / </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">MATTHEW MARKUS / </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">SARAH BUHR / </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">DAVID RENTELN / </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">NICKI BRIGGS / </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">DANA PERLS / </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">ISHA DATAR</a></li>
-			</ul>
-		</div>
+		{% subpage "nh2016_speakers" with "page_nh2017_speakers_basic_list" %}
+		<div class="nh2017_modal" id="nh2017_speakers_modal">
+			<div class="nh2017_modal_table">
+				<div class="nh2017_modal_cell">
+					{% subpage "nh2016_speakers" with "page_nh2017_speakers_list" %}
+				</div>
+			</div>
+		</div>		
 	</div>
 </section>
 
@@ -149,6 +151,8 @@
 				</li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">PAUL SHAPIRO / </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">RYAN PANDYA / </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">ARTURO ELIZONDO /</a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">CAMILLE DELEBECQUE / </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">ALEXANDER LORESTANI / <a/></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">DAVID ZILBER / </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">MARIANNE ELLIS/ </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">MARK POST / </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">PAUL MOZDZIAK / </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">REBECCA CHESNEY / </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">ANDRAS FORGACS / </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">KENJI HIGASHI / </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">JOSHUA KATCHER / </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">CARA DEFABIO / </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">PIOTR JAKUBOWICZ / </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">MATTHEW MARKUS / </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">SARAH BUHR / </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">DAVID RENTELN / </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">NICKI BRIGGS / </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">DANA PERLS / </a></li><li><a href="/nh2017_bohdan_anderson" class="nh2017_load_into_modal" data-target="#nh2017_post">ISHA DATAR</a></li>
 			</ul>
 		</div>
+		{% subpage "nh2016_speakers" with "page_nh2017_exhibitors_list" %}
+
 	</div>
 </section>		
 
@@ -278,7 +282,7 @@ THIS is for the sections above in their pages we contain this contect
 
 <div id="nh2017_modal">
 </div>
-
+<button id="nh2017_modal_close">close</button>
 
 
 <div id="nh2017_footer">
@@ -318,6 +322,8 @@ THIS is for the sections above in their pages we contain this contect
 	</div>
 	<!-- skrollr -->
 	<script type="text/javascript" src="skrollr.min.js"></script>
+	<script type="text/javascript" src="slick.min.js"></script>
+	
 	<script type="text/javascript" src="nh2017_script.js"></script>
 
 	<!-- container -->
